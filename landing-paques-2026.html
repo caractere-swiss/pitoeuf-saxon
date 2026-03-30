@@ -160,6 +160,13 @@
             margin-bottom: 6px;
             display: block;
         }
+        .card-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 0;
+        }
         .badge-swiss {
             position: absolute;
             top: 8px; right: 8px;
@@ -259,6 +266,15 @@
         @media (max-width: 320px) {
             .product-grid { grid-template-columns: 1fr; }
         }
+        .card-top.has-img {
+            padding: 0;
+            overflow: hidden;
+        }
+        .card-top.has-img .badge-frozen,
+        .card-top.has-img .badge-swiss {
+            position: absolute;
+            z-index: 2;
+        }
     </style>
 </head>
 <body>
@@ -289,9 +305,9 @@
         <div class="product-grid">
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🥩</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x3326-416x312.jpg" alt="Carré d'agneau avec os – coupe courte" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Carré d'agneau avec os – coupe courte</p>
@@ -308,9 +324,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🥩</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/3242-416x312.jpg" alt="Côtelette d'agneau" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Côtelette d'agneau</p>
@@ -327,9 +343,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🥩</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x451-324x324.jpg" alt="Rack d'agneau «RR» 35 mm" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Rack d'agneau "RR" 35 mm</p>
@@ -346,9 +362,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🥩</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x905-324x324.jpg" alt="Filet mignon d'agneau" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Filet mignon d'agneau</p>
@@ -373,10 +389,10 @@
         <div class="product-grid">
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
                     <span class="badge-swiss">CH</span>
-                    <span class="card-emoji">🥩</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x3041-324x324.jpg" alt="Faux-Filet de veau" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Faux-Filet de veau</p>
@@ -393,10 +409,10 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
                     <span class="badge-swiss">CH</span>
-                    <span class="card-emoji">🥩</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x2917-416x312.jpg" alt="Ribs de veau" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Ribs de veau</p>
@@ -413,10 +429,10 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
                     <span class="badge-swiss">CH</span>
-                    <span class="card-emoji">🥩</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/1855-324x324.jpg" alt="Grenadin de veau" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Grenadin de veau</p>
@@ -441,9 +457,9 @@
         <div class="product-grid">
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🐇</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/3363-324x324.jpg" alt="Filet de lapin" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Filet de lapin</p>
@@ -460,9 +476,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🐇</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x435-416x312.jpg" alt="Ragoût de lapin sans os" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Ragoût de lapin sans os</p>
@@ -479,9 +495,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🐇</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x436-324x324.jpg" alt="Lapin entier sans tête" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Lapin entier sans tête</p>
@@ -498,10 +514,10 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
                     <span class="badge-swiss">CH</span>
-                    <span class="card-emoji">🐐</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x448-416x312.jpg" alt="Cabri coupé en 3, sans tête, sans peau" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Cabri coupé en 3, sans tête, sans peau</p>
@@ -526,10 +542,10 @@
         <div class="product-grid">
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
                     <span class="badge-swiss">VS</span>
-                    <span class="card-emoji">🐟</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/902-324x324.jpg" alt="Filets de perche avec peau – Loë du Valais" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Filets de perche avec peau – Loë du Valais</p>
@@ -546,9 +562,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <span class="badge-swiss">VS</span>
-                    <span class="card-emoji">🐟</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/798-324x324.jpg" alt="Filets de sandre du Valais avec peau, écaillé" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Filets de sandre du Valais avec peau, écaillé</p>
@@ -565,9 +581,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🐟</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x1042-416x312.jpg" alt="Filet de Féra" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Filet de Féra</p>
@@ -584,9 +600,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🦐</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/974-416x312.jpg" alt="Queues de cigale" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Queues de cigale</p>
@@ -603,9 +619,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🦐</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/660-324x324.jpg" alt="Queues de crevettes décortiquées 16/20" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Queues de crevettes décortiquées 16/20</p>
@@ -630,9 +646,9 @@
         <div class="product-grid">
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <span class="badge-swiss">CH</span>
-                    <span class="card-emoji">🥚</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x4471-324x324.jpg" alt="Oeufs cuits teints multicolor" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Oeufs cuits teints multicolor</p>
@@ -649,9 +665,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <span class="badge-swiss">CH</span>
-                    <span class="card-emoji">🌿</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/3277-416x312.jpg" alt="Girasoli ail des ours" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Girasoli ail des ours</p>
@@ -668,9 +684,9 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top has-img">
                     <div class="badge-frozen">❄️</div>
-                    <span class="card-emoji">🍄</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x273-416x312.jpg" alt="Morilles EXTRA" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Morilles EXTRA</p>
@@ -687,8 +703,8 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
-                    <span class="card-emoji">🫙</span>
+                <div class="card-top has-img">
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/x2174-324x324.jpg" alt="Moutarde gros grains «Grey-Poupon»" />
                 </div>
                 <div class="card-body">
                     <p class="card-name">Moutarde gros grains "Grey-Poupon"</p>
