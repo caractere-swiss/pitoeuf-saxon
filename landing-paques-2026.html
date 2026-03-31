@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suggestions PÃ¢ques 2026 â Pitoeuf SA</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green-dark:  #3a6b1a;
+            --green-mid:   #5a9c28;
+            --green-light: #d6edb8;
+            --green-bg:    #f0f8e8;
+            --white:       #ffffff;
+            --text-dark:   #1c2a10;
+            --text-mid:    #3d5220;
+            --price-color: #1a365d;
+            --swiss-red:   #d52b1e;
+            --border:      #c5dfa0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--green-bg);
+            color: var(--text-dark);
+        }
+
+        /* ââ HERO ââ */
+        .hero {
+            background: linear-gradient(160deg, #2d5a10 0%, #4a8820 50%, #6aad30 100%);
+            color: var(--white);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: -1px; left: 0; right: 0;
+            height: 60px;
+            background: var(--green-bg);
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+        .hero-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-logo img {
+            height: 64px;
+            filter: brightness(0) invert(1);
+        }
+        .hero-text { flex: 1; min-width: 260px; }
+        .hero-eyebrow {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.75;
+            margin-bottom: 10px;
+        }
+        .hero-title {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        .hero-title span { color: #b8e86a; }
+        .hero-subtitle {
+            font-size: clamp(16px, 3vw, 22px);
+            font-style: italic;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        .hero-validity {
+            display: inline-block;
+            margin-top: 18px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 30px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .hero-deco {
+            font-size: clamp(60px, 10vw, 100px);
+            line-height: 1;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+            flex-shrink: 0;
+        }
+
+        /* ââ CONTAINER ââ */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* ââ CATEGORY SECTION ââ */
+        .category-section {
+            margin-top: 48px;
+        }
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .category-title h2 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--green-dark);
+        }
+        .category-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--green-mid), transparent);
+        }
+
+        /* ââ PRODUCT GRID ââ */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        /* ââ PRODUCT CARD ââ */
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(58,107,26,.15);
+        }
+        .card-top {
+            background: var(--green-light);
+            padding: 20px 16px 14px;
+            text-align: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .card-emoji {
+            font-size: 44px;
+            line-height: 1;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .card-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 0;
+        }
+        .badge-swiss {
+            position: absolute;
+            top: 8px; right: 8px;
+            background: var(--swiss-red);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 4px;
+            padding: 2px 5px;
+            letter-spacing: .5px;
+        }
+        .badge-frozen {
+            position: absolute;
+            top: 8px; left: 8px;
+            background: #4aa8d8;
+            color: white;
+            font-size: 14px;
+            border-radius: 50%;
+            width: 24px; height: 24px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .card-body {
+            padding: 12px 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-name {
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.3;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        .card-meta {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.7;
+            flex: 1;
+        }
+        .card-meta strong { color: var(--text-dark); }
+        .card-footer {
+            background: #f5fbee;
+            border-top: 1px solid var(--border);
+            padding: 10px 14px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .card-price {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--price-color);
+        }
+        .card-unit {
+            font-size: 11px;
+            color: #888;
+            font-weight: 400;
+        }
+
+        /* ââ NOTICE BANNER ââ */
+        .notice-banner {
+            margin-top: 48px;
+            background: var(--green-dark);
+            color: white;
+            border-radius: 12px;
+            padding: 20px 28px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+        }
+
+        /* ââ FOOTER ââ */
+        footer {
+            margin-top: 56px;
+            background: var(--green-dark);
+            color: rgba(255,255,255,.75);
+            padding: 36px 24px;
+            text-align: center;
+        }
+        footer .footer-logo img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 16px;
+        }
+        footer p { font-size: 12px; line-height: 2; }
+        footer a { color: #b8e86a; text-decoration: none; }
+
+        /* ââ RESPONSIVE ââ */
+        @media (max-width: 480px) {
+            .hero-deco { display: none; }
+            .product-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 320px) {
+            .product-grid { grid-template-columns: 1fr; }
+        }
+        .card-top.has-img {
+            padding: 0;
+            overflow: hidden;
+        }
+        .card-top.has-img .badge-frozen,
+        .card-top.has-img .badge-swiss {
+            position: absolute;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+<!-- âââââââââââââââââââââââââââââââââââââââââââ
+     HERO
+ââââââââââââââââââââââââââââââââââââââââââââ -->
+<header class="hero">
+    <div class="hero-inner">
+        <div class="hero-logo">
+            <img src="https://pitoeuf.ch/wp-content/uploads/2022/05/variante_5.png" alt="Pitoeuf Comestibles" />
+        </div>
+        <div class="hero-text">
+            <p class="hero-eyebrow">Des surprises de saison</p>
+            <h1 class="hero-title">Suggestions<br><span>PÃ¢ques</span> 2026</h1>
+            <p class="hero-subtitle">Ã la chasse aux produits frais</p>
+            <span class="hero-validity">Valable du 26 mars au 17 avril 2026</span>
+        </div>
+        <div class="hero-deco">ð¥ð£ð¿</div>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- ââ AGNEAU ââ -->
+    <section class="category-section">
+        <div class="category-title"><h2>ð Agneau</h2></div>
+        <div class="product-grid">
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/3326.jpg?v=1665135599" alt="CarrÃ© d'agneau avec os â coupe courte" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">CarrÃ© d'agneau avec os â coupe courte</p>
+                    <div class="card-meta">
+                        <strong>Art. G6319.1</strong><br>
+                        Origine : UK<br>
+                        800 Ã  1100 gr | 5 x 2 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">23.80</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/3242.jpg?v=1665135164" alt="CÃ´telette d'agneau" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">CÃ´telette d'agneau</p>
+                    <div class="card-meta">
+                        <strong>Art. G6240</strong><br>
+                        Origine : UK<br>
+                        50 Ã  80 gr | 7 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">26.50</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/4657.jpg?v=1665140981" alt="Rack d'agneau Â«RRÂ» 35 mm" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Rack d'agneau "RR" 35 mm</p>
+                    <div class="card-meta">
+                        <strong>Art. G6390.sg</strong><br>
+                        Origine : Nouvelle-ZÃ©lande<br>
+                        ~500 gr les 2 pces | 10 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">41.50</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/905.jpg?v=1665121520" alt="Filet mignon d'agneau" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Filet mignon d'agneau</p>
+                    <div class="card-meta">
+                        <strong>Art. G6339.sg</strong><br>
+                        Origine : Grande-Bretagne<br>
+                        60 Ã  80 gr | 10 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">33.50</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ââ VEAU ââ -->
+    <section class="category-section">
+        <div class="category-title"><h2>ð¨ð­ Veau suisse</h2></div>
+        <div class="product-grid">
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <span class="badge-swiss">CH</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2024/02/3026.jpg?v=1708066105" alt="Faux-Filet de veau" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Faux-Filet de veau</p>
+                    <div class="card-meta">
+                        <strong>Art. G6018.sg</strong><br>
+                        Origine : Suisse<br>
+                        5 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">42.00</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <span class="badge-swiss">CH</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/2917.jpg?v=1665134598" alt="Ribs de veau" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Ribs de veau</p>
+                    <div class="card-meta">
+                        <strong>Art. G4209</strong><br>
+                        Origine : Suisse<br>
+                        8 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">14.50</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <span class="badge-swiss">CH</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2024/02/1844-1.jpg?v=1708953226" alt="Grenadin de veau" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Grenadin de veau</p>
+                    <div class="card-meta">
+                        <strong>Art. G6155.sg</strong><br>
+                        Origine : Suisse<br>
+                        3 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">39.50</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ââ LAPIN & CABRI ââ -->
+    <section class="category-section">
+        <div class="category-title"><h2>ð Lapin & Cabri</h2></div>
+        <div class="product-grid">
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/3363.jpg?v=1665135727" alt="Filet de lapin" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Filet de lapin</p>
+                    <div class="card-meta">
+                        <strong>Art. 30203.sg</strong><br>
+                        Origine : RÃ©publique tchÃ¨que<br>
+                        80 gr | 10 x 1 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">13.50</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/435.jpg?v=1665117505" alt="RagoÃ»t de lapin sans os" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">RagoÃ»t de lapin sans os</p>
+                    <div class="card-meta">
+                        <strong>Art. G6008</strong><br>
+                        Origine : RÃ©publique tchÃ¨que<br>
+                        10 x 1 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">15.90</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/436.jpg?v=1665117513" alt="Lapin entier sans tÃªte" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Lapin entier sans tÃªte</p>
+                    <div class="card-meta">
+                        <strong>Art. G6009</strong><br>
+                        Origine : RÃ©publique tchÃ¨que<br>
+                        10 x 1 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">10.20</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <span class="badge-swiss">CH</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/448.jpg?v=1665117598" alt="Cabri coupÃ© en 3, sans tÃªte, sans peau" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Cabri coupÃ© en 3, sans tÃªte, sans peau</p>
+                    <div class="card-meta">
+                        <strong>Art. G6320</strong><br>
+                        Origine : Suisse<br>
+                        6 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">22.50</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ââ POISSON & FRUITS DE MER ââ -->
+    <section class="category-section">
+        <div class="category-title"><h2>ð Poisson & Fruits de mer</h2></div>
+        <div class="product-grid">
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <span class="badge-swiss">VS</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2023/09/4445.jpg?v=1694159290" alt="Filets de perche avec peau â LoÃ« du Valais" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Filets de perche avec peau â LoÃ« du Valais</p>
+                    <div class="card-meta">
+                        <strong>Art. M102.vs.sg</strong><br>
+                        Origine : Valais<br>
+                        30 Ã  40 gr | 5 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">45.00</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <span class="badge-swiss">VS</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2024/08/4845.jpg?v=1724913195" alt="Filets de sandre du Valais avec peau, Ã©caillÃ©" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Filets de sandre du Valais avec peau, Ã©caillÃ©</p>
+                    <div class="card-meta">
+                        <strong>Art. M113.vs</strong><br>
+                        Origine : Valais<br>
+                        170 Ã  230 gr | 5 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">58.30</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/1042.jpg?v=1665122449" alt="Filet de FÃ©ra" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Filet de FÃ©ra</p>
+                    <div class="card-meta">
+                        <strong>Art. M140</strong><br>
+                        Origine : Russie<br>
+                        90 Ã  120 gr | 5 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">17.20</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/974.jpg?v=1665122086" alt="Queues de cigale" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Queues de cigale</p>
+                    <div class="card-meta">
+                        <strong>Art. M396</strong><br>
+                        Origine : ViÃªt-Nam<br>
+                        20 Ã  40 gr | 10 x 1 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">37.50</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/3335.jpg?v=1665135653" alt="Queues de crevettes dÃ©cortiquÃ©es 16/20" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Queues de crevettes dÃ©cortiquÃ©es 16/20</p>
+                    <div class="card-meta">
+                        <strong>Art. M62</strong><br>
+                        Origine : ViÃªt-Nam<br>
+                        800 gr net | 10 x 1 sachet
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">12.50</span>
+                    <span class="card-unit">CHF / sachet</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ââ ÃPICERIE & DIVERS ââ -->
+    <section class="category-section">
+        <div class="category-title"><h2>ð¿ Ãpicerie & Divers</h2></div>
+        <div class="product-grid">
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <span class="badge-swiss">CH</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/3600.jpg?v=1665139093" alt="Oeufs cuits teints multicolor" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Oeufs cuits teints multicolor</p>
+                    <div class="card-meta">
+                        <strong>Art. 500</strong><br>
+                        Origine : Suisse<br>
+                        53 gr | 30 pces
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">0.50</span>
+                    <span class="card-unit">CHF / pce</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <span class="badge-swiss">CH</span>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/3277.jpg?v=1665135346" alt="Girasoli ail des ours" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Girasoli ail des ours</p>
+                    <div class="card-meta">
+                        <strong>Art. 114410</strong><br>
+                        Origine : Suisse<br>
+                        2 x 2 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">15.65</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">âï¸</div>
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/273.jpg?v=1665058582" alt="Morilles EXTRA" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Morilles EXTRA</p>
+                    <div class="card-meta">
+                        <strong>Art. 114930</strong><br>
+                        Origine : Chine<br>
+                        2 x 1 kg
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">27.50</span>
+                    <span class="card-unit">CHF / kg</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top has-img">
+                    <img class="card-img" src="https://pitoeuf.ch/wp-content/uploads/2022/10/2174.jpg?v=1665129532" alt="Moutarde gros grains Â«Grey-PouponÂ»" referrerpolicy="no-referrer" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">Moutarde gros grains "Grey-Poupon"</p>
+                    <div class="card-meta">
+                        <strong>Art. 20035</strong><br>
+                        Origine : Europe<br>
+                        870 gr net | 6 bocaux
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">6.05</span>
+                    <span class="card-unit">CHF / bocal</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ââ NOTICE ââ -->
+    <div class="notice-banner">
+        Tous les prix indiquÃ©s sont au carton complet
+    </div>
+
+    <div style="height: 56px;"></div>
+
+</main>
+
+<!-- ââ FOOTER ââ -->
+<footer>
+    <div class="footer-logo">
+        <img src="https://pitoeuf.ch/wp-content/uploads/2022/05/variante_5.png" alt="Pitoeuf Comestibles" />
+    </div>
+    <p>
+        <strong>PITOEUF SA</strong><br>
+        Route d'EcÃ´ne 116 â CH-1907 Saxon<br>
+        CHE-108.573.346 TVA<br><br>
+        TÃ©l. <a href="tel:+41272056060">027 205 60 60</a> &nbsp;|&nbsp;
+        Fax. 027 205 60 66 &nbsp;|&nbsp;
+        <a href="mailto:info@pitoeuf.ch">info@pitoeuf.ch</a>
+    </p>
+    <p style="margin-top: 20px; font-size: 11px; opacity: .5;">
+        Â© 2026 Pitoeuf SA â Tous droits rÃ©servÃ©s
+    </p>
+</footer>
+
+</body>
+</html>
