@@ -5,27 +5,62 @@
 Site web : pitoeuf.ch
 
 ## Projet
-Landing page promotionnelle **Paques 2026** destinee aux clients professionnels (restaurateurs, bouchers, traiteurs).
+Série de **landings pages promotionnelles saisonnières** destinées aux clients
+professionnels (restaurateurs, bouchers, traiteurs). Une landing par saison /
+thème (Pâques, Été, Hiver, Volaille, etc.) — chacune réutilise un tronc commun
+de mise en page et n'adapte que sa palette + son catalogue produits.
 
-## Fichier principal
-`landing-paques-2026.html` — page autonome, hebergee via GitHub Pages.
+## Architecture
 
-URL de previsualisation : `https://caractere-swiss.github.io/pitoeuf-saxon/landing-paques-2026.html`
+```
+/
+├── index.html                      Portail listant les feuillets disponibles
+├── assets/
+│   └── css/
+│       └── landing-base.css        Tronc commun (layout, grille, cards, hero,
+│                                   footer). Définit toutes les variables CSS.
+├── images/
+│   ├── logo-pitoeuf-blanc.png      Assets partagés entre toutes les landings
+│   └── …
+├── paques-2026/                    Une saison = un dossier autonome
+│   ├── index.html                  Contenu (utilise classes du tronc commun)
+│   ├── theme.css                   Surcharge des variables CSS (palette saison)
+│   └── images/                     Photos produits de la saison
+├── ete-2026/                       (en cours)
+└── …                               (hiver-2026, volaille-2027, …)
+```
+
+## Méthodologie : créer une nouvelle landing
+
+1. Créer le dossier `<saison>-<année>/`
+2. Copier `theme.css` d'une saison existante, ajuster la palette via les
+   variables CSS (voir `assets/css/landing-base.css` pour la liste complète :
+   `--accent-dark`, `--accent-mid`, `--accent-light`, `--accent-bg`,
+   `--accent-soft`, `--accent-border`, `--accent-hi`, `--hero-gradient`, etc.)
+3. Créer `index.html` (chemin CSS : `../assets/css/landing-base.css` puis
+   `theme.css`)
+4. Placer les photos produits dans `<saison>-<année>/images/`
+5. Ajouter une tuile dans `/index.html` (portail)
+6. URL finale : `https://caractere-swiss.github.io/pitoeuf-saxon/<saison>-<année>/`
 
 ## Stack
-- HTML / CSS pur (pas de framework, pas de JS)
-- Images produits en SVG placeholders dans `images/` (a remplacer par les vraies photos)
-- Hebergement : GitHub Pages depuis la branche `main`
+- HTML / CSS pur (pas de framework, pas de JS, pas de build)
+- Variables CSS pour le thème : un seul tronc commun, surcharge par saison
+- Hébergement : GitHub Pages depuis la branche `main`
 
-## Structure du catalogue
-5 categories, 20 produits :
-- Agneau (4 produits)
-- Veau suisse (3 produits)
-- Lapin & Cabri (4 produits)
-- Poisson & Fruits de mer (5 produits)
-- Epicerie & Divers (4 produits)
+## Conventions
+- **Images** : toujours hébergées localement (le hotlinking pitoeuf.ch est
+  bloqué). Photos produits dans `<saison>/images/`, assets partagés (logo) dans
+  `/images/`.
+- **Emojis Unicode** : à éviter dans le HTML — préférer texte simple ou entités
+  HTML.
+- **Liens produits** : pointer vers la fiche pitoeuf.ch correspondante quand
+  elle existe (`<a href="https://pitoeuf.ch/produit/..." target="_blank">`).
+- **Badges** : `badge-swiss` (rouge, top-right) pour CH/VS, `badge-frozen`
+  (bleu, top-left) pour les surgelés.
 
 ## Notes
-- Les images pitoeuf.ch bloquent le hotlinking — toujours heberger les images localement
-- Eviter les emojis Unicode dans le HTML — utiliser des entites HTML ou du texte simple
-- Les anciens fichiers (`old.html`, `v1.html`, `v2.html`, `v3.html`) sont des versions precedentes conservees pour reference
+- `landing-paques-2026.html` (racine) est conservé en redirection vers
+  `paques-2026/` pour préserver les URLs déjà diffusées.
+- Les anciens brouillons (`old.html`, `v1.html`, `v2.html`, `v3.html`) sont
+  des versions antérieures conservées pour référence.

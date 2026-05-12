@@ -1,0 +1,19 @@
+/* ============================================================
+   Theme : Été 2026 — palette « Soleil & herbes »
+   Or doré + olive vert + ivoire chaleureux
+   ============================================================ */
+
+:root {
+    --accent-dark:    #5d6b14;   /* olive foncé */
+    --accent-mid:     #8ba62a;   /* olive lumineux */
+    --accent-light:   #ebe6b8;   /* paille douce */
+    --accent-bg:      #fbf8e7;   /* ivoire chaud */
+    --accent-soft:    #fdfbef;   /* ivoire très clair (fond card-footer) */
+    --accent-border:  #d8d49c;
+    --accent-hi:      #f5c542;   /* or doré (le <span> du titre, liens footer) */
+
+    --hero-gradient:  linear-gradient(160deg, #6b6612 0%, #b09320 50%, #f0c845 100%);
+
+    --text-dark:      #2a2810;
+    --text-mid:       #524d20;
+}
