@@ -1,0 +1,305 @@
+/* ============================================================
+   Pitoeuf SA — Landing base stylesheet
+   ------------------------------------------------------------
+   Tronc commun pour toutes les landings saisonnières.
+   Le style (couleurs, gradients, accents) est piloté par les
+   variables CSS définies dans :root. Chaque saison surcharge
+   ces variables dans son propre theme.css.
+   ============================================================ */
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── THEMING VARIABLES (defaults : palette neutre, à override) ── */
+:root {
+    /* Palette principale — à surcharger par le theme.css */
+    --accent-dark:    #3a6b1a;
+    --accent-mid:     #5a9c28;
+    --accent-light:   #d6edb8;
+    --accent-bg:      #f0f8e8;
+    --accent-soft:    #f5fbee;
+    --accent-border:  #c5dfa0;
+    --accent-hi:      #b8e86a;   /* couleur du <span> dans le titre hero & liens footer */
+
+    /* Gradient hero — fond du header */
+    --hero-gradient:  linear-gradient(160deg, #2d5a10 0%, #4a8820 50%, #6aad30 100%);
+
+    /* Typographie */
+    --text-dark:      #1c2a10;
+    --text-mid:       #3d5220;
+    --text-muted:     #666;
+    --text-faint:     #888;
+
+    /* Composants */
+    --price-color:    #1a365d;
+    --swiss-red:      #d52b1e;
+    --frozen-blue:    #4aa8d8;
+
+    --white:          #ffffff;
+
+    --radius-card:    12px;
+    --radius-pill:    30px;
+
+    --shadow-card-hover: 0 12px 30px rgba(0, 0, 0, .15);
+
+    --font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ── BODY ── */
+body {
+    font-family: var(--font-stack);
+    background-color: var(--accent-bg);
+    color: var(--text-dark);
+}
+
+/* ── HERO ── */
+.hero {
+    background: var(--hero-gradient);
+    color: var(--white);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 60px;
+    background: var(--accent-bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
+}
+.hero-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.hero-logo img {
+    height: 64px;
+    filter: brightness(0) invert(1);
+}
+.hero-text { flex: 1; min-width: 260px; }
+.hero-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: .75;
+    margin-bottom: 10px;
+}
+.hero-title {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+.hero-title span { color: var(--accent-hi); }
+.hero-subtitle {
+    font-size: clamp(16px, 3vw, 22px);
+    font-style: italic;
+    margin-top: 10px;
+    opacity: .9;
+}
+.hero-validity {
+    display: inline-block;
+    margin-top: 18px;
+    background: rgba(255, 255, 255, .15);
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: var(--radius-pill);
+    padding: 6px 18px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.hero-deco {
+    font-size: clamp(60px, 10vw, 100px);
+    line-height: 1;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .2));
+    flex-shrink: 0;
+}
+
+/* ── CONTAINER ── */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ── CATEGORY SECTION ── */
+.category-section { margin-top: 48px; }
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.category-title h2 {
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-dark);
+}
+.category-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent-mid), transparent);
+}
+
+/* ── PRODUCT GRID ── */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+/* ── PRODUCT CARD ── */
+.card {
+    background: var(--white);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--accent-border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+}
+.card-top {
+    background: var(--accent-light);
+    padding: 20px 16px 14px;
+    text-align: center;
+    position: relative;
+    flex-shrink: 0;
+}
+.card-top.has-img {
+    padding: 0;
+    overflow: hidden;
+}
+.card-top.has-img .badge-frozen,
+.card-top.has-img .badge-swiss {
+    position: absolute;
+    z-index: 2;
+}
+.card-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+}
+.badge-swiss {
+    position: absolute;
+    top: 8px; right: 8px;
+    background: var(--swiss-red);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 2px 5px;
+    letter-spacing: .5px;
+}
+.badge-frozen {
+    position: absolute;
+    top: 8px; left: 8px;
+    background: var(--frozen-blue);
+    color: var(--white);
+    font-size: 14px;
+    border-radius: 50%;
+    width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+}
+.card-body {
+    padding: 12px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.card-name {
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+.card-name a {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+.card-name a:hover {
+    color: var(--accent-mid);
+    text-decoration: underline;
+}
+.card-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    flex: 1;
+}
+.card-meta strong { color: var(--text-dark); }
+.card-footer {
+    background: var(--accent-soft);
+    border-top: 1px solid var(--accent-border);
+    padding: 10px 14px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+}
+.card-price {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--price-color);
+}
+.card-unit {
+    font-size: 11px;
+    color: var(--text-faint);
+    font-weight: 400;
+}
+
+/* ── NOTICE BANNER ── */
+.notice-banner {
+    margin-top: 48px;
+    background: var(--accent-dark);
+    color: var(--white);
+    border-radius: var(--radius-card);
+    padding: 20px 28px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+/* ── FOOTER ── */
+footer {
+    margin-top: 56px;
+    background: var(--accent-dark);
+    color: rgba(255, 255, 255, .75);
+    padding: 36px 24px;
+    text-align: center;
+}
+footer .footer-logo img {
+    height: 40px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 16px;
+}
+footer p { font-size: 12px; line-height: 2; }
+footer a {
+    color: var(--accent-hi);
+    text-decoration: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+    .hero-deco { display: none; }
+    .product-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 320px) {
+    .product-grid { grid-template-columns: 1fr; }
+}
