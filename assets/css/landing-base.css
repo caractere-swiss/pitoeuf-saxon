@@ -303,3 +303,81 @@ footer a {
 @media (max-width: 320px) {
     .product-grid { grid-template-columns: 1fr; }
 }
+
+/* ── PRINT (optimisé A4) ── */
+@media print {
+    /* Forcer l'impression des fonds colorés (badges, hero, footer) */
+    *, *::before, *::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    @page {
+        size: A4;
+        margin: 10mm 8mm;
+    }
+
+    body {
+        background: var(--white);
+        font-size: 11pt;
+    }
+
+    /* Hero compact, sans clip-path (économise l'encre) */
+    .hero {
+        background: var(--accent-dark) !important;
+    }
+    .hero::before { display: none; }
+    .hero-inner {
+        padding: 18px 16px;
+        gap: 16px;
+    }
+    .hero-logo img { height: 40px; }
+    .hero-title { font-size: 22pt; }
+    .hero-subtitle { font-size: 12pt; }
+    .hero-eyebrow { font-size: 9pt; letter-spacing: 2px; }
+    .hero-deco { display: none; }
+    .hero-validity {
+        background: transparent;
+        border-color: rgba(255, 255, 255, .6);
+        font-size: 10pt;
+    }
+
+    /* Grille 3 colonnes sur A4, pas de coupure dans une card */
+    .container { max-width: 100%; padding: 0; }
+    .category-section { margin-top: 18px; break-inside: avoid-page; }
+    .category-title h2 { font-size: 13pt; }
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    .card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    .card-img { height: 90px; }
+    .card-top { padding: 0; }
+    .card-body { padding: 8px 10px; }
+    .card-name { font-size: 10pt; }
+    .card-meta { font-size: 8.5pt; line-height: 1.5; }
+    .card-footer { padding: 6px 10px; }
+    .card-price { font-size: 13pt; }
+    .card-unit { font-size: 8.5pt; }
+
+    /* Notice & footer compacts */
+    .notice-banner {
+        margin-top: 16px;
+        padding: 10px 14px;
+        font-size: 10pt;
+    }
+    footer {
+        margin-top: 20px;
+        padding: 16px 12px;
+    }
+    footer .footer-logo img { height: 28px; margin-bottom: 8px; }
+    footer p { font-size: 9pt; line-height: 1.6; }
+
+    /* Liens : on n'imprime pas l'underline brouillon, mais on garde la couleur sobre */
+    a { color: inherit; text-decoration: none; }
+}
