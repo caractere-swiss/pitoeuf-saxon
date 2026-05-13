@@ -1,19 +1,31 @@
 /* ============================================================
    Theme : Été 2026 — palette « Soleil & herbes »
-   Or doré + olive vert + ivoire chaleureux
+   Vert forêt + herbe fraîche + or soleil
    ============================================================ */
 
 :root {
-    --accent-dark:    #5d6b14;   /* olive foncé */
-    --accent-mid:     #8ba62a;   /* olive lumineux */
-    --accent-light:   #ebe6b8;   /* paille douce */
-    --accent-bg:      #fbf8e7;   /* ivoire chaud */
-    --accent-soft:    #fdfbef;   /* ivoire très clair (fond card-footer) */
-    --accent-border:  #d8d49c;
-    --accent-hi:      #f5c542;   /* or doré (le <span> du titre, liens footer) */
+    --accent-dark:    #2e5c0e;   /* vert forêt profond */
+    --accent-mid:     #5a9018;   /* herbe fraîche vive */
+    --accent-light:   #dff2b4;   /* vert pâle lumineux */
+    --accent-bg:      #f8fbf0;   /* fond page ivoire-vert */
+    --accent-soft:    #f2f8e4;   /* fond footer carte */
+    --accent-border:  #c8e296;   /* bordure carte */
+    --accent-hi:      #f5c514;   /* or soleil (titre hero + liens footer) */
 
-    --hero-gradient:  linear-gradient(160deg, #6b6612 0%, #b09320 50%, #f0c845 100%);
+    --hero-gradient:  linear-gradient(155deg, #1a4208 0%, #377a10 50%, #c49818 100%);
 
-    --text-dark:      #2a2810;
-    --text-mid:       #524d20;
+    --text-dark:      #1e300a;
+    --text-mid:       #3a5018;
+}
+
+/* Décoration héros : millésime en filigrane */
+.hero-deco::before {
+    content: "26";
+    display: block;
+    font-size: clamp(90px, 15vw, 160px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -6px;
+    color: rgba(255, 255, 255, .08);
+    text-align: right;
 }
