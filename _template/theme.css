@@ -1,0 +1,46 @@
+/* ============================================================
+   Theme : {{SAISON}} {{ANNEE}} — palette « {{NOM_PALETTE}} »
+   ------------------------------------------------------------
+   Surcharge des variables CSS du tronc commun.
+   Voir `docs/DESIGN-SYSTEM.md` pour le rôle de chaque variable.
+
+   Astuce : utiliser un site comme coolors.co ou paletton.com
+   pour générer une palette harmonique à partir d'une couleur
+   dominante de saison (fleur, fruit, feuille, neige…).
+   ============================================================ */
+
+:root {
+    /* ── PALETTE PRINCIPALE ── */
+    --accent-dark:    #XXXXXX;   /* ton foncé : titres catégorie, footer, notice */
+    --accent-mid:     #XXXXXX;   /* ton moyen : hover liens, ligne sous titre catégorie */
+    --accent-light:   #XXXXXX;   /* ton clair : fond card-top (sans image) */
+    --accent-bg:      #XXXXXX;   /* fond de page (très clair, presque blanc) */
+    --accent-soft:    #XXXXXX;   /* fond card-footer (encore plus clair) */
+    --accent-border:  #XXXXXX;   /* bordure des cartes + séparation footer */
+    --accent-hi:      #XXXXXX;   /* couleur d'accentuation (mot coloré du <h1>, liens footer) */
+
+    /* ── GRADIENT HÉROS ── */
+    /* 3 stops conseillés : foncé → moyen → couleur d'accent */
+    --hero-gradient:  linear-gradient(155deg, #XXXXXX 0%, #XXXXXX 50%, #XXXXXX 100%);
+
+    /* ── TYPOGRAPHIE ── */
+    --text-dark:      #XXXXXX;   /* corps de texte principal */
+    --text-mid:       #XXXXXX;   /* texte secondaire (pas systématiquement utilisé) */
+}
+
+/* ── Décoration optionnelle du héros ────────────────────────
+   Ajouter un filigrane (millésime, motif…) via ::before
+   sur le bloc .hero-deco déjà présent dans l'HTML.
+   Exemple :
+
+   .hero-deco::before {
+       content: "26";
+       display: block;
+       font-size: clamp(90px, 15vw, 160px);
+       font-weight: 900;
+       line-height: 1;
+       letter-spacing: -6px;
+       color: rgba(255, 255, 255, .08);
+       text-align: right;
+   }
+   ──────────────────────────────────────────────────────── */

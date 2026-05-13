@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--
+    ════════════════════════════════════════════════════════════
+    TEMPLATE — landing saisonnière Pitoeuf SA
+    ════════════════════════════════════════════════════════════
+    À dupliquer dans un nouveau dossier `<saison>-<année>/` puis
+    remplacer tous les `{{...}}` par le contenu de la saison.
+
+    Voir `_template/README.md` pour la procédure complète.
+    ════════════════════════════════════════════════════════════
+-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{TITRE_PAGE}} – Pitoeuf SA</title>
+    <meta name="description" content="{{META_DESCRIPTION}}" />
+
+    <!-- Open Graph / partage WhatsApp, email, Slack, LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{TITRE_PAGE}} – Pitoeuf SA" />
+    <meta property="og:description" content="{{OG_DESCRIPTION}}" />
+    <meta property="og:url" content="https://caractere-swiss.github.io/pitoeuf-saxon/{{SAISON}}-{{ANNEE}}/" />
+    <meta property="og:image" content="https://caractere-swiss.github.io/pitoeuf-saxon/images/logo-pitoeuf-blanc.png" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="stylesheet" href="../assets/css/landing-base.css" />
+    <link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<header class="hero">
+    <div class="hero-inner">
+        <div class="hero-logo">
+            <img src="../images/logo-pitoeuf-blanc.png" alt="Pitoeuf Comestibles" />
+        </div>
+        <div class="hero-text">
+            <p class="hero-eyebrow">{{EYEBROW}}</p>
+            <h1 class="hero-title">{{TITRE_LIGNE_1}}<br><span>{{TITRE_LIGNE_2}}</span> {{ANNEE}}</h1>
+            <p class="hero-subtitle">{{ACCROCHE}}</p>
+            <span class="hero-validity">Valable jusqu'au {{DATE_VALIDITE}}</span>
+        </div>
+        <div class="hero-deco"></div>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- ═══ CATÉGORIE EXEMPLE ═══ -->
+    <section class="category-section">
+        <div class="category-title"><h2>{{NOM_CATEGORIE}}</h2></div>
+        <div class="product-grid">
+
+            <!-- Carte type : avec image, badge surgelé, badge CH -->
+            <div class="card">
+                <div class="card-top has-img">
+                    <div class="badge-frozen">Surgelé</div>
+                    <span class="badge-swiss">CH</span>
+                    <img class="card-img" src="images/{{code-article}}-{{slug-produit}}.jpg" alt="{{Nom du produit}}" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name"><a href="https://pitoeuf.ch/produit/{{slug-produit}}/" target="_blank">{{Nom du produit}}</a></p>
+                    <div class="card-meta">
+                        <strong>Art. {{CODE.SG}}</strong><br>
+                        Origine : {{Pays}}<br>
+                        {{Conditionnement}}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">{{PRIX}}</span>
+                    <span class="card-unit">CHF / {{unité}}</span>
+                </div>
+            </div>
+
+            <!-- Carte sans image (placeholder en attente de photo) -->
+            <div class="card">
+                <div class="card-top has-img">
+                    <img class="card-img" src="images/{{code-article}}-{{slug-produit}}.svg" alt="{{Nom du produit}}" />
+                </div>
+                <div class="card-body">
+                    <p class="card-name">{{Nom du produit}}</p>
+                    <div class="card-meta">
+                        <strong>Art. {{CODE}}</strong><br>
+                        Origine : {{Pays}}<br>
+                        {{Conditionnement}}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-price">{{PRIX}}</span>
+                    <span class="card-unit">CHF / {{unité}}</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Dupliquer le bloc <section class="category-section"> ci-dessus
+         pour chaque catégorie supplémentaire. -->
+
+    <!-- ═══ NOTICE ═══ -->
+    <div class="notice-banner">
+        Tous les prix indiqués sont au carton complet
+    </div>
+
+    <div style="height: 56px;"></div>
+
+</main>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER (identique pour toutes les saisons)
+════════════════════════════════════════════ -->
+<footer>
+    <div class="footer-logo">
+        <img src="../images/logo-pitoeuf-blanc.png" alt="Pitoeuf Comestibles" />
+    </div>
+    <p>
+        <strong>PITOEUF SA</strong><br>
+        Route d'Ecône 116 — CH-1907 Saxon<br>
+        CHE-108.573.346 TVA<br><br>
+        Tél. <a href="tel:+41272056060">027 205 60 60</a> &nbsp;|&nbsp;
+        Fax. 027 205 60 66 &nbsp;|&nbsp;
+        <a href="mailto:info@pitoeuf.ch">info@pitoeuf.ch</a>
+    </p>
+    <p style="margin-top: 20px; font-size: 11px; opacity: .5;">
+        © {{ANNEE}} Pitoeuf SA — Tous droits réservés
+    </p>
+</footer>
+
+</body>
+</html>
