@@ -31,15 +31,15 @@
 }
 
 /* Fond bois blanchi — esprit terroir / artisanal
-   Image unique en cover, scroll avec la page (pas de fixed
-   pour éviter l'artefact de duplication en capture pleine page) */
+   Image à taille naturelle (100% largeur), pas d'étirement
+   vertical. Couleur crème assortie pour combler en dessous. */
 body {
     background-image: url(../images/fond-bois-blanc.jpg);
-    background-size: cover;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: top center;
-    background-color: var(--accent-bg);
+    background-color: #ece5d6;
 }
 
 /* Supprime la bande crème sous le héros — le bois apparaît
