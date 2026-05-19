@@ -67,11 +67,12 @@ sémantique de référence (à transposer en `<table>`).
 ```
 
 **Badges de conditionnement disponibles** (mutuellement exclusifs — un produit
-a UN seul état de conditionnement) :
-- `product-card__badge--frozen` — Surgelé (flocon bleu)
-- `product-card__badge--fresh`  — Frais (feuille verte)
-- `product-card__badge--dry`    — Sec / épicerie (brun ocré)
-- Extensible : ajouter une variable `--pcard-XXX-bg` + une règle CSS
+a UN seul état de conditionnement). Icônes officielles dans `icons/` :
+- `product-card__badge--frozen` — Surgelé (flocon `#00c0f9` — `icons/surgele.svg`)
+- `product-card__badge--fresh`  — Frais (goutte `#97db16` — `icons/frais.svg`)
+- `product-card__badge--dry`    — Sec / épicerie (soleil `#f5d41c` — `icons/sec.svg`)
+- Pour ajouter un nouveau type : déposer le SVG dans `icons/`, ajouter
+  une variable `--pcard-XXX-color` et une règle CSS associée
 
 **Badge origine** : `product-card__badge--origin`, contenu texte libre
 (`CH`, `VS`, ou autre). Toujours **à droite du conditionnement** s'il
@@ -96,10 +97,10 @@ existe, sinon seul au top-left.
 | `--pcard-meta-color` | Couleur méta | `#707070` |
 | `--pcard-price-color` | Couleur prix | `#1a1a1a` |
 | `--pcard-price-bg` | Fond bandeau prix | `#fff6e3` |
-| `--pcard-frozen-bg` | Fond badge Surgelé | `#4aa8d8` |
-| `--pcard-fresh-bg` | Fond badge Frais | `#4fa86a` |
-| `--pcard-dry-bg` | Fond badge Sec | `#8b6f47` |
-| `--pcard-origin-bg` | Fond badge CH/VS | `#d52b1e` |
+| `--pcard-frozen-color` | Couleur icône Surgelé | `#00c0f9` (officiel Pitoeuf) |
+| `--pcard-fresh-color` | Couleur icône Frais | `#97db16` (officiel Pitoeuf) |
+| `--pcard-dry-color` | Couleur icône Sec | `#f5d41c` (officiel Pitoeuf) |
+| `--pcard-origin-bg` | Fond badge CH/VS | `#d52b1e` (rouge suisse) |
 | `--pcard-discount-bg` | Fond cercle remise | `#e8821a` |
 
 ---

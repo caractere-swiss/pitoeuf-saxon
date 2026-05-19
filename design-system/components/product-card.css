@@ -27,9 +27,10 @@
 
     --pcard-price-bg:       #fff6e3;   /* bandeau prix crème */
 
-    --pcard-frozen-bg:      #4aa8d8;   /* flocon bleu — Surgelé */
-    --pcard-fresh-bg:       #4fa86a;   /* feuille verte — Frais */
-    --pcard-dry-bg:         #8b6f47;   /* brun ocré — Sec */
+    /* Couleurs officielles Pitoeuf — ne pas modifier */
+    --pcard-frozen-color:   #00c0f9;   /* flocon bleu — Surgelé */
+    --pcard-fresh-color:    #97db16;   /* goutte verte — Frais */
+    --pcard-dry-color:      #f5d41c;   /* soleil jaune — Sec */
     --pcard-origin-bg:      #d52b1e;   /* badge CH/VS rouge suisse */
     --pcard-discount-bg:    #e8821a;   /* cercle remise orange */
 }
@@ -88,47 +89,44 @@
     z-index: 2;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .product-card__badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
-    color: #fff;
     user-select: none;
 }
 
-/* Badges conditionnement (forme circulaire, fond coloré) */
+/* Badges conditionnement (icône colorée seule, sans cercle de fond) */
 .product-card__badge--frozen,
 .product-card__badge--fresh,
 .product-card__badge--dry {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .25));
 }
-.product-card__badge--frozen { background: var(--pcard-frozen-bg); }
-.product-card__badge--fresh  { background: var(--pcard-fresh-bg);  }
-.product-card__badge--dry    { background: var(--pcard-dry-bg);    }
-
-.product-card__badge--frozen svg,
-.product-card__badge--fresh svg,
-.product-card__badge--dry svg {
-    width: 16px; height: 16px;
-    fill: currentColor;
+.product-card__badge--frozen img,
+.product-card__badge--fresh img,
+.product-card__badge--dry img {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 /* Badge origine (pastille rouge texte CH / VS) */
 .product-card__badge--origin {
     background: var(--pcard-origin-bg);
+    color: #fff;
+    font-weight: 700;
     font-size: 11px;
     letter-spacing: .5px;
     padding: 4px 7px;
     border-radius: 4px;
     line-height: 1;
     height: 22px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
 }
 
 /* ── Corps texte ────────────────────────────────────────── */

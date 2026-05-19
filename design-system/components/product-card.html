@@ -25,13 +25,16 @@
             <!-- Groupe de badges (top-left) :
                  conditionnement à gauche, origine à droite -->
             <div class="product-card__badges">
-                <!-- Conditionnement : Surgelé (frozen) / Frais (fresh) / Sec (dry) … -->
+                <!-- Conditionnement : Surgelé / Frais / Sec — choisir UNE seule icône
+                     Icônes officielles dans design-system/icons/ -->
                 <span class="product-card__badge product-card__badge--frozen" aria-label="Surgelé" title="Surgelé">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 2v20M4.93 4.93l14.14 14.14M2 12h20M4.93 19.07L19.07 4.93M7 4l5 3 5-3M7 20l5-3 5 3M4 7l3 5-3 5M20 7l-3 5 3 5"
-                              stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-                    </svg>
+                    <img src="../icons/surgele.svg" alt="" />
                 </span>
+                <!-- ou : <span class="product-card__badge product-card__badge--fresh">
+                              <img src="../icons/frais.svg" alt="" /></span> -->
+                <!-- ou : <span class="product-card__badge product-card__badge--dry">
+                              <img src="../icons/sec.svg" alt="" /></span> -->
+
                 <!-- Origine : CH ou VS — toujours à droite du conditionnement -->
                 <span class="product-card__badge product-card__badge--origin">CH</span>
             </div>
