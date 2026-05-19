@@ -114,6 +114,43 @@ projets existants ne soient pas cassés.
 
 ---
 
+## Pour démarrer un nouveau projet Pitoeuf (autre repo)
+
+Quand un nouveau dépôt Pitoeuf sera créé (ex : `pitoeuf-newsletter`,
+`pitoeuf-microsite-2027`), il doit dès le départ pointer vers ce design
+system pour rester harmonisé.
+
+### Template à mettre dans le `CLAUDE.md` du nouveau repo
+
+```markdown
+# <Nom du projet> — Contexte projet
+
+## Client
+Pitoeuf SA — Grossiste en comestibles, Saxon (Valais, Suisse).
+
+## ⚠️ Design system Pitoeuf — SOURCE DE VÉRITÉ EXTERNE
+
+Ce projet **doit** utiliser les composants visuels partagés Pitoeuf
+définis dans le dépôt `pitoeuf-saxon` :
+
+- Doc : https://github.com/caractere-swiss/pitoeuf-saxon/blob/main/design-system/README.md
+- CSS via CDN : https://caractere-swiss.github.io/pitoeuf-saxon/design-system/components/product-card.css
+- Exemples markup : https://github.com/caractere-swiss/pitoeuf-saxon/tree/main/design-system/components
+
+**Règles :**
+1. Avant de créer un composant visuel, vérifier qu'il n'existe pas déjà
+   dans le design system Pitoeuf
+2. Couleurs marque (bleu Surgelé `#4aa8d8`, rouge CH/VS `#d52b1e`, orange
+   remise `#e8821a`, beige prix `#fff6e3`) — JAMAIS modifier
+3. Si on a besoin d'un nouveau composant partageable, le proposer en PR
+   sur le dépôt `pitoeuf-saxon` (pas dans ce projet)
+```
+
+Coller ce bloc dans le `CLAUDE.md` du nouveau repo garantit que toute
+session Claude qui ouvrira ce projet saura immédiatement où chercher.
+
+---
+
 ## Roadmap
 
 - [ ] Version `email/` du `product-card` (HTML table + styles inline + PNG icônes)
