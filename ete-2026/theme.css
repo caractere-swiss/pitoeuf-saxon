@@ -31,13 +31,15 @@
 }
 
 /* Fond bois blanchi — esprit terroir / artisanal
-   Image unique en cover, fixée au viewport (parallax doux) */
+   Image unique en cover, scroll avec la page (pas de fixed
+   pour éviter l'artefact de duplication en capture pleine page) */
 body {
     background-image: url(../images/fond-bois-blanc.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
+    background-attachment: scroll;
+    background-position: top center;
+    background-color: var(--accent-bg);
 }
 
 /* Supprime la bande crème sous le héros — le bois apparaît
@@ -49,7 +51,3 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
 }
 
-/* Mobile : background-attachment fixed plante sur iOS Safari */
-@media (max-width: 768px) {
-    body { background-attachment: scroll; }
-}
