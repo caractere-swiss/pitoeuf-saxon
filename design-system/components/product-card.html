@@ -35,8 +35,14 @@
                 <!-- ou : <span class="product-card__badge product-card__badge--dry">
                               <img src="../icons/sec.svg" alt="" /></span> -->
 
-                <!-- Origine : CH ou VS — toujours à droite du conditionnement -->
-                <span class="product-card__badge product-card__badge--origin">CH</span>
+                <!-- Origine : drapeau CH ou VS — toujours à droite du conditionnement -->
+                <span class="product-card__badge product-card__badge--flag" aria-label="Suisse" title="Suisse">
+                    <img src="../icons/drapeau-ch.png" alt="CH" />
+                </span>
+                <!-- ou Valais : <span class="product-card__badge product-card__badge--flag" aria-label="Valais" title="Valais">
+                                     <img src="../icons/drapeau-vs.svg" alt="VS" /></span> -->
+                <!-- Pour email/newsletter (où les images sont parfois bloquées), fallback texte :
+                     <span class="product-card__badge product-card__badge--origin">CH</span> -->
             </div>
 
             <img src="../../images/produit-exemple.jpg" alt="Nom du produit" />

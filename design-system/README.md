@@ -74,9 +74,14 @@ a UN seul état de conditionnement). Icônes officielles dans `icons/` :
 - Pour ajouter un nouveau type : déposer le SVG dans `icons/`, ajouter
   une variable `--pcard-XXX-color` et une règle CSS associée
 
-**Badge origine** : `product-card__badge--origin`, contenu texte libre
-(`CH`, `VS`, ou autre). Toujours **à droite du conditionnement** s'il
-existe, sinon seul au top-left.
+**Badge origine** — deux variantes :
+- `product-card__badge--flag` : version drapeau (recommandé pour le web)
+  - `icons/drapeau-ch.png` (Suisse)
+  - `icons/drapeau-vs.svg` (Valais — armoiries officielles)
+- `product-card__badge--origin` : version texte/pastille rouge (fallback email
+  ou contexte où les images ne s'affichent pas)
+
+Toujours **à droite du conditionnement** s'il existe, sinon seul au top-left.
 
 **Éléments optionnels** (à omettre simplement dans le HTML) :
 - Le groupe de badges entier (`product-card__badges`) ou chaque badge individuellement
