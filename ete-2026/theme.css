@@ -30,13 +30,19 @@
     text-align: right;
 }
 
-/* Fond bois blanchi — esprit terroir / artisanal */
+/* Fond bois blanchi — esprit terroir / artisanal
+   Image unique en cover, fixée au viewport (parallax doux) */
 body {
     background-image: url(../images/fond-bois-blanc.jpg);
-    background-size: 600px auto;
-    background-repeat: repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center center;
 }
+
+/* Supprime la bande crème sous le héros — le bois apparaît
+   directement après la courbe du gradient */
+.hero::before { background: transparent; }
 
 /* Cartes : ombre douce pour ressortir sur le bois */
 .card {
