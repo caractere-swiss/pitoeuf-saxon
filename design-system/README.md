@@ -51,8 +51,8 @@ sémantique de référence (à transposer en `<table>`).
 
 ```
 ┌─────────────────────┐
-│ ⛄          [ CH ]  │  ← badges : Surgelé (top-left), Origine (top-right)
-│                     │
+│ ⛄ [CH]              │  ← groupe top-left : conditionnement
+│                     │    + origine (CH/VS) immédiatement à droite
 │       PHOTO         │  ← 4:3, object-fit cover
 │                     │
 ├─────────────────────┤
@@ -66,11 +66,22 @@ sémantique de référence (à transposer en `<table>`).
 └─────────────────────┘
 ```
 
+**Badges de conditionnement disponibles** (mutuellement exclusifs — un produit
+a UN seul état de conditionnement) :
+- `product-card__badge--frozen` — Surgelé (flocon bleu)
+- `product-card__badge--fresh`  — Frais (feuille verte)
+- `product-card__badge--dry`    — Sec / épicerie (brun ocré)
+- Extensible : ajouter une variable `--pcard-XXX-bg` + une règle CSS
+
+**Badge origine** : `product-card__badge--origin`, contenu texte libre
+(`CH`, `VS`, ou autre). Toujours **à droite du conditionnement** s'il
+existe, sinon seul au top-left.
+
 **Éléments optionnels** (à omettre simplement dans le HTML) :
-- Badge Surgelé (`product-card__badge--frozen`)
-- Badge Origine (`product-card__badge--origin`)
+- Le groupe de badges entier (`product-card__badges`) ou chaque badge individuellement
 - Cercle remise (`product-card__discount`)
 - Prix barré (`product-card__price-regular`)
+- Bandeau Promo (`product-card__promo-banner`)
 
 **Tokens CSS thématisables** (à surcharger dans le theme.css de chaque projet) :
 
@@ -86,6 +97,8 @@ sémantique de référence (à transposer en `<table>`).
 | `--pcard-price-color` | Couleur prix | `#1a1a1a` |
 | `--pcard-price-bg` | Fond bandeau prix | `#fff6e3` |
 | `--pcard-frozen-bg` | Fond badge Surgelé | `#4aa8d8` |
+| `--pcard-fresh-bg` | Fond badge Frais | `#4fa86a` |
+| `--pcard-dry-bg` | Fond badge Sec | `#8b6f47` |
 | `--pcard-origin-bg` | Fond badge CH/VS | `#d52b1e` |
 | `--pcard-discount-bg` | Fond cercle remise | `#e8821a` |
 
