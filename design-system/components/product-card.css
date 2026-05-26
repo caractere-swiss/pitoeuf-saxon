@@ -1,0 +1,279 @@
+/* ============================================================
+   Pitoeuf — Product Card
+   ------------------------------------------------------------
+   Composant vignette produit. Réplique le visuel pitoeuf.ch :
+   - Carte blanche, ombre douce
+   - Badges (Surgelé, CH/VS) sur la photo
+   - Titre + Réf + Provenance centrés
+   - Bandeau prix crème :
+       • Remise (cercle rouge) à gauche [optionnel]
+       • Quantité + Prix promo + Prix barré à droite
+
+   Utilisation : voir `design-system/components/product-card.html`
+   Documentation : voir `design-system/README.md`
+   ============================================================ */
+
+:root {
+    /* Tokens spécifiques à la vignette — surcharge possible par thème */
+    --pcard-bg:             #ffffff;
+    --pcard-border:         #e5e5e5;
+    --pcard-radius:         14px;
+    --pcard-shadow:         0 2px 8px rgba(0, 0, 0, .06);
+    --pcard-shadow-hover:   0 8px 20px rgba(0, 0, 0, .10);
+
+    --pcard-title-color:    #1a1a1a;
+    --pcard-meta-color:     #707070;
+    --pcard-price-color:    #1a1a1a;
+
+    --pcard-price-bg:       #fff6e3;   /* bandeau prix crème */
+
+    /* Couleurs officielles Pitoeuf — ne pas modifier */
+    --pcard-frozen-color:   #00c0f9;   /* flocon bleu — Surgelé */
+    --pcard-fresh-color:    #97db16;   /* goutte verte — Frais */
+    --pcard-dry-color:      #f5d41c;   /* soleil jaune — Sec */
+    --pcard-origin-bg:      #d52b1e;   /* badge CH/VS rouge suisse */
+    --pcard-discount-bg:    #f95600;   /* rouge promo (bandeau + cercle remise) */
+}
+
+/* ── Conteneur ──────────────────────────────────────────── */
+.product-card {
+    background: var(--pcard-bg);
+    border: 1px solid var(--pcard-border);
+    border-radius: var(--pcard-radius);
+    box-shadow: var(--pcard-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--pcard-shadow-hover);
+}
+
+/* ── Bandeau promo (optionnel, tout en haut) ────────────── */
+.product-card__promo-banner {
+    background: var(--pcard-discount-bg);
+    color: #fff;
+    padding: 7px 14px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+.product-card__promo-banner strong { font-weight: 800; }
+.product-card__promo-banner .until { font-weight: 500; opacity: .95; }
+
+/* ── Zone image + badges ────────────────────────────────── */
+.product-card__media {
+    position: relative;
+    background: #fafafa;
+    overflow: hidden;
+}
+.product-card__media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+.product-card__media-link {
+    display: block;
+}
+
+/* Conteneur des badges (top-left, flux horizontal) :
+   le conditionnement (Surgelé/Frais/Sec/…) à gauche,
+   l'origine (CH/VS) immédiatement à sa droite */
+.product-card__badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: auto;
+    z-index: 2;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: max-content;
+    max-width: calc(100% - 20px);
+}
+
+.product-card__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+/* Badges conditionnement (icône colorée seule, sans cercle de fond) */
+.product-card__badge--frozen,
+.product-card__badge--fresh,
+.product-card__badge--dry {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .25));
+}
+.product-card__badge--frozen img,
+.product-card__badge--fresh img,
+.product-card__badge--dry img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Badge origine — version drapeau (CH / VS) */
+.product-card__badge--flag {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .25));
+}
+.product-card__badge--flag img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 2px;
+}
+
+/* Badge origine — version pastille texte (fallback / e-mail) */
+.product-card__badge--origin {
+    background: var(--pcard-origin-bg);
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: .5px;
+    padding: 4px 7px;
+    border-radius: 4px;
+    line-height: 1;
+    height: 22px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+}
+
+/* ── Corps texte ────────────────────────────────────────── */
+.product-card__body {
+    padding: 16px 14px 14px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.product-card__title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--pcard-title-color);
+    margin: 0;
+}
+.product-card__title a {
+    color: inherit;
+    text-decoration: none;
+}
+.product-card__title a:hover { text-decoration: underline; }
+.product-card__meta {
+    font-size: 12.5px;
+    color: var(--pcard-meta-color);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── Bandeau prix ───────────────────────────────────────── */
+.product-card__price-strip {
+    background: var(--pcard-price-bg);
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 56px;
+}
+
+/* Cercle remise (optionnel) */
+.product-card__discount {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--pcard-discount-bg);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: -.5px;
+}
+
+/* Bloc prix à droite */
+.product-card__prices {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    line-height: 1.3;
+}
+.product-card__quantity {
+    font-size: 12.5px;
+    color: var(--pcard-meta-color);
+}
+.product-card__price-current {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--pcard-price-color);
+}
+.product-card__price-current .unit {
+    font-weight: 500;
+    color: var(--pcard-meta-color);
+    font-size: 12px;
+}
+.product-card__price-regular {
+    font-size: 12.5px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* ── Print A4 ───────────────────────────────────────────── */
+@media print {
+    .product-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        transform: none !important;
+        border-radius: 8px;
+    }
+    /* Cap photo : ~22mm pour tenir dans une grille 4 colonnes */
+    .product-card__media img {
+        max-height: 22mm;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+    .product-card__badges { top: 3px; left: 3px; gap: 3px; }
+    .product-card__badge--frozen,
+    .product-card__badge--fresh,
+    .product-card__badge--dry,
+    .product-card__badge--flag { width: 14px; height: 14px; }
+
+    .product-card__promo-banner {
+        padding: 2px 4px;
+        font-size: 6.5pt;
+        letter-spacing: .4px;
+    }
+    .product-card__body { padding: 4px 6px; gap: 1px; }
+    .product-card__title { font-size: 8pt; line-height: 1.15; }
+    .product-card__meta { font-size: 6.5pt; line-height: 1.25; }
+    .product-card__price-strip {
+        padding: 4px 6px;
+        gap: 4px;
+        min-height: auto;
+    }
+    .product-card__discount {
+        width: 22px; height: 22px;
+        font-size: 7pt;
+    }
+    .product-card__quantity { font-size: 6.5pt; }
+    .product-card__price-current { font-size: 9pt; }
+    .product-card__price-current .unit { font-size: 6.5pt; }
+    .product-card__price-regular { font-size: 6.5pt; }
+}
