@@ -51,3 +51,50 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
 }
 
+/* Bouton « Télécharger en PDF » dans le héros */
+.hero-print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 10px 18px;
+    background: #fff;
+    color: var(--accent-dark);
+    border: none;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.hero-print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .24);
+    background: var(--accent-hi);
+    color: var(--text-dark);
+}
+.hero-print-btn svg { flex-shrink: 0; }
+
+/* ── Impression PDF ─────────────────────────────────────────
+   On préserve le fond bois + le héros vert pour conserver
+   l'identité visuelle dans le PDF généré. */
+@media print {
+    /* Garder le fond bois (landing-base.css le neutralise en blanc) */
+    body {
+        background-image: url(../images/fond-bois-blanc.jpg) !important;
+        background-color: #ece5d6 !important;
+        background-size: 100% auto !important;
+        background-repeat: no-repeat !important;
+        background-position: top center !important;
+    }
+    /* Garder le dégradé vert du héros */
+    .hero {
+        background: var(--hero-gradient) !important;
+    }
+    /* Masquer le bouton lui-même */
+    .hero-print-btn { display: none !important; }
+}
+
