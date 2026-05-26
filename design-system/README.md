@@ -95,7 +95,7 @@ Toujours **à droite du conditionnement** s'il existe, sinon seul au top-left.
 |---|---|---|
 | `--pcard-bg` | Fond carte | `#ffffff` |
 | `--pcard-border` | Bordure carte | `#e5e5e5` |
-| `--pcard-radius` | Rayon coins | `8px` |
+| `--pcard-radius` | Rayon coins | `14px` |
 | `--pcard-shadow` | Ombre repos | `0 2px 8px rgba(0,0,0,.06)` |
 | `--pcard-shadow-hover` | Ombre survol | `0 8px 20px rgba(0,0,0,.10)` |
 | `--pcard-title-color` | Couleur titre | `#1a1a1a` |
