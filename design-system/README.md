@@ -106,7 +106,7 @@ Toujours **à droite du conditionnement** s'il existe, sinon seul au top-left.
 | `--pcard-fresh-color` | Couleur icône Frais | `#97db16` (officiel Pitoeuf) |
 | `--pcard-dry-color` | Couleur icône Sec | `#f5d41c` (officiel Pitoeuf) |
 | `--pcard-origin-bg` | Fond badge CH/VS | `#d52b1e` (rouge suisse) |
-| `--pcard-discount-bg` | Fond cercle remise | `#e8821a` |
+| `--pcard-discount-bg` | Fond cercle remise | `#f95600` |
 
 ---
 
@@ -119,7 +119,7 @@ Toujours **à droite du conditionnement** s'il existe, sinon seul au top-left.
 - **Icônes** : SVG inline (pas de dépendance Font Awesome). Pour les emails,
   un fallback PNG sera fourni
 - **Couleurs marque** : ne pas changer `--pcard-frozen-bg` (bleu froid) ni
-  `--pcard-origin-bg` (rouge suisse) ni `--pcard-discount-bg` (orange promo)
+  `--pcard-origin-bg` (rouge suisse) ni `--pcard-discount-bg` (rouge promo)
   → ils font partie de l'identité Pitoeuf et doivent rester cohérents
 
 ---
@@ -159,8 +159,8 @@ définis dans le dépôt `pitoeuf-saxon` :
 **Règles :**
 1. Avant de créer un composant visuel, vérifier qu'il n'existe pas déjà
    dans le design system Pitoeuf
-2. Couleurs marque (bleu Surgelé `#4aa8d8`, rouge CH/VS `#d52b1e`, orange
-   remise `#e8821a`, beige prix `#fff6e3`) — JAMAIS modifier
+2. Couleurs marque (bleu Surgelé `#4aa8d8`, rouge CH/VS `#d52b1e`, rouge
+   promo `#f95600`, beige prix `#fff6e3`) — JAMAIS modifier
 3. Si on a besoin d'un nouveau composant partageable, le proposer en PR
    sur le dépôt `pitoeuf-saxon` (pas dans ce projet)
 ```

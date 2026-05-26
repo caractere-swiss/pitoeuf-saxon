@@ -6,7 +6,7 @@
    - Badges (Surgelé, CH/VS) sur la photo
    - Titre + Réf + Provenance centrés
    - Bandeau prix crème :
-       • Remise (cercle orange) à gauche [optionnel]
+       • Remise (cercle rouge) à gauche [optionnel]
        • Quantité + Prix promo + Prix barré à droite
 
    Utilisation : voir `design-system/components/product-card.html`
@@ -32,7 +32,7 @@
     --pcard-fresh-color:    #97db16;   /* goutte verte — Frais */
     --pcard-dry-color:      #f5d41c;   /* soleil jaune — Sec */
     --pcard-origin-bg:      #d52b1e;   /* badge CH/VS rouge suisse */
-    --pcard-discount-bg:    #e8821a;   /* cercle remise orange */
+    --pcard-discount-bg:    #f95600;   /* rouge promo (bandeau + cercle remise) */
 }
 
 /* ── Conteneur ──────────────────────────────────────────── */
