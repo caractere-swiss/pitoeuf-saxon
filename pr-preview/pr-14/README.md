@@ -32,6 +32,8 @@ Portail (toutes les saisons) :
 
 - **[CLAUDE.md](./CLAUDE.md)** — Contexte projet, conventions, méthodologie
   pour créer une nouvelle landing, setup déploiement
+- **[JOURNAL.md](./JOURNAL.md)** — Journal transverse des décisions
+  (préférences client, pistes rejetées, TODO différés)
 - **[design-system/README.md](./design-system/README.md)** — Composants
   visuels partagés (à utiliser dans tous les projets Pitoeuf)
 - **[MASTER.md](./MASTER.md)** — Suivi global du projet

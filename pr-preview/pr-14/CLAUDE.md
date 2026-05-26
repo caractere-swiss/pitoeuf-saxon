@@ -48,6 +48,10 @@ vignette produit elle-même.
 ├── index.html                      Portail listant les feuillets
 ├── MASTER.md                       Suivi global du projet
 ├── CLAUDE.md                       Ce fichier
+├── JOURNAL.md                      Journal transverse des décisions
+│                                   (préférences client, pistes rejetées,
+│                                   TODO différés) — À LIRE avant toute
+│                                   nouvelle session pour reprendre le fil
 ├── assets/
 │   └── css/
 │       └── landing-base.css        Tronc commun (layout, grille, héros,
