@@ -348,8 +348,8 @@ footer a {
     .category-section { margin-top: 18px; break-inside: avoid-page; }
     .category-title h2 { font-size: 13pt; }
     .product-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 5px !important;
     }
     .card {
         break-inside: avoid;

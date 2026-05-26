@@ -74,6 +74,7 @@
 }
 .product-card__media img {
     width: 100%;
+    height: auto;
     aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
@@ -240,11 +241,39 @@
         page-break-inside: avoid;
         box-shadow: none !important;
         transform: none !important;
+        border-radius: 8px;
     }
-    .product-card__body { padding: 8px 10px; }
-    .product-card__title { font-size: 10pt; }
-    .product-card__meta { font-size: 8.5pt; }
-    .product-card__price-strip { padding: 6px 10px; min-height: auto; }
-    .product-card__discount { width: 32px; height: 32px; font-size: 10pt; }
-    .product-card__price-current { font-size: 11pt; }
+    /* Cap photo : ~22mm pour tenir dans une grille 4 colonnes */
+    .product-card__media img {
+        max-height: 22mm;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+    .product-card__badges { top: 3px; left: 3px; gap: 3px; }
+    .product-card__badge--frozen,
+    .product-card__badge--fresh,
+    .product-card__badge--dry,
+    .product-card__badge--flag { width: 14px; height: 14px; }
+
+    .product-card__promo-banner {
+        padding: 2px 4px;
+        font-size: 6.5pt;
+        letter-spacing: .4px;
+    }
+    .product-card__body { padding: 4px 6px; gap: 1px; }
+    .product-card__title { font-size: 8pt; line-height: 1.15; }
+    .product-card__meta { font-size: 6.5pt; line-height: 1.25; }
+    .product-card__price-strip {
+        padding: 4px 6px;
+        gap: 4px;
+        min-height: auto;
+    }
+    .product-card__discount {
+        width: 22px; height: 22px;
+        font-size: 7pt;
+    }
+    .product-card__quantity { font-size: 6.5pt; }
+    .product-card__price-current { font-size: 9pt; }
+    .product-card__price-current .unit { font-size: 6.5pt; }
+    .product-card__price-regular { font-size: 6.5pt; }
 }

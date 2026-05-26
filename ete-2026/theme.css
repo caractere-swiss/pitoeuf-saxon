@@ -12,7 +12,11 @@
     --accent-border:  #c8e296;   /* bordure carte */
     --accent-hi:      #f5c514;   /* or soleil (titre hero + liens footer) */
 
-    --hero-gradient:  linear-gradient(155deg, #1a4208 0%, #377a10 50%, #c49818 100%);
+    /* Dégradé adouci : darks moins durs + lumière radiale superposée
+       pour casser l'aspect « bandeau plat » */
+    --hero-gradient:
+        radial-gradient(ellipse at 75% 40%, rgba(255, 220, 130, .35) 0%, transparent 55%),
+        linear-gradient(155deg, #2a5810 0%, #4a8a16 45%, #b89126 100%);
 
     --text-dark:      #1e300a;
     --text-mid:       #3a5018;
@@ -20,27 +24,36 @@
 
 /* Décoration héros : millésime en filigrane */
 .hero-deco::before {
-    content: "26";
+    content: "2026";
     display: block;
-    font-size: clamp(90px, 15vw, 160px);
+    font-size: clamp(80px, 13vw, 150px);
     font-weight: 900;
     line-height: 1;
-    letter-spacing: -6px;
-    color: rgba(255, 255, 255, .08);
+    letter-spacing: -4px;
+    color: rgba(255, 255, 255, .06);
     text-align: right;
 }
 
 /* Fond bois blanchi — esprit terroir / artisanal
-   Image WebP (~ 224 ko, 50% plus léger que JPG)
-   Tiled verticalement pour couvrir la page entière,
-   peu importe sa hauteur. */
+   fixed : l'image reste en place, le contenu défile par-dessus.
+   Pas de repeat, pas de fleur dupliquée. */
 body {
     background-image: url(../images/fond-bois-blanc.webp);
-    background-size: 100% auto;
-    background-repeat: repeat-y;
-    background-attachment: scroll;
-    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
     background-color: #ece5d6;
+}
+
+/* Mobile : fixed bg non supporté nativement (scroll-linked) →
+   fallback sur la couleur bois ivoire */
+@media (max-width: 767px) {
+    body {
+        background-attachment: scroll;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+    }
 }
 
 /* Supprime la bande crème sous le héros — le bois apparaît
@@ -80,22 +93,16 @@ body {
 .hero-print-btn svg { flex-shrink: 0; }
 
 /* ── Impression PDF ─────────────────────────────────────────
-   On préserve le fond bois + le héros vert pour conserver
-   l'identité visuelle dans le PDF généré. */
+   Fond blanc propre pour le PDF B2B : on retire le bois (cover
+   + no-repeat laissait une bande beige sur les pages 2-3). On
+   garde le dégradé vert du héros pour préserver l'identité. */
 @media print {
-    /* Garder le fond bois (landing-base.css le neutralise en blanc) */
     body {
-        background-image: url(../images/fond-bois-blanc.jpg) !important;
-        background-color: #ece5d6 !important;
-        background-size: 100% auto !important;
-        background-repeat: no-repeat !important;
-        background-position: top center !important;
+        background: #fff !important;
     }
-    /* Garder le dégradé vert du héros */
     .hero {
         background: var(--hero-gradient) !important;
     }
-    /* Masquer le bouton lui-même */
     .hero-print-btn { display: none !important; }
 }
 
