@@ -104,6 +104,26 @@ vignette produit elle-même.
 - **Branches** : `claude/<scope>-XXXX`, commits en français format court
   (`<verbe>: <quoi>`), PR avec titre + description structurée.
 
+## Déploiement (GitHub Pages)
+
+**Source : `GitHub Actions`** (et NON pas `Deploy from a branch`) — réglé dans
+Settings → Pages. Le déploiement est piloté par `.github/workflows/pages.yml`
+qui se déclenche à chaque push sur `main`.
+
+⚠️ **Ne pas revenir au mode "Deploy from a branch"** : le runner automatique
+de GitHub plante de façon récurrente avec l'erreur
+`Failed to download archive 'actions/upload-pages-artifact'` qui semble
+liée à la résolution de version d'action côté CDN GitHub. Le workflow
+explicite contourne le bug en épinglant les versions (`@v4`, `@v5`, `@v3`).
+
+**`.nojekyll` à la racine** : indispensable, désactive le pré-traitement
+Jekyll qui peut ignorer/casser des fichiers (dossiers `_template/`, etc.).
+
+**Si un déploiement échoue à nouveau** : vérifier l'onglet Actions, puis
+"Re-run all jobs". Si le bug persiste, mettre à jour les versions des
+actions dans `pages.yml` (actions/checkout, configure-pages,
+upload-pages-artifact, deploy-pages) vers les dernières majeures stables.
+
 ## Notes
 - `landing-paques-2026.html` (racine) est conservé en redirection vers
   `paques-2026/` pour préserver les URLs déjà diffusées.
