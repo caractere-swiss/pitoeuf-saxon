@@ -31,16 +31,25 @@
 }
 
 /* Fond bois blanchi — esprit terroir / artisanal
-   Image WebP (~ 224 ko, 50% plus léger que JPG)
-   Tiled verticalement pour couvrir la page entière,
-   peu importe sa hauteur. */
+   fixed : l'image reste en place, le contenu défile par-dessus.
+   Pas de repeat, pas de fleur dupliquée. */
 body {
     background-image: url(../images/fond-bois-blanc.webp);
-    background-size: 100% auto;
-    background-repeat: repeat-y;
-    background-attachment: scroll;
-    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
     background-color: #ece5d6;
+}
+
+/* Mobile : fixed bg non supporté nativement (scroll-linked) →
+   fallback sur la couleur bois ivoire */
+@media (max-width: 767px) {
+    body {
+        background-attachment: scroll;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+    }
 }
 
 /* Supprime la bande crème sous le héros — le bois apparaît
@@ -85,11 +94,11 @@ body {
 @media print {
     /* Garder le fond bois (landing-base.css le neutralise en blanc) */
     body {
-        background-image: url(../images/fond-bois-blanc.jpg) !important;
+        background-image: url(../images/fond-bois-blanc.webp) !important;
         background-color: #ece5d6 !important;
-        background-size: 100% auto !important;
+        background-size: cover !important;
         background-repeat: no-repeat !important;
-        background-position: top center !important;
+        background-position: center center !important;
     }
     /* Garder le dégradé vert du héros */
     .hero {
