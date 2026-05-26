@@ -134,3 +134,15 @@ upload-pages-artifact, deploy-pages) vers les dernières majeures stables.
 - Pâques 2026 utilise encore l'ancienne structure de carte (`.card` /
   `landing-base.css`). À migrer sur `product-card` du design system quand
   on fera la prochaine itération de cette landing.
+
+---
+
+## Compact instructions
+
+Quand tu compresses le contexte (`/compact`), préserve en priorité :
+1. **Décisions visuelles validées** (palette saison, comportements corrigés)
+2. **Couleurs marque immuables** (`#f95600`, `#d52b1e`, `#fff6e3`, etc.)
+3. **État des PRs ouvertes** et leur branche associée
+4. **TODOs actifs** (photos manquantes, prix réels, badges conditionnement)
+5. **Règles non négociables** : design system source de vérité, zéro hotlink
+   images pitoeuf.ch, zéro framework JS, zéro build
