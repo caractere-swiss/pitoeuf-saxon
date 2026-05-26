@@ -51,8 +51,8 @@ sémantique de référence (à transposer en `<table>`).
 
 ```
 ┌─────────────────────┐
-│ ⛄          [ CH ]  │  ← badges : Surgelé (top-left), Origine (top-right)
-│                     │
+│ ⛄ [CH]              │  ← groupe top-left : conditionnement
+│                     │    + origine (CH/VS) immédiatement à droite
 │       PHOTO         │  ← 4:3, object-fit cover
 │                     │
 ├─────────────────────┤
@@ -66,11 +66,28 @@ sémantique de référence (à transposer en `<table>`).
 └─────────────────────┘
 ```
 
+**Badges de conditionnement disponibles** (mutuellement exclusifs — un produit
+a UN seul état de conditionnement). Icônes officielles dans `icons/` :
+- `product-card__badge--frozen` — Surgelé (flocon `#00c0f9` — `icons/surgele.svg`)
+- `product-card__badge--fresh`  — Frais (goutte `#97db16` — `icons/frais.svg`)
+- `product-card__badge--dry`    — Sec / épicerie (soleil `#f5d41c` — `icons/sec.svg`)
+- Pour ajouter un nouveau type : déposer le SVG dans `icons/`, ajouter
+  une variable `--pcard-XXX-color` et une règle CSS associée
+
+**Badge origine** — deux variantes :
+- `product-card__badge--flag` : version drapeau (recommandé pour le web)
+  - `icons/drapeau-ch.png` (Suisse)
+  - `icons/drapeau-vs.svg` (Valais — armoiries officielles)
+- `product-card__badge--origin` : version texte/pastille rouge (fallback email
+  ou contexte où les images ne s'affichent pas)
+
+Toujours **à droite du conditionnement** s'il existe, sinon seul au top-left.
+
 **Éléments optionnels** (à omettre simplement dans le HTML) :
-- Badge Surgelé (`product-card__badge--frozen`)
-- Badge Origine (`product-card__badge--origin`)
+- Le groupe de badges entier (`product-card__badges`) ou chaque badge individuellement
 - Cercle remise (`product-card__discount`)
 - Prix barré (`product-card__price-regular`)
+- Bandeau Promo (`product-card__promo-banner`)
 
 **Tokens CSS thématisables** (à surcharger dans le theme.css de chaque projet) :
 
@@ -78,16 +95,18 @@ sémantique de référence (à transposer en `<table>`).
 |---|---|---|
 | `--pcard-bg` | Fond carte | `#ffffff` |
 | `--pcard-border` | Bordure carte | `#e5e5e5` |
-| `--pcard-radius` | Rayon coins | `8px` |
+| `--pcard-radius` | Rayon coins | `14px` |
 | `--pcard-shadow` | Ombre repos | `0 2px 8px rgba(0,0,0,.06)` |
 | `--pcard-shadow-hover` | Ombre survol | `0 8px 20px rgba(0,0,0,.10)` |
 | `--pcard-title-color` | Couleur titre | `#1a1a1a` |
 | `--pcard-meta-color` | Couleur méta | `#707070` |
 | `--pcard-price-color` | Couleur prix | `#1a1a1a` |
 | `--pcard-price-bg` | Fond bandeau prix | `#fff6e3` |
-| `--pcard-frozen-bg` | Fond badge Surgelé | `#4aa8d8` |
-| `--pcard-origin-bg` | Fond badge CH/VS | `#d52b1e` |
-| `--pcard-discount-bg` | Fond cercle remise | `#e8821a` |
+| `--pcard-frozen-color` | Couleur icône Surgelé | `#00c0f9` (officiel Pitoeuf) |
+| `--pcard-fresh-color` | Couleur icône Frais | `#97db16` (officiel Pitoeuf) |
+| `--pcard-dry-color` | Couleur icône Sec | `#f5d41c` (officiel Pitoeuf) |
+| `--pcard-origin-bg` | Fond badge CH/VS | `#d52b1e` (rouge suisse) |
+| `--pcard-discount-bg` | Fond cercle remise | `#f95600` |
 
 ---
 
@@ -100,7 +119,7 @@ sémantique de référence (à transposer en `<table>`).
 - **Icônes** : SVG inline (pas de dépendance Font Awesome). Pour les emails,
   un fallback PNG sera fourni
 - **Couleurs marque** : ne pas changer `--pcard-frozen-bg` (bleu froid) ni
-  `--pcard-origin-bg` (rouge suisse) ni `--pcard-discount-bg` (orange promo)
+  `--pcard-origin-bg` (rouge suisse) ni `--pcard-discount-bg` (rouge promo)
   → ils font partie de l'identité Pitoeuf et doivent rester cohérents
 
 ---
@@ -140,8 +159,8 @@ définis dans le dépôt `pitoeuf-saxon` :
 **Règles :**
 1. Avant de créer un composant visuel, vérifier qu'il n'existe pas déjà
    dans le design system Pitoeuf
-2. Couleurs marque (bleu Surgelé `#4aa8d8`, rouge CH/VS `#d52b1e`, orange
-   remise `#e8821a`, beige prix `#fff6e3`) — JAMAIS modifier
+2. Couleurs marque (bleu Surgelé `#4aa8d8`, rouge CH/VS `#d52b1e`, rouge
+   promo `#f95600`, beige prix `#fff6e3`) — JAMAIS modifier
 3. Si on a besoin d'un nouveau composant partageable, le proposer en PR
    sur le dépôt `pitoeuf-saxon` (pas dans ce projet)
 ```

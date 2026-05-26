@@ -22,16 +22,28 @@
 
     <a href="https://pitoeuf.ch/produit/SLUG/" class="product-card__link" target="_blank">
         <div class="product-card__media">
-            <!-- Badge Surgelé (top-left, flocon bleu) -->
-            <span class="product-card__badge product-card__badge--frozen" aria-label="Surgelé" title="Surgelé">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 2v20M4.93 4.93l14.14 14.14M2 12h20M4.93 19.07L19.07 4.93M7 4l5 3 5-3M7 20l5-3 5 3M4 7l3 5-3 5M20 7l-3 5 3 5"
-                          stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-                </svg>
-            </span>
+            <!-- Groupe de badges (top-left) :
+                 conditionnement à gauche, origine à droite -->
+            <div class="product-card__badges">
+                <!-- Conditionnement : Surgelé / Frais / Sec — choisir UNE seule icône
+                     Icônes officielles dans design-system/icons/ -->
+                <span class="product-card__badge product-card__badge--frozen" aria-label="Surgelé" title="Surgelé">
+                    <img src="../icons/surgele.svg" alt="" />
+                </span>
+                <!-- ou : <span class="product-card__badge product-card__badge--fresh">
+                              <img src="../icons/frais.svg" alt="" /></span> -->
+                <!-- ou : <span class="product-card__badge product-card__badge--dry">
+                              <img src="../icons/sec.svg" alt="" /></span> -->
 
-            <!-- Badge origine (top-right, CH / VS) -->
-            <span class="product-card__badge product-card__badge--origin">CH</span>
+                <!-- Provenance : drapeau CH ou VS — toujours à droite du conditionnement -->
+                <span class="product-card__badge product-card__badge--flag" aria-label="Suisse" title="Suisse">
+                    <img src="../icons/drapeau-ch.png" alt="CH" />
+                </span>
+                <!-- ou Valais : <span class="product-card__badge product-card__badge--flag" aria-label="Valais" title="Valais">
+                                     <img src="../icons/drapeau-vs.svg" alt="VS" /></span> -->
+                <!-- Pour email/newsletter (où les images sont parfois bloquées), fallback texte :
+                     <span class="product-card__badge product-card__badge--origin">CH</span> -->
+            </div>
 
             <img src="../../images/produit-exemple.jpg" alt="Nom du produit" />
         </div>

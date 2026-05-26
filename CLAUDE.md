@@ -32,7 +32,7 @@ et couleurs de marque y sont définis **une seule fois**.
 **Couleurs marque immuables** (jamais override par un thème saisonnier) :
 - Bleu Surgelé : `#4aa8d8`
 - Rouge CH/VS : `#d52b1e`
-- Orange remise promo : `#e8821a`
+- Rouge promo (bandeau + remise) : `#f95600`
 - Beige bandeau prix : `#fff6e3`
 
 Le thème saisonnier (vert forêt été, vert printemps Pâques, etc.) ne pilote
