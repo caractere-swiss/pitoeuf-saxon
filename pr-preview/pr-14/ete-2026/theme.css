@@ -12,7 +12,11 @@
     --accent-border:  #c8e296;   /* bordure carte */
     --accent-hi:      #f5c514;   /* or soleil (titre hero + liens footer) */
 
-    --hero-gradient:  linear-gradient(155deg, #1a4208 0%, #377a10 50%, #c49818 100%);
+    /* Dégradé adouci : darks moins durs + lumière radiale superposée
+       pour casser l'aspect « bandeau plat » */
+    --hero-gradient:
+        radial-gradient(ellipse at 75% 40%, rgba(255, 220, 130, .35) 0%, transparent 55%),
+        linear-gradient(155deg, #2a5810 0%, #4a8a16 45%, #b89126 100%);
 
     --text-dark:      #1e300a;
     --text-mid:       #3a5018;
@@ -20,13 +24,13 @@
 
 /* Décoration héros : millésime en filigrane */
 .hero-deco::before {
-    content: "26";
+    content: "2026";
     display: block;
-    font-size: clamp(90px, 15vw, 160px);
+    font-size: clamp(80px, 13vw, 150px);
     font-weight: 900;
     line-height: 1;
-    letter-spacing: -6px;
-    color: rgba(255, 255, 255, .08);
+    letter-spacing: -4px;
+    color: rgba(255, 255, 255, .06);
     text-align: right;
 }
 
