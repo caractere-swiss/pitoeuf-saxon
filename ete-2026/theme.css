@@ -93,22 +93,16 @@ body {
 .hero-print-btn svg { flex-shrink: 0; }
 
 /* ── Impression PDF ─────────────────────────────────────────
-   On préserve le fond bois + le héros vert pour conserver
-   l'identité visuelle dans le PDF généré. */
+   Fond blanc propre pour le PDF B2B : on retire le bois (cover
+   + no-repeat laissait une bande beige sur les pages 2-3). On
+   garde le dégradé vert du héros pour préserver l'identité. */
 @media print {
-    /* Garder le fond bois (landing-base.css le neutralise en blanc) */
     body {
-        background-image: url(../images/fond-bois-blanc.webp) !important;
-        background-color: #ece5d6 !important;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        background-position: center center !important;
+        background: #fff !important;
     }
-    /* Garder le dégradé vert du héros */
     .hero {
         background: var(--hero-gradient) !important;
     }
-    /* Masquer le bouton lui-même */
     .hero-print-btn { display: none !important; }
 }
 
