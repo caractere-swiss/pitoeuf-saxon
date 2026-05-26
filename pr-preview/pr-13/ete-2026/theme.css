@@ -1,0 +1,101 @@
+/* ============================================================
+   Theme : Été 2026 — palette « Soleil & herbes »
+   Vert forêt + herbe fraîche + or soleil
+   ============================================================ */
+
+:root {
+    --accent-dark:    #2e5c0e;   /* vert forêt profond */
+    --accent-mid:     #5a9018;   /* herbe fraîche vive */
+    --accent-light:   #dff2b4;   /* vert pâle lumineux */
+    --accent-bg:      #f8fbf0;   /* fond page ivoire-vert */
+    --accent-soft:    #f2f8e4;   /* fond footer carte */
+    --accent-border:  #c8e296;   /* bordure carte */
+    --accent-hi:      #f5c514;   /* or soleil (titre hero + liens footer) */
+
+    --hero-gradient:  linear-gradient(155deg, #1a4208 0%, #377a10 50%, #c49818 100%);
+
+    --text-dark:      #1e300a;
+    --text-mid:       #3a5018;
+}
+
+/* Décoration héros : millésime en filigrane */
+.hero-deco::before {
+    content: "26";
+    display: block;
+    font-size: clamp(90px, 15vw, 160px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -6px;
+    color: rgba(255, 255, 255, .08);
+    text-align: right;
+}
+
+/* Fond bois blanchi — esprit terroir / artisanal
+   Image WebP (~ 224 ko, 50% plus léger que JPG)
+   Tiled verticalement pour couvrir la page entière,
+   peu importe sa hauteur. */
+body {
+    background-image: url(../images/fond-bois-blanc.webp);
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
+    background-position: top center;
+    background-color: #ece5d6;
+}
+
+/* Supprime la bande crème sous le héros — le bois apparaît
+   directement après la courbe du gradient */
+.hero::before { background: transparent; }
+
+/* Cartes : ombre douce pour ressortir sur le bois */
+.card {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+}
+
+/* Bouton « Télécharger en PDF » dans le héros */
+.hero-print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 10px 18px;
+    background: #fff;
+    color: var(--accent-dark);
+    border: none;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.hero-print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .24);
+    background: var(--accent-hi);
+    color: var(--text-dark);
+}
+.hero-print-btn svg { flex-shrink: 0; }
+
+/* ── Impression PDF ─────────────────────────────────────────
+   On préserve le fond bois + le héros vert pour conserver
+   l'identité visuelle dans le PDF généré. */
+@media print {
+    /* Garder le fond bois (landing-base.css le neutralise en blanc) */
+    body {
+        background-image: url(../images/fond-bois-blanc.jpg) !important;
+        background-color: #ece5d6 !important;
+        background-size: 100% auto !important;
+        background-repeat: no-repeat !important;
+        background-position: top center !important;
+    }
+    /* Garder le dégradé vert du héros */
+    .hero {
+        background: var(--hero-gradient) !important;
+    }
+    /* Masquer le bouton lui-même */
+    .hero-print-btn { display: none !important; }
+}
+
