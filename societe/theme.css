@@ -1,215 +1,300 @@
 /* ============================================================
-   Société — palette institutionnelle Pitoeuf SA
-   Page About / Société : sobre, pas de couleurs saisonnières.
-   Override minimal de landing-base.css.
+   Société — palette institutionnelle pitoeuf.ch
+   PAS de couleurs saisonnières. PAS de rouge promo #f95600.
    ============================================================ */
 
+/* ── RESET VARIABLES landing-base (inutilisées ici) ── */
 :root {
-    /* Palette institutionnelle : bleu marine + bleu Pitoeuf */
-    --accent-dark:   #1a3348;
-    --accent-mid:    #2e5a7e;
-    --accent-light:  #dce9f4;
-    --accent-bg:     #f5f7fa;
-    --accent-soft:   #eef3f8;
-    --accent-border: #ccdae8;
-    --accent-hi:     #4aa8d8;   /* bleu Pitoeuf officiel */
+    --accent-dark:   #333333;
+    --accent-mid:    #E66624;   /* orange institutionnel pitoeuf.ch */
+    --accent-light:  #F2F2F2;
+    --accent-bg:     #F2F2F2;
+    --accent-soft:   #F2F2F2;
+    --accent-border: #D8D8D8;
+    --accent-hi:     #E66624;
 
-    --hero-gradient: linear-gradient(160deg, #1a3348 0%, #2e5a7e 55%, #4aa8d8 100%);
+    --text-dark:  #333333;
+    --text-mid:   #333333;
+    --text-muted: #666666;
+    --text-faint: #888888;
 
-    --text-dark:  #1a1a1a;
-    --text-mid:   #3d4f5e;
-    --text-muted: #666;
-    --text-faint: #888;
+    --font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /* Couleurs propres à cette page */
+    --orange:      #E66624;
+    --grey-bg:     #F2F2F2;
+    --grey-text:   #333333;
+    --grey-meta:   #666666;
+    --white:       #FFFFFF;
+    --border:      #D8D8D8;
 }
 
-/* Fond blanc propre — pas de bois, pas de texture saisonnière */
+/* ── FOND PAGE ── */
 body {
-    background: #f5f7fa;
+    background: var(--grey-bg);
+    color: var(--grey-text);
+    font-family: var(--font-stack);
 }
 
-/* Héros plus compact, pas de clip-path "vague" */
-.hero::before { display: none; }
-.hero-inner   { padding: 52px 24px 56px; }
-
-/* ── TOPBAR ── */
-.topbar {
-    background: #fff;
-    border-bottom: 1px solid var(--accent-border);
-    font-size: 13px;
-    font-weight: 600;
+/* ── EN-TÊTE SIMPLE (bloc 1) ── */
+.site-header {
+    background: #222222;   /* fond sombre : logo blanc visible */
+    border-bottom: 3px solid var(--orange);
 }
-.topbar .container {
-    padding-top: 12px;
-    padding-bottom: 12px;
-}
-.topbar a {
-    color: var(--accent-mid);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-.topbar a:hover { color: var(--accent-dark); text-decoration: underline; }
-
-/* ── SECTIONS DE PAGE ── */
-.page-section {
-    margin-top: 56px;
-}
-
-.section-title {
-    font-size: 22px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent-dark);
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 3px solid var(--accent-hi);
-    display: inline-block;
-}
-
-/* ── BLOC TEXTE PRÉSENTATION ── */
-.text-block {
-    max-width: 720px;
-    font-size: 16px;
-    line-height: 1.75;
-    color: var(--text-mid);
-}
-.text-block p + p { margin-top: 16px; }
-
-/* ── GRILLE ENGAGEMENTS (3 cartes) ── */
-.commitment-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
-}
-.commitment-card {
-    background: #fff;
-    border: 1px solid var(--accent-border);
-    border-radius: 14px;
-    padding: 28px 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-}
-.commitment-card h3 {
-    font-size: 16px;
-    font-weight: 800;
-    color: var(--accent-dark);
-    margin: 16px 0 10px;
-}
-.commitment-card p {
-    font-size: 14px;
-    line-height: 1.65;
-    color: var(--text-muted);
-}
-.commitment-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--accent-light);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.commitment-icon svg { color: var(--accent-mid); }
-
-/* ── GRILLE CONTACT ── */
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-}
-.contact-card {
-    background: #fff;
-    border: 1px solid var(--accent-border);
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-}
-.contact-card h3 {
-    font-size: 13px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent-hi);
-    margin-bottom: 12px;
-}
-.contact-card address,
-.contact-card p {
-    font-style: normal;
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--text-mid);
-}
-.contact-card a {
-    color: var(--accent-mid);
-    text-decoration: none;
-    font-weight: 600;
-}
-.contact-card a:hover { text-decoration: underline; }
-
-/* ── BANDEAU CATALOGUE ── */
-.catalog-banner {
-    margin-top: 48px;
-    background: var(--accent-dark);
-    border-radius: 14px;
-    padding: 28px 32px;
+.site-header__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 20px;
     flex-wrap: wrap;
 }
-.catalog-banner__text {
-    color: #fff;
-    font-size: 15px;
-    line-height: 1.5;
+.site-header__logo img {
+    height: 52px;
 }
-.catalog-banner__text strong {
-    display: block;
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 4px;
+.site-header__nav {
+    font-size: 13px;
 }
-.catalog-banner__link {
-    display: inline-block;
-    background: var(--accent-hi);
-    color: #fff;
+.site-header__nav a {
+    color: rgba(255, 255, 255, .7);
     text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    padding: 12px 24px;
-    border-radius: 999px;
-    white-space: nowrap;
-    transition: background .15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
 }
-.catalog-banner__link:hover { background: #3594c0; }
+.site-header__nav a:hover { color: #fff; text-decoration: underline; }
 
-/* ── DRAFT NOTICE ── */
+.site-header__title-bar {
+    background: var(--grey-bg);
+    border-bottom: 1px solid var(--border);
+}
+.site-header__title-bar .container {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+.page-title {
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 800;
+    letter-spacing: -.5px;
+    color: var(--grey-text);
+}
+.page-title-separator {
+    color: var(--orange);
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1;
+}
+.page-breadcrumb {
+    font-size: 13px;
+    color: var(--grey-meta);
+}
+.page-breadcrumb a {
+    color: var(--grey-meta);
+    text-decoration: none;
+}
+.page-breadcrumb a:hover { color: var(--orange); }
+
+/* ── NOTICE BROUILLON ── */
 .draft-notice {
     background: #fff8e1;
-    border: 2px dashed #f5c514;
-    border-radius: 10px;
-    padding: 14px 20px;
+    border: 2px dashed #cca000;
+    border-radius: 6px;
+    padding: 11px 20px;
     font-size: 13px;
-    color: #7a6000;
+    color: #6b5000;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 32px;
+    margin: 20px 0 0;
 }
 
+/* ── SECTION GÉNÉRIQUE ── */
+.page-section {
+    padding: 48px 0;
+}
+.page-section + .page-section {
+    border-top: 1px solid var(--border);
+}
+.page-section--grey {
+    background: var(--grey-bg);
+}
+.page-section--white {
+    background: var(--white);
+}
+
+.section-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+}
+.section-heading {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--grey-text);
+    margin-bottom: 20px;
+}
+
+/* ── BLOC 2 : INTRO ── */
+.intro-text {
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--grey-text);
+    max-width: 720px;
+    border-left: 4px solid var(--orange);
+    padding-left: 20px;
+    font-style: italic;
+}
+
+/* ── BLOC 3 : PILIERS (3 colonnes) ── */
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.pillar {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 24px;
+}
+.pillar__icon {
+    width: 44px;
+    height: 44px;
+    background: var(--grey-bg);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--orange);
+}
+.pillar__title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--grey-text);
+    margin-bottom: 10px;
+}
+.pillar__text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--grey-meta);
+}
+
+/* ── BLOC 4 : CHIFFRES CLÉS ── */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--white);
+}
+.stat {
+    padding: 32px 20px;
+    text-align: center;
+}
+.stat + .stat {
+    border-left: 1px solid var(--border);
+}
+.stat__number {
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+    display: block;
+}
+.stat__label {
+    font-size: 13px;
+    color: var(--grey-meta);
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+/* ── BLOC 5 : ANCRAGE LOCAL (secondaire) ── */
+.local-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+}
+.local-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+.local-heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--grey-meta);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.local-text {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--grey-meta);
+}
+
+/* ── FOOTER ── */
+footer {
+    margin-top: 0;
+    background: var(--grey-text);
+    color: rgba(255, 255, 255, .75);
+    padding: 36px 24px;
+    text-align: center;
+}
+footer .footer-logo img {
+    height: 40px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 16px;
+}
+footer p { font-size: 13px; line-height: 2; }
+footer a {
+    color: #E6A080;
+    text-decoration: none;
+}
+footer a:hover { text-decoration: underline; }
+
 /* ── RESPONSIVE ── */
-@media (max-width: 480px) {
-    .commitment-grid,
-    .contact-grid { grid-template-columns: 1fr; }
-    .catalog-banner { flex-direction: column; align-items: flex-start; }
+@media (max-width: 768px) {
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
+    .local-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .stat + .stat:nth-child(odd) {
+        border-left: none;
+        border-top: 1px solid var(--border);
+    }
+    .stat + .stat:nth-child(even) {
+        border-top: 1px solid var(--border);
+    }
+    .page-title { font-size: 22px; }
 }
 
 /* ── PRINT ── */
 @media print {
-    .topbar { display: none; }
     .draft-notice { display: none; }
     body { background: #fff; }
-    .commitment-card,
-    .contact-card { box-shadow: none; border-color: #ccc; }
-    .catalog-banner { background: #1a3348 !important; }
+    .site-header { border-bottom-width: 2px; }
+    .pillar, .stats-grid { box-shadow: none; }
+    footer { background: #333 !important; }
 }

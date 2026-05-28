@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notre société — Pitoeuf SA</title>
-    <meta name="description" content="Pitoeuf SA — Grossiste en comestibles basé à Saxon (Valais). Votre partenaire alimentaire pour les professionnels de la restauration, boucherie et traiteur en Suisse romande." />
+    <title>Société — Pitoeuf SA</title>
+    <meta name="description" content="Pitoeuf SA, grossiste alimentaire familial établi à Saxon (Valais) depuis 1947. Plus de 1600 clients professionnels en Suisse romande et alémanique." />
 
     <meta property="og:type"        content="website" />
-    <meta property="og:title"       content="Notre société — Pitoeuf SA" />
-    <meta property="og:description" content="Grossiste en comestibles à Saxon (Valais) depuis plusieurs décennies. Viandes fraîches et surgelées, volaille, poisson, épicerie." />
+    <meta property="og:title"       content="Société — Pitoeuf SA" />
+    <meta property="og:description" content="Grossiste alimentaire familial établi à Saxon, en Valais, depuis 1947. Produits frais et surgelés pour les professionnels de la restauration." />
     <meta property="og:url"         content="https://pitoeuf.ch/societe/" />
     <meta property="og:image"       content="https://caractere-swiss.github.io/pitoeuf-saxon/images/logo-pitoeuf-blanc.png" />
     <meta property="og:locale"      content="fr_CH" />
@@ -20,170 +20,169 @@
 </head>
 <body>
 
-<!-- ── TOPBAR : lien retour portail ── -->
-<div class="topbar">
-    <div class="container">
-        <a href="../">
-            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="10 3 5 8 10 13"/>
-            </svg>
-            Feuillets promotionnels
-        </a>
-    </div>
-</div>
-
-<!-- ── DRAFT NOTICE ── -->
-<div class="container" style="margin-top: 20px;">
-    <p class="draft-notice">Maquette brouillon — à valider avant portage WordPress/Elementor</p>
-</div>
-
-<!-- ═══════════════════════════════════
-     HERO
-════════════════════════════════════ -->
-<header class="hero">
-    <div class="hero-inner">
-        <div class="hero-logo">
-            <img src="../images/logo-pitoeuf-blanc.png" alt="Pitoeuf SA" />
+<!-- ══════════════════════════════════════════
+     BLOC 1 — EN-TÊTE SIMPLE
+     Fond blanc + séparateur orange.
+     Pas de héros plein écran.
+════════════════════════════════════════════ -->
+<header class="site-header">
+    <div class="site-header__inner">
+        <div class="site-header__logo">
+            <img src="../images/logo-pitoeuf-blanc.png"
+                 alt="Pitoeuf SA"
+                 style="height: 52px;" />
         </div>
-        <div class="hero-text">
-            <p class="hero-eyebrow">Grossiste en comestibles · Saxon, Valais</p>
-            <h1 class="hero-title">Notre <span>Société</span></h1>
-            <p class="hero-subtitle">Votre partenaire alimentaire en Suisse romande</p>
-        </div>
+        <nav class="site-header__nav" aria-label="Navigation secondaire">
+            <a href="../">
+                <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="10 3 5 8 10 13"/>
+                </svg>
+                Feuillets promotionnels
+            </a>
+        </nav>
     </div>
 </header>
 
+<div class="site-header__title-bar">
+    <div class="container">
+        <span class="page-breadcrumb"><a href="../">Pitoeuf SA</a> &rsaquo;</span>
+        <h1 class="page-title">Société</h1>
+    </div>
+</div>
+
+<!-- Notice brouillon -->
+<div class="container">
+    <p class="draft-notice">Maquette brouillon — à valider avant portage WordPress / Elementor</p>
+</div>
+
 <main>
 
-    <!-- ═══════════════════════════════════
-         QUI SOMMES-NOUS
-    ════════════════════════════════════ -->
-    <section class="container page-section">
-        <h2 class="section-title">Qui sommes-nous ?</h2>
-        <div class="text-block">
-            <p>Pitoeuf SA est un grossiste en comestibles implanté à Saxon, au cœur du Valais. Depuis plusieurs décennies, nous approvisionnons les professionnels de la restauration, de la boucherie et du traiteur en Suisse romande avec des produits de qualité soigneusement sélectionnés.</p>
-            <p>Notre catalogue couvre l'ensemble des besoins culinaires : viandes fraîches et surgelées, volaille, poisson, charcuterie et épicerie sèche. Nous travaillons en étroite collaboration avec des fournisseurs locaux et internationaux de confiance pour vous offrir le meilleur rapport qualité-prix tout au long de l'année.</p>
-            <p>Solidement ancrés en Valais, nous connaissons les exigences des métiers de bouche et adaptons notre offre aux réalités du terrain — saisons, réglementations, besoins des établissements professionnels.</p>
-        </div>
-    </section>
+<!-- ══════════════════════════════════════════
+     BLOC 2 — INTRO NARRATIVE
+     Fond blanc, texte sobre.
+════════════════════════════════════════════ -->
+<section class="page-section page-section--white">
+    <div class="container">
+        <blockquote class="intro-text">
+            Pitoeuf SA est un grossiste alimentaire familial établi à Saxon,
+            en Valais. Depuis 1947, quatre générations se succèdent pour
+            approvisionner les professionnels de la restauration en produits
+            frais et surgelés.
+        </blockquote>
+    </div>
+</section>
 
-    <!-- ═══════════════════════════════════
-         NOS ENGAGEMENTS
-    ════════════════════════════════════ -->
-    <section class="container page-section">
-        <h2 class="section-title">Nos engagements</h2>
-        <div class="commitment-grid">
+<!-- ══════════════════════════════════════════
+     BLOC 3 — 3 PILIERS
+     3 colonnes desktop, empilement mobile.
+════════════════════════════════════════════ -->
+<section class="page-section page-section--grey">
+    <div class="container">
+        <div class="pillars-grid">
 
-            <!-- Qualité -->
-            <div class="commitment-card">
-                <div class="commitment-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                </div>
-                <h3>Qualité &amp; Fraîcheur</h3>
-                <p>Chaque produit est sélectionné avec soin. Nos filières fraîches et surgelées respectent les normes sanitaires et HACCP les plus strictes.</p>
-            </div>
-
-            <!-- Ancrage local -->
-            <div class="commitment-card">
-                <div class="commitment-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                        <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                </div>
-                <h3>Ancrage local</h3>
-                <p>Fiers d'être valaisans, nous privilégions les producteurs régionaux et les circuits courts quand la qualité et la disponibilité le permettent.</p>
-            </div>
-
-            <!-- Service -->
-            <div class="commitment-card">
-                <div class="commitment-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Pilier 1 — Confiance -->
+            <div class="pillar">
+                <div class="pillar__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                         <circle cx="9" cy="7" r="4"/>
                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
                         <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                     </svg>
                 </div>
-                <h3>Service professionnel</h3>
-                <p>Équipe commerciale disponible, livraisons fiables et catalogue régulièrement renouvelé pour répondre aux exigences des professionnels.</p>
+                <h2 class="pillar__title">Confiance</h2>
+                <p class="pillar__text">
+                    Plus de 1600 restaurants, hôtels, cafés et collectivités nous
+                    font confiance, en Suisse romande et alémanique.
+                </p>
             </div>
 
-            <!-- Gamme complète -->
-            <div class="commitment-card">
-                <div class="commitment-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="8" y1="6" x2="21" y2="6"/>
-                        <line x1="8" y1="12" x2="21" y2="12"/>
-                        <line x1="8" y1="18" x2="21" y2="18"/>
-                        <line x1="3" y1="6" x2="3.01" y2="6"/>
-                        <line x1="3" y1="12" x2="3.01" y2="12"/>
-                        <line x1="3" y1="18" x2="3.01" y2="18"/>
+            <!-- Pilier 2 — Sécurité -->
+            <div class="pillar">
+                <div class="pillar__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                     </svg>
                 </div>
-                <h3>Gamme complète</h3>
-                <p>Viandes fraîches et surgelées, volaille, poisson, charcuterie, épicerie — tout ce dont vous avez besoin, chez un seul fournisseur.</p>
+                <h2 class="pillar__title">Sécurité</h2>
+                <p class="pillar__text">
+                    Un stock permanent d'environ 2500 tonnes de produits frais et
+                    surgelés assure la continuité de votre approvisionnement.
+                </p>
             </div>
 
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════
-         CATALOGUE — APPEL À L'ACTION
-    ════════════════════════════════════ -->
-    <div class="container">
-        <div class="catalog-banner">
-            <div class="catalog-banner__text">
-                <strong>Découvrez nos feuillets promotionnels</strong>
-                Sélections saisonnières renouvelées plusieurs fois par an pour les professionnels.
+            <!-- Pilier 3 — Traçabilité -->
+            <div class="pillar">
+                <div class="pillar__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 11 12 14 22 4"/>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                    </svg>
+                </div>
+                <h2 class="pillar__title">Traçabilité</h2>
+                <p class="pillar__text">
+                    Chaque produit entrant est contrôlé, étiqueté et stocké en froid.
+                    Un suivi informatique précis garantit la traçabilité complète.
+                </p>
             </div>
-            <a class="catalog-banner__link" href="../">Voir les feuillets</a>
+
         </div>
     </div>
+</section>
 
-    <!-- ═══════════════════════════════════
-         CONTACT & COMMANDES
-    ════════════════════════════════════ -->
-    <section class="container page-section">
-        <h2 class="section-title">Nous contacter</h2>
-        <div class="contact-grid">
-
-            <div class="contact-card">
-                <h3>Adresse</h3>
-                <address>
-                    Pitoeuf SA<br>
-                    <!-- À compléter avec l'adresse exacte -->
-                    1914 Saxon (VS)<br>
-                    Suisse
-                </address>
+<!-- ══════════════════════════════════════════
+     BLOC 4 — CHIFFRES CLÉS
+     Fond blanc, grille 4 colonnes.
+     Sobre — pas de cercles colorés.
+════════════════════════════════════════════ -->
+<section class="page-section page-section--white">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat">
+                <span class="stat__number">3000+</span>
+                <span class="stat__label">références<br>frais et surgelés</span>
             </div>
-
-            <div class="contact-card">
-                <h3>Téléphone &amp; e-mail</h3>
-                <p>
-                    <!-- À compléter -->
-                    <a href="tel:+41XXXXXXXXX">+41 XX XXX XX XX</a>
-                </p>
-                <p>
-                    <a href="mailto:info@pitoeuf.ch">info@pitoeuf.ch</a>
-                </p>
+            <div class="stat">
+                <span class="stat__number">40 000</span>
+                <span class="stat__label">livraisons<br>par an</span>
             </div>
-
-            <div class="contact-card">
-                <h3>Commandes en ligne</h3>
-                <p>
-                    <a href="https://pitoeuf.ch" target="_blank" rel="noopener">pitoeuf.ch</a>
-                </p>
-                <p>Commandez via notre site ou directement par téléphone auprès de votre commercial attitré.</p>
+            <div class="stat">
+                <span class="stat__number">1600+</span>
+                <span class="stat__label">clients<br>professionnels</span>
             </div>
-
+            <div class="stat">
+                <span class="stat__number">2500 t</span>
+                <span class="stat__label">de stock<br>permanent</span>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Espacement bas de page -->
-    <div style="margin-bottom: 24px;"></div>
+<!-- ══════════════════════════════════════════
+     BLOC 5 — ANCRAGE LOCAL & ENVIRONNEMENT
+     Visuellement SECONDAIRE — police réduite.
+     Image gauche + texte droite (desktop).
+════════════════════════════════════════════ -->
+<section class="page-section page-section--grey">
+    <div class="container">
+        <div class="local-layout">
+            <div class="local-image">
+                <img src="images/placeholder-solaire.svg"
+                     alt="Centre logistique de Saxon — panneaux solaires"
+                     width="400" height="300" />
+            </div>
+            <div>
+                <p class="local-heading">Ancrage local &amp; environnement</p>
+                <p class="local-text">
+                    Implantée en Valais, l'entreprise met en avant les produits
+                    régionaux et suisses dans son assortiment — produits du terroir
+                    valaisan, circuits courts, sourcing local. Son centre logistique
+                    de Saxon est équipé d'une installation solaire.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
 </main>
 
@@ -194,7 +193,11 @@
     </div>
     <p>
         Pitoeuf SA — Grossiste en comestibles<br>
-        Saxon, Valais, Suisse<br>
+        1914 Saxon, Valais, Suisse<br>
+        <a href="https://pitoeuf.ch/shop/" target="_blank" rel="noopener">Boutique en ligne</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://pitoeuf.ch/contact/" target="_blank" rel="noopener">Contact</a>
+        &nbsp;&middot;&nbsp;
         <a href="https://pitoeuf.ch" target="_blank" rel="noopener">pitoeuf.ch</a>
     </p>
 </footer>
