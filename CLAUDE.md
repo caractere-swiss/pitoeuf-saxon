@@ -70,8 +70,17 @@ vignette produit elle-même.
 │   ├── images/
 │   └── JOURNAL.md
 ├── ete-2026/                       (en cours, mockup quasi-final)
+├── v3.html                         ★ Newsletter Mailchimp (livrable client)
+│                                   — NE PAS SUPPRIMER (cf. note ci-dessous)
 └── …                               (hiver-2026, volaille-2027, …)
 ```
+
+> ⚠️ **`v3.html` (newsletter) n'est PAS du désordre à nettoyer.** C'est le
+> livrable newsletter promotionnelle Pitoeuf (HTML email Mailchimp,
+> table-based, CSS inline). Il a déjà été supprimé par erreur lors d'un
+> « nettoyage racine » (commit #11) puis restauré. **Toute future session
+> doit le conserver.** La newsletter et les landings cohabitent dans ce repo
+> et partagent la même charte (design-system).
 
 ## Méthodologie : créer une nouvelle landing saisonnière
 
