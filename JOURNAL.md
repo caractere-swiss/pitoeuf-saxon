@@ -67,6 +67,48 @@ Résultat : **2 pages** au lieu de 5.
 
 ---
 
+## Infra & déploiement Claude Code (sessions web)
+
+### 2026-05-28 — pitoeuf.ch inaccessible depuis les environnements Claude Code web
+
+Les environnements Claude Code sur le web ont une **network policy** qui filtre
+les hôtes sortants. `pitoeuf.ch` n'est pas dans la liste blanche par défaut →
+`curl` et `WebFetch` retournent `403 Host not in allowlist`.
+
+**Conséquences pratiques :**
+- Impossible de fetcher pitoeuf.ch/societe/ pour détecter textes/images
+- Impossible de télécharger des images depuis pitoeuf.ch
+- La modification de la policy ne prend effet qu'à la **prochaine session**
+  (le conteneur en cours ne recharge pas la policy à chaud)
+
+**Contournements validés :**
+
+1. **Claude Cowork** (autre session, environnement sans restriction réseau) —
+   peut fetcher la page ET télécharger les images, puis les pousser via
+   GitHub MCP (`create_or_update_file` avec base64).
+   Prompt type → voir `societe/download-images.sh` pour la liste des URLs.
+
+2. **Script `download-images.sh`** dans chaque dossier projet — convention
+   établie le 2026-05-28 pour tous les futurs projets Pitoeuf (voir ci-dessous).
+
+3. **Terminal local** — cloner le repo, exécuter `bash <dossier>/download-images.sh`,
+   committer les images, pusher.
+
+**Convention établie — `download-images.sh` par projet** :
+
+Chaque dossier de page/landing qui référence des images depuis pitoeuf.ch doit
+contenir un fichier `download-images.sh` qui :
+- Liste toutes les URLs sources avec les noms de fichiers cibles
+- Est idempotent (skip si fichier déjà présent)
+- Se suffit à lui-même (pas de dépendance externe hors `curl`)
+
+Cela permet à n'importe qui ayant accès réseau (dev local, Cowork, CI future)
+de récupérer les images en une commande, indépendamment de la session Claude.
+
+Exemple existant : `societe/download-images.sh`
+
+---
+
 ## Infra & déploiement
 
 ### 2026-05-26 — Workflow Pages explicite (contourne bug CDN GitHub)
