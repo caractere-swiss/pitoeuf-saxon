@@ -1,0 +1,108 @@
+/* ============================================================
+   Theme : Été 2026 — palette « Soleil & herbes »
+   Vert forêt + herbe fraîche + or soleil
+   ============================================================ */
+
+:root {
+    --accent-dark:    #2e5c0e;   /* vert forêt profond */
+    --accent-mid:     #5a9018;   /* herbe fraîche vive */
+    --accent-light:   #dff2b4;   /* vert pâle lumineux */
+    --accent-bg:      #f8fbf0;   /* fond page ivoire-vert */
+    --accent-soft:    #f2f8e4;   /* fond footer carte */
+    --accent-border:  #c8e296;   /* bordure carte */
+    --accent-hi:      #f5c514;   /* or soleil (titre hero + liens footer) */
+
+    /* Dégradé adouci : darks moins durs + lumière radiale superposée
+       pour casser l'aspect « bandeau plat » */
+    --hero-gradient:
+        radial-gradient(ellipse at 75% 40%, rgba(255, 220, 130, .35) 0%, transparent 55%),
+        linear-gradient(155deg, #2a5810 0%, #4a8a16 45%, #b89126 100%);
+
+    --text-dark:      #1e300a;
+    --text-mid:       #3a5018;
+}
+
+/* Décoration héros : millésime en filigrane */
+.hero-deco::before {
+    content: "2026";
+    display: block;
+    font-size: clamp(80px, 13vw, 150px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -4px;
+    color: rgba(255, 255, 255, .06);
+    text-align: right;
+}
+
+/* Fond bois blanchi — esprit terroir / artisanal
+   fixed : l'image reste en place, le contenu défile par-dessus.
+   Pas de repeat, pas de fleur dupliquée. */
+body {
+    background-image: url(../images/fond-bois-blanc.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-color: #ece5d6;
+}
+
+/* Mobile : fixed bg non supporté nativement (scroll-linked) →
+   fallback sur la couleur bois ivoire */
+@media (max-width: 767px) {
+    body {
+        background-attachment: scroll;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+    }
+}
+
+/* Supprime la bande crème sous le héros — le bois apparaît
+   directement après la courbe du gradient */
+.hero::before { background: transparent; }
+
+/* Cartes : ombre douce pour ressortir sur le bois */
+.card {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+}
+
+/* Bouton « Télécharger en PDF » dans le héros */
+.hero-print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 10px 18px;
+    background: #fff;
+    color: var(--accent-dark);
+    border: none;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.hero-print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .24);
+    background: var(--accent-hi);
+    color: var(--text-dark);
+}
+.hero-print-btn svg { flex-shrink: 0; }
+
+/* ── Impression PDF ─────────────────────────────────────────
+   Fond blanc propre pour le PDF B2B : on retire le bois (cover
+   + no-repeat laissait une bande beige sur les pages 2-3). On
+   garde le dégradé vert du héros pour préserver l'identité. */
+@media print {
+    body {
+        background: #fff !important;
+    }
+    .hero {
+        background: var(--hero-gradient) !important;
+    }
+    .hero-print-btn { display: none !important; }
+}
+
