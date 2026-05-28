@@ -43,11 +43,19 @@
 - 2026-05-28 — Vignette produit alignée sur le style design-system (réf. = carte
   « Bœuf » d'Été 2026) : bandeau promo avec date, méta Réf/Provenance, bandeau prix
   crème avec cercle remise + bloc prix. (en cours)
-- 2026-05-28 — Bouton « Ajouter » remplacé par l'**icône panier officielle**
-  (`design-system/icons/panier.svg`, blanche sur bouton jaune). SVG pour la preview,
-  **PNG à produire pour l'envoi Mailchimp**.
 - 2026-05-28 — Icône panier rangée dans les assets partagés (`design-system/icons/`),
   réutilisable par les landings / futurs projets.
+- 2026-05-28 — Badges (conditionnement + origine) repositionnés en **overlay
+  haut-gauche sur la photo** (`position:absolute`), avec les vrais assets
+  design-system (`surgele.svg`, `frais.svg`, `drapeau-ch.png`) au lieu des
+  anciennes pastilles texte.
+- 2026-05-28 — **Bouton panier retiré** de la vignette : inutile en email (le
+  sélecteur de quantité n'existe que sur le site). `panier.svg` reste dans le
+  design-system pour les landings.
+- 2026-05-28 — **Hauteur des cartes uniformisée** : chaque vignette est une
+  `<table height="100%">` à 2 lignes (corps `valign=top` / bandeau prix
+  `valign=bottom`) + `min-height:42px` sur `.card-title` (réserve 2 lignes).
+  Les cartes d'une même ligne s'alignent, titres courts ou longs.
 
 ## Pistes abandonnées (héritage maquettes Gemini)
 
@@ -62,19 +70,36 @@
 ### Vignette produit
 - [x] Reconstruire les 6 cartes au style design-system (bandeau date, méta
       Réf/Provenance, badges, bandeau prix crème + cercle remise)
-- [x] Intégrer l'icône panier (bouton jaune, à droite du bandeau prix)
+- [x] Badges conditionnement + origine en overlay haut-gauche (assets DS)
+- [x] Bouton panier retiré (inutile en email)
+- [x] Hauteur des cartes uniformisée (table height=100% + min-height titre)
 - [ ] Remplacer les valeurs d'exemple (Réf., provenance, conditionnement, quantité)
       par les vraies données produit **avant envoi** ⚠️
-- [ ] Produire le PNG du panier pour Mailchimp (SVG ok en preview navigateur,
-      pas en email) ⚠️
-- [ ] Vérifier rendu badges/cercle remise dans Outlook (border-radius dégradé)
+
+### ⚠️ Risques email à arbitrer AVANT envoi Mailchimp
+
+Le rendu est nickel en preview navigateur, mais l'email a des contraintes que
+le navigateur n'a pas. À trancher avec Olivier / tester avant diffusion :
+
+1. **Icônes SVG → PNG** : `surgele.svg` et `frais.svg` ne s'affichent PAS dans
+   Gmail/Outlook (SVG non supporté en email). Produire des PNG (ex. 56×56 px
+   pour la netteté retina) et pointer dessus dans la newsletter.
+2. **Badges en overlay (`position:absolute`)** : non supporté par Outlook
+   (moteur Word) et fragile sous Gmail → les badges risquent de retomber
+   sous/au-dessus de la photo. Option robuste : bande de badges dans une
+   `<td>` au-dessus de la photo, ou badges « cuits » dans l'image produit.
+3. **Images produits hotlinkées depuis pitoeuf.ch** : le hotlinking est bloqué
+   → en email elles peuvent ne pas charger. Les ré-héberger dans Mailchimp
+   (upload dans le Content Studio) avant envoi.
+4. `border-radius` / `box-shadow` / `drop-shadow` : ignorés par Outlook
+   (coins droits, pas d'ombre) — dégradation acceptable, à valider visuellement.
 
 ### Avant envoi (ops / client)
 - [ ] Validation finale par Olivier
 - [ ] Intégration dans le template Mailchimp
 - [ ] Vérifier merge tags Mailchimp (`*|UNSUB|*` ok ; besoin de `*|FNAME|*`, `*|ARCHIVE|*` ?)
 - [ ] Segmentation Mailchimp : footer « Devenez client » (prospects) vs « Mon compte » (clients)
-- [ ] Tests de rendu (Gmail, Outlook, Apple Mail)
+- [ ] Tests de rendu (Gmail, Outlook, Apple Mail) — idéalement via Litmus / Email on Acid
 - [ ] Communiquer la nouvelle URL preview au client (l'ancien lien iliasfun est mort)
 
 ---
@@ -85,7 +110,7 @@
 |---|---|---|---|
 | #17 | Restauration + organisation + couleurs charte | `claude/nice-galileo-zFUNp` | ✅ mergée |
 | #18 | Cohérence doc (déploiement gh-pages) + portail « Projets internes » | `claude/doc-coherence-Kp3mq` | 🟡 ouverte |
-| (à venir) | Vignette produit au style design-system + icône panier | `claude/newsletter-vignette-DS-9xQ2` | 🟡 en cours |
+| #19 | Vignette produit style DS : badges overlay, panier retiré, hauteur uniforme | `claude/newsletter-vignette-DS-9xQ2` | 🟡 en cours |
 
 ## Règle de scope (session)
 

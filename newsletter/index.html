@@ -36,7 +36,9 @@
 
         /* ===== VIGNETTE PRODUIT — style design-system Pitoeuf =====
            Réplique email (table + inline) de design-system/components/product-card.css.
-           Badges en pastilles texte (le SVG ne s'affiche pas en email). */
+           Hauteur uniforme via table imbriquée height=100% (corps en haut, prix en bas).
+           ⚠️ Badges en overlay position:absolute + icônes SVG : OK navigateur/preview,
+           dégradé sous Outlook/Gmail → prévoir PNG + fallback avant envoi Mailchimp. */
         .product-card {
             background-color: #ffffff;
             border: 1px solid #e5e5e5;
