@@ -64,8 +64,11 @@ les `src` placeholder et les icônes SVG inline par les vrais fichiers.
 
 ## TODO différés
 
-- [ ] **Exécuter `download-images.sh`** depuis un env avec accès réseau
-      et remplacer les 8 placeholders dans `index.html`
+- [x] **4 images téléchargées** via Cowork + token temporaire (2026-05-28) :
+      `pitoeuf-equipe-fr.webp`, `icon-confiance.png`, `icon-securite.png`,
+      `icon-tracabilite.png` — intégrées dans `index.html`
+- [ ] **4 icônes shop** restantes (`icon-shop-*.png`) — toujours en SVG
+      inline, à télécharger via `download-images.sh`
 - [ ] **Valider la maquette** avec Olivier (textes, structure, palette)
       avant portage WordPress/Elementor
 - [ ] **Vérifier les icônes des piliers** : les images pitoeuf.ch
