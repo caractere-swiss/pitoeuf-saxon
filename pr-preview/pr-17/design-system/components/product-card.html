@@ -1,0 +1,113 @@
+<!--
+    ════════════════════════════════════════════════════════════
+    Product Card — Exemples de markup
+    ════════════════════════════════════════════════════════════
+    Inclure le CSS :
+        <link rel="stylesheet"
+              href="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/components/product-card.css">
+
+    Ou en local pour un projet du dépôt :
+        <link rel="stylesheet" href="../design-system/components/product-card.css">
+
+    Documentation complète : ../README.md
+    ════════════════════════════════════════════════════════════
+-->
+
+<!-- ─── Vignette complète : promo + surgelé + suisse + remise ─── -->
+<article class="product-card">
+    <!-- Bandeau promo (optionnel, OMETTRE pour produit hors-promo) -->
+    <div class="product-card__promo-banner">
+        <strong>Promo</strong> <span class="until">jusqu'au 31.08</span>
+    </div>
+
+    <a href="https://pitoeuf.ch/produit/SLUG/" class="product-card__link" target="_blank">
+        <div class="product-card__media">
+            <!-- Groupe de badges (top-left) :
+                 conditionnement à gauche, origine à droite -->
+            <div class="product-card__badges">
+                <!-- Conditionnement : Surgelé / Frais / Sec — choisir UNE seule icône
+                     Icônes officielles dans design-system/icons/ -->
+                <span class="product-card__badge product-card__badge--frozen" aria-label="Surgelé" title="Surgelé">
+                    <img src="../icons/surgele.svg" alt="" />
+                </span>
+                <!-- ou : <span class="product-card__badge product-card__badge--fresh">
+                              <img src="../icons/frais.svg" alt="" /></span> -->
+                <!-- ou : <span class="product-card__badge product-card__badge--dry">
+                              <img src="../icons/sec.svg" alt="" /></span> -->
+
+                <!-- Provenance : drapeau CH ou VS — toujours à droite du conditionnement -->
+                <span class="product-card__badge product-card__badge--flag" aria-label="Suisse" title="Suisse">
+                    <img src="../icons/drapeau-ch.png" alt="CH" />
+                </span>
+                <!-- ou Valais : <span class="product-card__badge product-card__badge--flag" aria-label="Valais" title="Valais">
+                                     <img src="../icons/drapeau-vs.svg" alt="VS" /></span> -->
+                <!-- Pour email/newsletter (où les images sont parfois bloquées), fallback texte :
+                     <span class="product-card__badge product-card__badge--origin">CH</span> -->
+            </div>
+
+            <img src="../../images/produit-exemple.jpg" alt="Nom du produit" />
+        </div>
+
+        <div class="product-card__body">
+            <h3 class="product-card__title">Nom du produit</h3>
+            <p class="product-card__meta">
+                Réf. G1234<br>
+                Provenance : Suisse
+            </p>
+        </div>
+    </a>
+
+    <div class="product-card__price-strip">
+        <!-- Cercle remise — OMETTRE si pas de promo -->
+        <span class="product-card__discount">-20%</span>
+
+        <div class="product-card__prices">
+            <span class="product-card__quantity">1 carton | 5 kg</span>
+            <span class="product-card__price-current">
+                CHF 42.80 <span class="unit">/ kg</span>
+            </span>
+            <!-- Prix barré — OMETTRE si pas de promo -->
+            <span class="product-card__price-regular">CHF 53.50 / kg</span>
+        </div>
+    </div>
+</article>
+
+
+<!-- ─── Vignette minimale : sans badges, sans promo ─── -->
+<article class="product-card">
+    <a href="https://pitoeuf.ch/produit/SLUG/" class="product-card__link" target="_blank">
+        <div class="product-card__media">
+            <img src="../../images/produit-exemple.jpg" alt="Nom du produit" />
+        </div>
+        <div class="product-card__body">
+            <h3 class="product-card__title">Nom du produit</h3>
+            <p class="product-card__meta">
+                Réf. G5678<br>
+                Provenance : France
+            </p>
+        </div>
+    </a>
+    <div class="product-card__price-strip">
+        <div class="product-card__prices">
+            <span class="product-card__quantity">2 x 1 kg</span>
+            <span class="product-card__price-current">
+                CHF 18.90 <span class="unit">/ kg</span>
+            </span>
+        </div>
+    </div>
+</article>
+
+
+<!-- ─── Variations possibles ─── -->
+<!--
+    Badge origine : changer simplement le contenu
+        <span class="product-card__badge product-card__badge--origin">VS</span>  (Valais)
+        <span class="product-card__badge product-card__badge--origin">CH</span>  (Suisse)
+        <span class="product-card__badge product-card__badge--origin">BIO</span> (avec --pcard-origin-bg surchargé en vert)
+
+    Remise : ajuster simplement le texte
+        <span class="product-card__discount">-15%</span>
+        <span class="product-card__discount">-30%</span>
+
+    Pas de lien produit ? Remplacer <a> par <div class="product-card__link"> autour du même contenu.
+-->

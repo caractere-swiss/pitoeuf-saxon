@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pitoeuf SA — Feuillets promotionnels</title>
+    <meta name="description" content="Feuillets promotionnels saisonniers de Pitoeuf SA — grossiste en comestibles à Saxon (Valais), pour restaurateurs, bouchers et traiteurs." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pitoeuf SA — Feuillets promotionnels" />
+    <meta property="og:description" content="Sélection saisonnière de Pitoeuf SA pour les professionnels — restaurateurs, bouchers, traiteurs." />
+    <meta property="og:url" content="https://caractere-swiss.github.io/pitoeuf-saxon/" />
+    <meta property="og:image" content="https://caractere-swiss.github.io/pitoeuf-saxon/images/logo-pitoeuf-blanc.png" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f4f4f0;
+            color: #1c2a10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .wrap {
+            max-width: 720px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-size: clamp(24px, 4vw, 36px);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: -.5px;
+        }
+        .sub {
+            color: #666;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .tile {
+            display: block;
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #e0e0d6;
+            transition: transform .15s, box-shadow .15s;
+        }
+        .tile:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0,0,0,.08);
+        }
+        .tile h2 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .tile p {
+            color: #777;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>Pitoeuf SA — Feuillets</h1>
+    <p class="sub">Sélection saisonnière pour les professionnels</p>
+    <div class="grid">
+        <a class="tile" href="ete-2026/">
+            <h2>Été 2026</h2>
+            <p>jusqu'au 31 août 2026</p>
+        </a>
+        <a class="tile" href="paques-2026/">
+            <h2>Pâques 2026</h2>
+            <p>26 mars – 17 avril 2026</p>
+        </a>
+        <a class="tile" href="newsletter/">
+            <h2>Newsletter</h2>
+            <p>Actions de la semaine — email Mailchimp</p>
+        </a>
+    </div>
+</div>
+</body>
+</html>
