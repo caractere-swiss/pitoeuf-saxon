@@ -120,7 +120,11 @@ de l'e-mail, si le destinataire est **déjà enregistré sur le shop** ? Quel
 concept pourrait-on mettre en place ? L'idée est aussi de **capter l'intérêt
 du client**.
 
-**Statut** : 🟡 à creuser — réponse à formuler plus tard.
+**Statut** : 🟡 en cours — brouillon de réponse créé dans Gmail (fil « Refonte
+newsletter », non envoyé). Réponse donnée : faisable via contenu conditionnel
+Mailchimp ; **on se renseigne avec Christophe (informaticien)** sur la synchro
+boutique ↔ Mailchimp déjà en place, puis proposition d'un concept concret.
+Prochaine étape : retour de Christophe → cadrer le concept (client vs prospect).
 
 **Pistes à explorer** (notes de travail, à valider) :
 - Mailchimp peut **segmenter** une audience (tags / groupes / champs perso).
