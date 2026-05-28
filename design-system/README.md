@@ -123,6 +123,10 @@ Toujours **à droite du conditionnement** s'il existe, sinon seul au top-left.
 - **Photos** : JPG 416×312 (4:3), q85, EXIF stripped — voir `docs/IMAGES.md`
 - **Icônes** : SVG inline (pas de dépendance Font Awesome). Pour les emails,
   un fallback PNG sera fourni
+- **Icônes partagées** (`icons/`) : `surgele.svg`, `frais.svg`, `sec.svg`
+  (conditionnement), `drapeau-ch.png` / `drapeau-vs.svg` (origine),
+  `panier.svg` (icône panier officielle pitoeuf.ch — blanche, à poser sur
+  fond coloré ; pour l'email prévoir un PNG car le SVG n'y est pas rendu)
 - **Couleurs marque** : ne pas changer `--pcard-frozen-bg` (bleu froid) ni
   `--pcard-origin-bg` (rouge suisse) ni `--pcard-discount-bg` (rouge promo)
   → ils font partie de l'identité Pitoeuf et doivent rester cohérents
