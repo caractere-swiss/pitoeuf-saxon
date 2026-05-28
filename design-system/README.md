@@ -37,7 +37,7 @@ les variables CSS. Il faut une version **inline-friendly** avec `<table>`.
 **Référence existante** : `../newsletter/index.html` (newsletter Pitoeuf
 Mailchimp) contient déjà une vignette produit `<table>` + styles inline
 alignée sur la charte (rouge promo `#f95600`, beige prix `#fff6e3`, prix
-bleu marine `#1a365d`). S'en inspirer pour toute nouvelle newsletter.
+near-black `#1a1a1a`). S'en inspirer pour toute nouvelle newsletter.
 
 Un composant `email/product-card` factorisé pourra être extrait ici quand
 une 2ᵉ newsletter justifiera la mutualisation (cf. Roadmap).
@@ -123,6 +123,10 @@ Toujours **à droite du conditionnement** s'il existe, sinon seul au top-left.
 - **Photos** : JPG 416×312 (4:3), q85, EXIF stripped — voir `docs/IMAGES.md`
 - **Icônes** : SVG inline (pas de dépendance Font Awesome). Pour les emails,
   un fallback PNG sera fourni
+- **Icônes partagées** (`icons/`) : `surgele.svg`, `frais.svg`, `sec.svg`
+  (conditionnement), `drapeau-ch.png` / `drapeau-vs.svg` (origine),
+  `panier.svg` (icône panier officielle pitoeuf.ch — blanche, à poser sur
+  fond coloré ; pour l'email prévoir un PNG car le SVG n'y est pas rendu)
 - **Couleurs marque** : ne pas changer `--pcard-frozen-bg` (bleu froid) ni
   `--pcard-origin-bg` (rouge suisse) ni `--pcard-discount-bg` (rouge promo)
   → ils font partie de l'identité Pitoeuf et doivent rester cohérents
