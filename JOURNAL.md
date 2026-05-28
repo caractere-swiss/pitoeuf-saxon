@@ -67,6 +67,77 @@ Résultat : **2 pages** au lieu de 5.
 
 ---
 
+## Infra & déploiement Claude Code (sessions web)
+
+### 2026-05-28 — Webhooks GitHub non déclenchés depuis les sessions cloud
+
+Les `git push` effectués depuis une session Claude Code web passent par un
+**proxy git local** (`http://127.0.0.1:XXXXX/git/...`) qui met bien à jour
+les branches GitHub, mais **ne déclenche pas les webhooks `pull_request`**
+(événement `synchronize`). Conséquence : le workflow `preview.yml`
+(`rossjrw/pr-preview-action`) ne se relance jamais pour les commits d'une
+session cloud sur une PR existante.
+
+**Ce qui NE fonctionne PAS pour déclencher le preview :**
+- `git push` depuis le proxy cloud
+- `mcp__github__create_or_update_file` (API GitHub Contents)
+- `mcp__github__push_files` (API GitHub Contents batch)
+- Fermer/rouvrir la PR via `update_pull_request`
+
+**Ce qui FONCTIONNE pour déclencher le preview :**
+- **Éditer un fichier via l'interface web GitHub.com** (bouton crayon) et
+  committer directement sur la branche → vrai webhook `push` + `synchronize`
+- Ouvrir une **nouvelle PR** via MCP → l'événement `opened` déclenche bien
+  le workflow (confirmé : PRs 17, 18, 19 déployées avec succès)
+- **Push depuis le CLI local** (hors proxy, connexion directe à GitHub)
+
+**Règle pour les prochaines sessions :**
+Pour forcer un redéploiement de preview après des commits cloud, aller sur
+GitHub.com → fichier de la branche → crayon → espace + commit. C'est la
+manipulation la plus rapide (30 secondes).
+
+---
+
+### 2026-05-28 — pitoeuf.ch inaccessible depuis les environnements Claude Code web
+
+Les environnements Claude Code sur le web ont une **network policy** qui filtre
+les hôtes sortants. `pitoeuf.ch` n'est pas dans la liste blanche par défaut →
+`curl` et `WebFetch` retournent `403 Host not in allowlist`.
+
+**Conséquences pratiques :**
+- Impossible de fetcher pitoeuf.ch/societe/ pour détecter textes/images
+- Impossible de télécharger des images depuis pitoeuf.ch
+- La modification de la policy ne prend effet qu'à la **prochaine session**
+  (le conteneur en cours ne recharge pas la policy à chaud)
+
+**Contournements validés :**
+
+1. **Claude Cowork** (autre session, environnement sans restriction réseau) —
+   peut fetcher la page ET télécharger les images, puis les pousser via
+   GitHub MCP (`create_or_update_file` avec base64).
+   Prompt type → voir `societe/download-images.sh` pour la liste des URLs.
+
+2. **Script `download-images.sh`** dans chaque dossier projet — convention
+   établie le 2026-05-28 pour tous les futurs projets Pitoeuf (voir ci-dessous).
+
+3. **Terminal local** — cloner le repo, exécuter `bash <dossier>/download-images.sh`,
+   committer les images, pusher.
+
+**Convention établie — `download-images.sh` par projet** :
+
+Chaque dossier de page/landing qui référence des images depuis pitoeuf.ch doit
+contenir un fichier `download-images.sh` qui :
+- Liste toutes les URLs sources avec les noms de fichiers cibles
+- Est idempotent (skip si fichier déjà présent)
+- Se suffit à lui-même (pas de dépendance externe hors `curl`)
+
+Cela permet à n'importe qui ayant accès réseau (dev local, Cowork, CI future)
+de récupérer les images en une commande, indépendamment de la session Claude.
+
+Exemple existant : `societe/download-images.sh`
+
+---
+
 ## Infra & déploiement
 
 ### 2026-05-26 — Workflow Pages explicite (contourne bug CDN GitHub)
