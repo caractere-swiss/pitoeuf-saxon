@@ -125,23 +125,32 @@ vignette produit elle-même.
 
 ## Déploiement (GitHub Pages)
 
-**Source : `GitHub Actions`** (et NON pas `Deploy from a branch`) — réglé dans
-Settings → Pages. Le déploiement est piloté par `.github/workflows/pages.yml`
-qui se déclenche à chaque push sur `main`.
+**Source : `Deploy from a branch` → branche `gh-pages` (dossier `/`)** — réglé
+dans Settings → Pages. Le site n'est PAS servi depuis `main` directement :
+deux workflows publient sur `gh-pages`, et c'est cette branche que Pages sert.
 
-⚠️ **Ne pas revenir au mode "Deploy from a branch"** : le runner automatique
-de GitHub plante de façon récurrente avec l'erreur
-`Failed to download archive 'actions/upload-pages-artifact'` qui semble
-liée à la résolution de version d'action côté CDN GitHub. Le workflow
-explicite contourne le bug en épinglant les versions (`@v4`, `@v5`, `@v3`).
+⚠️ **Ne PAS basculer Pages en mode "GitHub Actions"** : ça couperait le service
+(plus rien ne serait servi depuis `gh-pages`, ni le site ni les previews PR).
+
+### Les deux workflows (`.github/workflows/`)
+
+- **`deploy.yml`** — sur push `main` : publie tout le repo sur `gh-pages`
+  via `JamesIves/github-pages-deploy-action@v4`. Le `clean-exclude: pr-preview/`
+  préserve les previews de PR ouvertes lors d'un déploiement de prod.
+  → URL prod : `https://caractere-swiss.github.io/pitoeuf-saxon/`
+
+- **`preview.yml`** — sur ouverture/maj/fermeture de PR : publie un aperçu
+  isolé via `rossjrw/pr-preview-action@v1` sous `pr-preview/pr-<N>/`.
+  Un bot poste l'URL de preview en commentaire de la PR, et le dossier est
+  supprimé automatiquement à la fermeture de la PR.
+  → URL preview : `https://caractere-swiss.github.io/pitoeuf-saxon/pr-preview/pr-<N>/`
 
 **`.nojekyll` à la racine** : indispensable, désactive le pré-traitement
 Jekyll qui peut ignorer/casser des fichiers (dossiers `_template/`, etc.).
 
-**Si un déploiement échoue à nouveau** : vérifier l'onglet Actions, puis
-"Re-run all jobs". Si le bug persiste, mettre à jour les versions des
-actions dans `pages.yml` (actions/checkout, configure-pages,
-upload-pages-artifact, deploy-pages) vers les dernières majeures stables.
+**Si un déploiement échoue** : vérifier l'onglet Actions, "Re-run all jobs".
+Si le bug persiste, mettre à jour la version majeure des actions dans
+`deploy.yml` / `preview.yml`.
 
 ## Notes
 - `landing-paques-2026.html` (racine) est conservé en redirection vers

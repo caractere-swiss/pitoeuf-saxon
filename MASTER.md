@@ -1,10 +1,14 @@
-# Master — Suivi global Pitoeuf SA / Landings saisonnières
+# Master — Suivi global Pitoeuf SA
 
 > Vue d'ensemble du projet. Pour le détail d'une saison, voir le `JOURNAL.md` dans le dossier correspondant.
+>
+> Ce dépôt héberge **deux types de livrables** qui partagent la même charte
+> (design-system) : les **feuillets saisonniers** (landings) et la
+> **newsletter** promotionnelle (email Mailchimp).
 
 ---
 
-## Feuillets
+## Feuillets saisonniers (landings)
 
 | Saison | Statut | Validité | URL | Journal |
 |---|---|---|---|---|
@@ -12,6 +16,12 @@
 | **Été 2026** | 🟡 Draft (basé 2025) | jusqu'au 31 août 2026 | [/ete-2026/](https://caractere-swiss.github.io/pitoeuf-saxon/ete-2026/) | [JOURNAL](./ete-2026/JOURNAL.md) |
 | Hiver 2026 | — | — | — | — |
 | Volaille 2027 | — | — | — | — |
+
+## Newsletter (email Mailchimp)
+
+| Projet | Statut | Type | URL | Notes |
+|---|---|---|---|---|
+| **Newsletter « Actions de la semaine »** | 🟡 En attente validation client (Olivier) | HTML email (table-based, CSS inline, MSO Outlook) | [/newsletter/](https://caractere-swiss.github.io/pitoeuf-saxon/newsletter/) | Couleurs alignées sur la charte. Reste : intégration Mailchimp + segmentation (clients/prospects) + tests d'envoi |
 
 **Légende statut :**
 - 🟢 Final — catalogue 2026 confirmé, photos validées
@@ -26,12 +36,19 @@
 ### Architecture
 ```
 /
-├── index.html                  Portail
+├── index.html                  Portail (liste feuillets + newsletter)
 ├── MASTER.md                   Ce fichier
 ├── CLAUDE.md                   Contexte projet (méthodologie)
-├── assets/css/landing-base.css Tronc commun (variables CSS)
+├── JOURNAL.md                  Journal transverse des décisions
+├── assets/css/landing-base.css Tronc commun landings (variables CSS)
 ├── images/                     Assets partagés (logo, favicon)
-└── <saison>-<année>/           Dossier autonome par saison
+├── design-system/              ★ Lib visuelle partagée (cross-projet)
+│   ├── README.md               Doc tokens + conventions
+│   ├── components/             product-card.css / .html
+│   └── icons/                  SVG officiels (surgelé, frais, sec, drapeaux)
+├── newsletter/                 Newsletter Mailchimp (email HTML)
+│   └── index.html
+└── <saison>-<année>/           Dossier autonome par saison (landing)
     ├── index.html
     ├── theme.css               Palette saison (override variables)
     ├── images/                 Photos produits saison
@@ -42,7 +59,8 @@
 
 ### Stack
 HTML / CSS pur — pas de build, pas de framework, pas de JavaScript.
-Hébergement : GitHub Pages depuis `main`.
+Hébergement : GitHub Pages servi depuis la branche `gh-pages`
+(publiée par les workflows — voir section Déploiement de `CLAUDE.md`).
 
 ---
 
@@ -66,6 +84,7 @@ Hébergement : GitHub Pages depuis `main`.
 | Date | Événement |
 |---|---|
 | 2026-05-12 | Création tronc commun (variables CSS) + migration Pâques 2026 + landing Été 2026 (draft 2025). Merge PR #3. |
+| 2026-05-28 | Newsletter restaurée (supprimée par erreur au #11), rangée dans `newsletter/`, couleurs alignées sur la charte. Doc déploiement corrigée (gh-pages). Merge PR #17. |
 
 ---
 
