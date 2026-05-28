@@ -84,6 +84,9 @@
   pour la netteté retina) et pointer dessus dans la newsletter. *(Pas d'outil
   de conversion SVG→PNG dans l'environnement Claude → à exporter côté client,
   ou installer un convertisseur lors d'une prochaine session.)*
+- **Pictos emoji du bloc avantages** (👤 🛒 💳) : la charte projet recommande
+  d'éviter les emojis Unicode (rendu variable selon les clients mail — noir &
+  blanc, voire absents sous Outlook). À remplacer par des icônes image (PNG).
 
 ### ⚠️ Risques email à arbitrer AVANT envoi Mailchimp
 
@@ -105,6 +108,34 @@ le navigateur n'a pas. À trancher avec Olivier / tester avant diffusion :
 - [ ] Segmentation Mailchimp : footer « Devenez client » (prospects) vs « Mon compte » (clients)
 - [ ] Tests de rendu (Gmail, Outlook, Apple Mail) — idéalement via Litmus / Email on Acid
 - [ ] Communiquer la nouvelle URL preview au client (l'ancien lien iliasfun est mort)
+
+---
+
+## Questions client en attente (à répondre plus tard)
+
+### Q1 — Détection « client déjà enregistré sur le shop » selon l'adresse email
+
+**Question (Olivier, 2026-05-28)** : a-t-on l'info, selon l'adresse de réception
+de l'e-mail, si le destinataire est **déjà enregistré sur le shop** ? Quel
+concept pourrait-on mettre en place ? L'idée est aussi de **capter l'intérêt
+du client**.
+
+**Statut** : 🟡 à creuser — réponse à formuler plus tard.
+
+**Pistes à explorer** (notes de travail, à valider) :
+- Mailchimp peut **segmenter** une audience (tags / groupes / champs perso).
+  Si la base d'inscrits porte un attribut « compte shop = oui/non » (synchronisé
+  depuis WooCommerce/pitoeuf.ch), on peut afficher un **contenu conditionnel**
+  (blocs « Devenez client » vs « Mon compte / Mes commandes ») selon le segment.
+- Le lien dépend donc d'une **synchro Mailchimp ↔ boutique** (plugin
+  WooCommerce↔Mailchimp, ou export régulier de la liste clients). À vérifier :
+  cette synchro existe-t-elle déjà côté Pitoeuf ?
+- Côté « capter l'intérêt » : personnalisation (`*|FNAME|*`), bloc CTA différent
+  selon prospect/client, voire reco produits. À cadrer une fois la donnée dispo.
+
+> ⚠️ Ne PAS confondre avec la segmentation footer déjà notée (« Devenez client »
+> vs « Mon compte ») : c'est le même sujet vu côté ops. Cette Q1 demande d'abord
+> de **confirmer la disponibilité de la donnée** avant tout concept.
 
 ---
 
