@@ -37,7 +37,7 @@ les variables CSS. Il faut une version **inline-friendly** avec `<table>`.
 **Référence existante** : `../newsletter/index.html` (newsletter Pitoeuf
 Mailchimp) contient déjà une vignette produit `<table>` + styles inline
 alignée sur la charte (rouge promo `#f95600`, beige prix `#fff6e3`, prix
-bleu marine `#1a365d`). S'en inspirer pour toute nouvelle newsletter.
+near-black `#1a1a1a`). S'en inspirer pour toute nouvelle newsletter.
 
 Un composant `email/product-card` factorisé pourra être extrait ici quand
 une 2ᵉ newsletter justifiera la mutualisation (cf. Roadmap).
