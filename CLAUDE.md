@@ -70,8 +70,23 @@ vignette produit elle-même.
 │   ├── images/
 │   └── JOURNAL.md
 ├── ete-2026/                       (en cours, mockup quasi-final)
+├── newsletter/                     ★ Newsletter Mailchimp (livrable client)
+│   └── index.html                  Email HTML (table-based, CSS inline)
+│                                   — NE PAS SUPPRIMER (cf. note ci-dessous)
 └── …                               (hiver-2026, volaille-2027, …)
 ```
+
+> ⚠️ **`newsletter/` n'est PAS du désordre à nettoyer.** C'est le livrable
+> newsletter promotionnelle Pitoeuf (« Actions de la semaine »), un HTML
+> email Mailchimp (table-based, CSS inline, code conditionnel MSO Outlook).
+> Le fichier a déjà été supprimé par erreur lors d'un « nettoyage racine »
+> (commit #11) puis restauré. **Toute future session doit le conserver.**
+> Newsletter et landings cohabitent dans ce repo et partagent la même charte.
+>
+> Contrainte email : les clients mail (Outlook) ne supportent ni les CSS
+> externes ni les variables CSS → la newsletter **ne peut pas** importer
+> `product-card.css`. Sa vignette est une version `<table>` + styles inline
+> **alignée manuellement** sur la charte (mêmes couleurs marque immuables).
 
 ## Méthodologie : créer une nouvelle landing saisonnière
 
