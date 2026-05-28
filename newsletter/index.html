@@ -37,8 +37,9 @@
         /* ===== VIGNETTE PRODUIT — style design-system Pitoeuf =====
            Réplique email (table + inline) de design-system/components/product-card.css.
            Hauteur uniforme via table imbriquée height=100% (corps en haut, prix en bas).
-           ⚠️ Badges en overlay position:absolute + icônes SVG : OK navigateur/preview,
-           dégradé sous Outlook/Gmail → prévoir PNG + fallback avant envoi Mailchimp. */
+           Badges en bande au-dessus de la photo (email-safe, pas d'overlay absolu).
+           ⚠️ Icônes encore en SVG : OK navigateur/preview mais à passer en PNG
+           avant envoi Mailchimp (SVG non rendu sous Gmail/Outlook). */
         .product-card {
             background-color: #ffffff;
             border: 1px solid #e5e5e5;
@@ -66,9 +67,22 @@
         }
         .promo-banner .until { font-weight: normal; }
 
-        /* Photo + badges en overlay (haut-gauche), assets design-system */
+        /* Badges (haut-gauche, bande au-dessus de la photo) — assets design-system.
+           Bande dédiée plutôt qu'overlay absolu : robuste en email (Outlook/Gmail
+           ignorent position:absolute). */
+        .card-badges {
+            padding: 10px 0 0 12px;
+            font-size: 0;
+            line-height: 0;
+        }
+        .card-badges img {
+            width: 28px;
+            height: 28px;
+            margin-right: 6px;
+            vertical-align: middle;
+            border: 0;
+        }
         .card-media {
-            position: relative;
             font-size: 0;
         }
         .card-media .photo {
@@ -76,19 +90,6 @@
             width: 100%;
             height: auto;
             border: 0;
-        }
-        .card-badges {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 2;
-        }
-        .card-badges img {
-            width: 28px;
-            height: 28px;
-            margin-right: 6px;
-            vertical-align: top;
-            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
         }
 
         /* Corps texte */
@@ -225,10 +226,8 @@
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/tarte-aux-poires-predecoupee/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-media">
-                                                                    <img class="photo" alt="Tarte aux poires prédécoupée" src="https://pitoeuf.ch/wp-content/uploads/2022/10/1559.jpg?v=1665125316" width="178" />
-                                                                    <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
-                                                                </div>
+                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Tarte aux poires prédécoupée" src="https://pitoeuf.ch/wp-content/uploads/2022/10/1559.jpg?v=1665125316" width="178" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Tarte aux poires prédécoupée</div>
                                                                     <div class="card-meta">Réf. G1559<br>Provenance : Suisse</div>
@@ -253,10 +252,8 @@
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/joue-de-porc/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-media">
-                                                                    <img class="photo" alt="Joue de porc" src="https://pitoeuf.ch/wp-content/uploads/2022/10/2413.jpg?v=1665131091" width="178" />
-                                                                    <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
-                                                                </div>
+                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Joue de porc" src="https://pitoeuf.ch/wp-content/uploads/2022/10/2413.jpg?v=1665131091" width="178" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Joue de porc</div>
                                                                     <div class="card-meta">Réf. G2413<br>Provenance : Suisse</div>
@@ -281,10 +278,8 @@
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/hilcona-tortelloni-gruyere-aop/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-media">
-                                                                    <img class="photo" alt="Tortelloni Gruyère AOP" src="https://pitoeuf.ch/wp-content/uploads/2023/03/3777.jpg?v=1678178146" width="178" />
-                                                                    <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
-                                                                </div>
+                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Tortelloni Gruyère AOP" src="https://pitoeuf.ch/wp-content/uploads/2023/03/3777.jpg?v=1678178146" width="178" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Tortelloni Gruyère AOP</div>
                                                                     <div class="card-meta">Réf. G3777<br>Provenance : Suisse</div>
@@ -313,10 +308,8 @@
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/courge-en-cube-suisse-garantie/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-media">
-                                                                    <img class="photo" alt="Courge en cube Suisse" src="https://pitoeuf.ch/wp-content/uploads/2022/10/4818.jpg?v=1665141529" width="178" />
-                                                                    <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
-                                                                </div>
+                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Courge en cube Suisse" src="https://pitoeuf.ch/wp-content/uploads/2022/10/4818.jpg?v=1665141529" width="178" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Courge en cube "Suisse"</div>
                                                                     <div class="card-meta">Réf. G4818<br>Provenance : Suisse</div>
@@ -341,10 +334,8 @@
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/tranches-de-saumon-cru-premium-salmo-salarasc/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-media">
-                                                                    <img class="photo" alt="Saumon cru Premium" src="https://pitoeuf.ch/wp-content/uploads/2022/10/628.jpg?v=1665119375" width="178" />
-                                                                    <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="28" height="28" /></div>
-                                                                </div>
+                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="28" height="28" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Saumon cru Premium" src="https://pitoeuf.ch/wp-content/uploads/2022/10/628.jpg?v=1665119375" width="178" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Saumon cru "Premium"</div>
                                                                     <div class="card-meta">Réf. G628<br>Provenance : Norvège</div>
@@ -369,10 +360,8 @@
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/escalope-de-dinde-70-a-90-gr/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-media">
-                                                                    <img class="photo" alt="Escalope de dinde" src="https://pitoeuf.ch/wp-content/uploads/2023/10/2954.jpg?v=1698211130" width="178" />
-                                                                    <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
-                                                                </div>
+                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Escalope de dinde" src="https://pitoeuf.ch/wp-content/uploads/2023/10/2954.jpg?v=1698211130" width="178" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Escalope de dinde</div>
                                                                     <div class="card-meta">Réf. G2954<br>Provenance : Suisse</div>
@@ -431,7 +420,7 @@
                         <table border="0" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto 0 auto;" width="100%">
                             <tbody>
                                 <tr>
-                                    <td class="mobile-padding" style="padding: 20px 10px;">
+                                    <td class="mobile-padding" style="padding: 20px 0;">
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#ffffff; border-radius:8px; border:1px solid #e0e0e0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);">
                                             <tr>
                                                 <td class="advantage-col" width="33%" align="center" style="padding: 20px 10px; font-family:'Helvetica', Arial, sans-serif; color:#555;">
