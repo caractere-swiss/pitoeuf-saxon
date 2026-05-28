@@ -69,6 +69,35 @@ Résultat : **2 pages** au lieu de 5.
 
 ## Infra & déploiement Claude Code (sessions web)
 
+### 2026-05-28 — Webhooks GitHub non déclenchés depuis les sessions cloud
+
+Les `git push` effectués depuis une session Claude Code web passent par un
+**proxy git local** (`http://127.0.0.1:XXXXX/git/...`) qui met bien à jour
+les branches GitHub, mais **ne déclenche pas les webhooks `pull_request`**
+(événement `synchronize`). Conséquence : le workflow `preview.yml`
+(`rossjrw/pr-preview-action`) ne se relance jamais pour les commits d'une
+session cloud sur une PR existante.
+
+**Ce qui NE fonctionne PAS pour déclencher le preview :**
+- `git push` depuis le proxy cloud
+- `mcp__github__create_or_update_file` (API GitHub Contents)
+- `mcp__github__push_files` (API GitHub Contents batch)
+- Fermer/rouvrir la PR via `update_pull_request`
+
+**Ce qui FONCTIONNE pour déclencher le preview :**
+- **Éditer un fichier via l'interface web GitHub.com** (bouton crayon) et
+  committer directement sur la branche → vrai webhook `push` + `synchronize`
+- Ouvrir une **nouvelle PR** via MCP → l'événement `opened` déclenche bien
+  le workflow (confirmé : PRs 17, 18, 19 déployées avec succès)
+- **Push depuis le CLI local** (hors proxy, connexion directe à GitHub)
+
+**Règle pour les prochaines sessions :**
+Pour forcer un redéploiement de preview après des commits cloud, aller sur
+GitHub.com → fichier de la branche → crayon → espace + commit. C'est la
+manipulation la plus rapide (30 secondes).
+
+---
+
 ### 2026-05-28 — pitoeuf.ch inaccessible depuis les environnements Claude Code web
 
 Les environnements Claude Code sur le web ont une **network policy** qui filtre

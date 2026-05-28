@@ -62,11 +62,48 @@ les `src` placeholder et les icônes SVG inline par les vrais fichiers.
 
 ---
 
+## 2026-05-28 — Slider CSS-only 3 photos aériennes (BLOC 6)
+
+3 photos drone du centre logistique Saxon (fournies par Ilias depuis kDrive)
+intégrées dans un slider CSS-only (`input[type=radio]` + `~` sibling combinator).
+
+- **Technique** : `.slider-track { width: 300% }`, chaque `.slider-slide` =
+  `calc(100%/3)`, `translateX` par paliers de 33.33%
+- **Format photos** : 2048×1152 px (16:9) — `aspect-ratio: 16/9` dans le CSS,
+  attributs `width/height` en HTML pour éviter le CLS
+- **Dots** : 3 `<label for="solN">` actionnables, dot actif en orange
+
+Photos poussées via CLI local (Claude Code Mac) car le dossier kDrive
+n'est pas un repo git → push via `push-photos-github.sh` avec `gh api`.
+
+---
+
+## 2026-05-28 — Réorganisation structure : BLOC 5 déplacé en bas
+
+Sur demande d'Olivier, le bloc Téléphone + services shop (BLOC 5) a été
+déplacé **après** le slider solaire (BLOC 6), juste avant le footer.
+
+Ordre final de la page :
+1. En-tête
+2. Intro narrative (blanc)
+3. Piliers Confiance/Sécurité/Traçabilité (gris)
+4. Chiffres clés + CTA shop (blanc)
+5. Slider photos aériennes + ancrage local (gris)
+6. **Téléphone + services shop** (blanc) ← déplacé ici
+7. Footer
+
+Le fond du BLOC 5 est passé de `--grey` à `--white` pour alterner
+correctement avec la section grise qui le précède.
+
+---
+
 ## TODO différés
 
 - [x] **4 images téléchargées** via Cowork + token temporaire (2026-05-28) :
       `pitoeuf-equipe-fr.webp`, `icon-confiance.png`, `icon-securite.png`,
       `icon-tracabilite.png` — intégrées dans `index.html`
+- [x] **3 photos solaires** poussées via CLI local (2026-05-28) :
+      `depot-solaire-1/2/3.jpg` — intégrées dans le slider BLOC 6
 - [ ] **4 icônes shop** restantes (`icon-shop-*.png`) — toujours en SVG
       inline, à télécharger via `download-images.sh`
 - [ ] **Valider la maquette** avec Olivier (textes, structure, palette)
@@ -74,5 +111,8 @@ les `src` placeholder et les icônes SVG inline par les vrais fichiers.
 - [ ] **Vérifier les icônes des piliers** : les images pitoeuf.ch
       (`Ellipse-0201/0203/0204`) sont peut-être des pastilles colorées —
       adapter le CSS si elles remplacent les icônes SVG actuelles
-- [ ] **Photo solaire** (BLOC 6) : identifier la vraie photo du toit Saxon
-      sur pitoeuf.ch (non trouvée dans l'analyse de la page /societe/)
+- [ ] **Preview PR #16** : les photos solaires ne s'affichent pas encore
+      dans la preview (gh-pages pas à jour). Pour forcer le redéploiement,
+      **éditer un fichier directement sur GitHub.com** (interface web → crayon)
+      sur la branche `claude/societe-preview-0001` — c'est le seul vecteur
+      qui déclenche un vrai webhook `pull_request: synchronize`.

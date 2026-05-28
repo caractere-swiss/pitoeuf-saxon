@@ -1,6 +1,7 @@
 /* ============================================================
    Société — palette institutionnelle pitoeuf.ch
    PAS de couleurs saisonnières. PAS de rouge promo #f95600.
+   Dernière mise à jour : 2026-05-28 (v2)
    ============================================================ */
 
 /* ── RESET VARIABLES landing-base (inutilisées ici) ── */
@@ -251,7 +252,7 @@ body {
 .slider-slide img {
     width: 100%;
     height: auto;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     display: block;
 }
