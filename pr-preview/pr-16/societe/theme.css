@@ -268,12 +268,10 @@ footer a:hover { text-decoration: underline; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-    .pillars-grid {
-        grid-template-columns: 1fr;
-    }
-    .local-layout {
-        grid-template-columns: 1fr;
-    }
+    .pillars-grid     { grid-template-columns: 1fr; }
+    .local-layout     { grid-template-columns: 1fr; }
+    .intro-layout     { grid-template-columns: 1fr; }
+    .shop-features    { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
@@ -288,6 +286,101 @@ footer a:hover { text-decoration: underline; }
         border-top: 1px solid var(--border);
     }
     .page-title { font-size: 22px; }
+}
+
+/* ── BLOC 2 : INTRO LAYOUT (texte + photo) ── */
+.intro-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+.intro-content .section-heading {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--grey-text);
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+.intro-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--grey-meta);
+    margin-top: 12px;
+}
+.intro-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* ── BLOC 4 : CTA SHOP ── */
+.cta-center {
+    text-align: center;
+    margin-top: 32px;
+}
+.cta-btn {
+    display: inline-block;
+    background: var(--orange);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 4px;
+    transition: background .15s;
+}
+.cta-btn:hover { background: #cc5310; color: #fff; }
+
+/* ── BLOC 5 : TÉLÉPHONE ── */
+.contact-phone-block {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.contact-phone-number {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.contact-phone-number a {
+    color: inherit;
+    text-decoration: none;
+}
+.contact-phone-number a:hover { text-decoration: underline; }
+.contact-phone-number svg { flex-shrink: 0; }
+.contact-phone-hours {
+    font-size: 14px;
+    color: var(--grey-meta);
+}
+
+/* ── BLOC 5 : SERVICES SHOP (4 icônes) ── */
+.shop-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+}
+.shop-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+.shop-feature svg { color: var(--orange); }
+.shop-feature span {
+    font-size: 13px;
+    color: var(--grey-meta);
+    line-height: 1.4;
 }
 
 /* ── PRINT ── */
