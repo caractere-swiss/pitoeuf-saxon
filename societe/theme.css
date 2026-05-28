@@ -1,0 +1,215 @@
+/* ============================================================
+   Société — palette institutionnelle Pitoeuf SA
+   Page About / Société : sobre, pas de couleurs saisonnières.
+   Override minimal de landing-base.css.
+   ============================================================ */
+
+:root {
+    /* Palette institutionnelle : bleu marine + bleu Pitoeuf */
+    --accent-dark:   #1a3348;
+    --accent-mid:    #2e5a7e;
+    --accent-light:  #dce9f4;
+    --accent-bg:     #f5f7fa;
+    --accent-soft:   #eef3f8;
+    --accent-border: #ccdae8;
+    --accent-hi:     #4aa8d8;   /* bleu Pitoeuf officiel */
+
+    --hero-gradient: linear-gradient(160deg, #1a3348 0%, #2e5a7e 55%, #4aa8d8 100%);
+
+    --text-dark:  #1a1a1a;
+    --text-mid:   #3d4f5e;
+    --text-muted: #666;
+    --text-faint: #888;
+}
+
+/* Fond blanc propre — pas de bois, pas de texture saisonnière */
+body {
+    background: #f5f7fa;
+}
+
+/* Héros plus compact, pas de clip-path "vague" */
+.hero::before { display: none; }
+.hero-inner   { padding: 52px 24px 56px; }
+
+/* ── TOPBAR ── */
+.topbar {
+    background: #fff;
+    border-bottom: 1px solid var(--accent-border);
+    font-size: 13px;
+    font-weight: 600;
+}
+.topbar .container {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.topbar a {
+    color: var(--accent-mid);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.topbar a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+/* ── SECTIONS DE PAGE ── */
+.page-section {
+    margin-top: 56px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-dark);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--accent-hi);
+    display: inline-block;
+}
+
+/* ── BLOC TEXTE PRÉSENTATION ── */
+.text-block {
+    max-width: 720px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text-mid);
+}
+.text-block p + p { margin-top: 16px; }
+
+/* ── GRILLE ENGAGEMENTS (3 cartes) ── */
+.commitment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+.commitment-card {
+    background: #fff;
+    border: 1px solid var(--accent-border);
+    border-radius: 14px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+}
+.commitment-card h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--accent-dark);
+    margin: 16px 0 10px;
+}
+.commitment-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+.commitment-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.commitment-icon svg { color: var(--accent-mid); }
+
+/* ── GRILLE CONTACT ── */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+.contact-card {
+    background: #fff;
+    border: 1px solid var(--accent-border);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+}
+.contact-card h3 {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-hi);
+    margin-bottom: 12px;
+}
+.contact-card address,
+.contact-card p {
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-mid);
+}
+.contact-card a {
+    color: var(--accent-mid);
+    text-decoration: none;
+    font-weight: 600;
+}
+.contact-card a:hover { text-decoration: underline; }
+
+/* ── BANDEAU CATALOGUE ── */
+.catalog-banner {
+    margin-top: 48px;
+    background: var(--accent-dark);
+    border-radius: 14px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.catalog-banner__text {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.catalog-banner__text strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+.catalog-banner__link {
+    display: inline-block;
+    background: var(--accent-hi);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: background .15s;
+}
+.catalog-banner__link:hover { background: #3594c0; }
+
+/* ── DRAFT NOTICE ── */
+.draft-notice {
+    background: #fff8e1;
+    border: 2px dashed #f5c514;
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 13px;
+    color: #7a6000;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+    .commitment-grid,
+    .contact-grid { grid-template-columns: 1fr; }
+    .catalog-banner { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── PRINT ── */
+@media print {
+    .topbar { display: none; }
+    .draft-notice { display: none; }
+    body { background: #fff; }
+    .commitment-card,
+    .contact-card { box-shadow: none; border-color: #ccc; }
+    .catalog-banner { background: #1a3348 !important; }
+}
