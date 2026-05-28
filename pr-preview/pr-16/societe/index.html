@@ -209,24 +209,55 @@
 
 <!-- ══════════════════════════════════════════
      BLOC 6 — ANCRAGE LOCAL & ENVIRONNEMENT
+     Slider CSS pur (3 photos aériennes)
 ════════════════════════════════════════════ -->
-<section class="page-section page-section--white">
+<section class="page-section page-section--grey">
     <div class="container">
-        <div class="local-layout">
-            <div class="local-image">
-                <!-- TODO : photo panneaux solaires Saxon (à télécharger depuis pitoeuf.ch) -->
-                <img src="images/placeholder-solaire.svg"
-                     alt="Centre logistique de Saxon — panneaux solaires"
-                     width="400" height="300" />
+        <div class="solar-layout">
+
+            <!-- Slider CSS-only (radio + sibling selector, zéro JS) -->
+            <div class="photo-slider">
+                <input type="radio" name="sol" id="sol1" checked hidden>
+                <input type="radio" name="sol" id="sol2" hidden>
+                <input type="radio" name="sol" id="sol3" hidden>
+
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <div class="slider-slide">
+                            <img src="images/depot-solaire-1.jpg"
+                                 alt="Centre logistique Pitoeuf SA — vue aérienne, panneaux solaires"
+                                 loading="lazy" decoding="async" />
+                        </div>
+                        <div class="slider-slide">
+                            <img src="images/depot-solaire-2.jpg"
+                                 alt="Flotte de livraison Pitoeuf SA et dépôt frigorifique"
+                                 loading="lazy" decoding="async" />
+                        </div>
+                        <div class="slider-slide">
+                            <img src="images/depot-solaire-3.jpg"
+                                 alt="Vue d'ensemble du centre logistique de Saxon"
+                                 loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-dots">
+                    <label for="sol1" title="Photo 1"></label>
+                    <label for="sol2" title="Photo 2"></label>
+                    <label for="sol3" title="Photo 3"></label>
+                </div>
             </div>
-            <div>
+
+            <!-- Texte -->
+            <div class="solar-text">
                 <p class="local-heading">Ancrage local &amp; environnement</p>
                 <p class="local-text">
                     Implantée en Valais, Pitoeuf SA met en avant les produits régionaux et suisses dans son
                     assortiment — produits du terroir valaisan, circuits courts, sourcing local. Son centre
-                    logistique de Saxon est équipé d'une installation solaire.
+                    logistique de Saxon est équipé d'une vaste installation solaire.
                 </p>
             </div>
+
         </div>
     </div>
 </section>
