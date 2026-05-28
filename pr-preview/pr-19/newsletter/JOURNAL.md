@@ -45,10 +45,11 @@
   crème avec cercle remise + bloc prix. (en cours)
 - 2026-05-28 — Icône panier rangée dans les assets partagés (`design-system/icons/`),
   réutilisable par les landings / futurs projets.
-- 2026-05-28 — Badges (conditionnement + origine) repositionnés en **overlay
-  haut-gauche sur la photo** (`position:absolute`), avec les vrais assets
+- 2026-05-28 — Badges (conditionnement + origine) avec les vrais assets
   design-system (`surgele.svg`, `frais.svg`, `drapeau-ch.png`) au lieu des
-  anciennes pastilles texte.
+  anciennes pastilles texte. D'abord en overlay `position:absolute`, puis
+  basculés en **bande au-dessus de la photo** (email-safe : Outlook/Gmail
+  ignorent `position:absolute`).
 - 2026-05-28 — **Bouton panier retiré** de la vignette : inutile en email (le
   sélecteur de quantité n'existe que sur le site). `panier.svg` reste dans le
   design-system pour les landings.
@@ -70,29 +71,32 @@
 ### Vignette produit
 - [x] Reconstruire les 6 cartes au style design-system (bandeau date, méta
       Réf/Provenance, badges, bandeau prix crème + cercle remise)
-- [x] Badges conditionnement + origine en overlay haut-gauche (assets DS)
+- [x] Badges conditionnement + origine en bande haut-gauche email-safe (assets DS)
 - [x] Bouton panier retiré (inutile en email)
 - [x] Hauteur des cartes uniformisée (table height=100% + min-height titre)
 - [ ] Remplacer les valeurs d'exemple (Réf., provenance, conditionnement, quantité)
       par les vraies données produit **avant envoi** ⚠️
+
+### 🅿️ En standby (à traiter à l'occasion)
+
+- **Icônes SVG → PNG** : `surgele.svg` et `frais.svg` ne s'affichent PAS dans
+  Gmail/Outlook (SVG non supporté en email). Produire des PNG (ex. 56×56 px
+  pour la netteté retina) et pointer dessus dans la newsletter. *(Pas d'outil
+  de conversion SVG→PNG dans l'environnement Claude → à exporter côté client,
+  ou installer un convertisseur lors d'une prochaine session.)*
 
 ### ⚠️ Risques email à arbitrer AVANT envoi Mailchimp
 
 Le rendu est nickel en preview navigateur, mais l'email a des contraintes que
 le navigateur n'a pas. À trancher avec Olivier / tester avant diffusion :
 
-1. **Icônes SVG → PNG** : `surgele.svg` et `frais.svg` ne s'affichent PAS dans
-   Gmail/Outlook (SVG non supporté en email). Produire des PNG (ex. 56×56 px
-   pour la netteté retina) et pointer dessus dans la newsletter.
-2. **Badges en overlay (`position:absolute`)** : non supporté par Outlook
-   (moteur Word) et fragile sous Gmail → les badges risquent de retomber
-   sous/au-dessus de la photo. Option robuste : bande de badges dans une
-   `<td>` au-dessus de la photo, ou badges « cuits » dans l'image produit.
-3. **Images produits hotlinkées depuis pitoeuf.ch** : le hotlinking est bloqué
+1. ~~Badges en overlay `position:absolute`~~ ✅ **réglé** : basculés en bande
+   au-dessus de la photo (email-safe).
+2. **Images produits hotlinkées depuis pitoeuf.ch** : le hotlinking est bloqué
    → en email elles peuvent ne pas charger. Les ré-héberger dans Mailchimp
    (upload dans le Content Studio) avant envoi.
-4. `border-radius` / `box-shadow` / `drop-shadow` : ignorés par Outlook
-   (coins droits, pas d'ombre) — dégradation acceptable, à valider visuellement.
+3. `border-radius` / `box-shadow` : ignorés par Outlook (coins droits, pas
+   d'ombre) — dégradation acceptable, à valider visuellement.
 
 ### Avant envoi (ops / client)
 - [ ] Validation finale par Olivier
