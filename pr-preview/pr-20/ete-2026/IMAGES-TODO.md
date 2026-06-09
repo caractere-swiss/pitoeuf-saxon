@@ -1,27 +1,27 @@
-# Images à compléter — Été 2026
+# Images & liens à valider — Été 2026
 
-**3 placeholders SVG conservés** — photos non disponibles sur pitoeuf.ch.
+> Mise à jour 2026-06-09. Les 21 produits du feuillet officiel ont tous une
+> photo et un lien. Il ne reste que **2 points à valider avec Pitoeuf**.
 
-| Fichier SVG | Raison | Action requise |
+## À valider avec Pitoeuf
+
+| Art. | Produit | Point ouvert |
 |---|---|---|
-| `g6358-cotelette-agneau-bio-vs.svg` | Page pitoeuf.ch en 404 ; aucune côtelette BIO VS trouvée | Vérifier avec Pitoeuf si le produit est en ligne, ou fournir photo |
-| `g3900-ribs-porc.svg` | Aucune fiche « ribs de porc » sur le shop pitoeuf.ch | Confirmer si produit référencé en e-shop ; sinon photo fournisseur |
-| `g3760-brochette-yakitori-marinee.svg` | Seule la version cuite (17555) existe sur le site | Utiliser photo fournisseur ou remplacer par brochette cuite |
+| G38151.sg | Entrecôte de bœuf | Fiche introuvable sur pitoeuf.ch. Photo (entrecôte parisienne) + lien **approximatifs**. Pas de prix catalogue → pas de cercle de remise. → Demander URL fiche + prix catalogue. |
+| M1014 | Filets de perche 40/50 « Mc Lean » | Seul le format **30/40** est référencé sur le shop. Photo + lien pointent sur le 30/40. → Confirmer si le 40/50 existe en fiche. |
 
-## Images approximatives récupérées (⚠️ à valider)
+## Anomalies de prix (à trancher avec Olivier)
 
-| Fichier JPG | Source utilisée | Différence |
-|---|---|---|
-| `g38151-entrecote-boeuf.jpg` | Entrecôte parisienne de bœuf | URL approximative — vérifier correspondance art. G38151 |
-| `g6336-steak-gigot-agneau.jpg` | Gigot d'agneau avec os | Photo gigot entier vs steak de gigot |
-| `g1026-magret-canard.jpg` | Filet de canard 180-220gr | Magret vs filet — visuel proche |
-| `m1014-perche-mclean.jpg` | Filets de perche Mc Lean 30-40gr | Format 30-40 (seul disponible) au lieu de 40-50 |
-| `m102-perche-loe-valais.jpg` | Filets de perche Loë 20-30gr | Page 30-40gr en 404 — version 20-30 utilisée |
+Cercles de remise calculés depuis les prix catalogue relevés par Cowork :
 
-## Images récupérées hors manifeste initial
+| Art. | Produit | Remise | À vérifier |
+|---|---|---|---|
+| M1005 | Filets de sandre | **0 %** | Prix catalogue = prix promo (12.50). Pas de cercle affiché. Erreur de saisie ou produit sans remise ? |
+| M65 | Crevettes panées | **-34 %** | Écart important (9.99 vs 15.20). |
+| 110550 | Romanesco | **-47 %** | Le shop affichait déjà une promo interne sur ce produit. Confirmer la base de calcul. |
 
-| Fichier JPG | Source | Note |
-|---|---|---|
-| `g3516-escalope-poulet.jpg` | Escalope de poulet en bloc | Trouvé via recherche (était ❌ dans le manifeste) |
-| `m101-perche-premium.jpg` | Filets de perche Premium 10-20gr | Trouvé via recherche (était ❌ dans le manifeste) |
-| `g10083-poulet-entier-epice.jpg` | Poulet entier 800gr | Version épicée non référencée — image générique |
+## Fait ✅
+
+- 16 photos manquantes récupérées (Cowork, commit `4125399`)
+- Prix catalogue relevés (20/21) → prix barrés + cercles de remise
+- 21/21 liens fiches pitoeuf.ch (3 slugs non standard corrigés)

@@ -149,6 +149,45 @@ Exemple existant : `societe/download-images.sh`
 
 ---
 
+### 2026-06-09 — PR Preview : `pull_request` bloqué pour les comptes bot → `pull_request_target`
+
+**Symptôme** : le workflow `preview.yml` ne se déclenchait plus du tout
+(0 check run) sur la PR #20. Le lien `pr-preview/pr-20/` renvoyait 404.
+
+**Cause racine** : GitHub bloque **silencieusement** les événements
+`pull_request` émis par des comptes machine/bot (ici l'utilisateur `claude`,
+id 81847) — politique durcie entre mai et juin 2026. Aucun log, aucune
+erreur : le workflow n'est simplement jamais évalué.
+
+**Fix** (commit sur `main`, cf. `.github/workflows/preview.yml`) :
+- Trigger `pull_request` → **`pull_request_target`**. Cet événement
+  s'exécute dans le contexte de la branche **base** (`main`) et échappe à
+  la restriction bot.
+- Ajout **obligatoire** de `ref: ${{ github.event.pull_request.head.sha }}`
+  au `actions/checkout`, sinon le checkout pointe sur `main` (le contenu de
+  la PR ne serait jamais déployé).
+
+⚠️ **Deux pièges à retenir** :
+1. `pull_request_target` lit le fichier workflow depuis **`main`**, pas
+   depuis la branche de la PR. Toute correction de `preview.yml` doit donc
+   atterrir sur `main` pour prendre effet (poussée directe via l'API
+   GitHub `push_files`, ou via merge).
+2. **Sécurité** : `pull_request_target` tourne avec le token en
+   **écriture** + les secrets du dépôt, tout en checkoutant du code de PR
+   potentiellement non fiable. Ici le risque est **contenu** :
+   `rossjrw/pr-preview-action` ne fait que **copier des fichiers statiques**
+   vers `gh-pages` (pas de `npm install`, pas de build, pas d'exécution de
+   code de la PR). Ne **jamais** ajouter d'étape qui exécute du code issu de
+   la PR (build, script) dans ce workflow sans repasser sur `pull_request`
+   classique ou isoler les secrets. Dépôt d'org privé à collaborateurs
+   restreints → surface d'attaque faible.
+
+Prérequis annexe corrigé le même jour : permissions workflow de l'org
+passées en **read+write** (étaient en read-only, ce qui empêchait l'écriture
+sur `gh-pages`).
+
+---
+
 ## Infra & déploiement
 
 ### 2026-05-26 — Workflow Pages explicite (contourne bug CDN GitHub)
@@ -268,19 +307,59 @@ Crevettes 20/30, Filets de bar, Filets de perche Loë VS, Perche 10-20gr, Sauce 
 pas les % de rabais. Retirés pour éviter des données erronées. À remettre
 quand Pitoeuf fournit les prix catalogue d'origine.
 
-**Architecture catalogue** : catégorie « Sauces & Huiles » → **« Épicerie »**.
-Catégorie « Volaille & Canard » → **« Volaille »** (canard absent du feuillet 2026).
+**Architecture catalogue** : catégorie « Sauces & Huiles » → **« Divers »**
+(renommée « Épicerie » puis « Divers »). Catégorie « Volaille & Canard » →
+**« Volaille »** (canard absent du feuillet 2026).
+
+### 2026-06-09 — Finalisation visuelle Été 2026 (photos, remises, liens, copy)
+
+Itération de finition après l'intégration du feuillet, avec l'appui de
+Cowork (accès réseau à pitoeuf.ch, bloqué depuis les sessions Claude web) :
+
+- **Photos** : 16 placeholders SVG remplacés par les vraies photos produit
+  (Cowork, commit `4125399`). 21/21 vignettes ont désormais une photo.
+- **Prix catalogue + remises** : Cowork a relevé les prix catalogue sur
+  pitoeuf.ch. Cercles de remise (`-X%`) + prix barrés **réintroduits** sur
+  19/21 produits. Deux exceptions :
+  - **M1005 Sandre** : prix catalogue = prix promo (12.50) → 0%, pas de
+    cercle. À confirmer Olivier (erreur de saisie ou produit sans remise ?).
+  - **G38151 Entrecôte** : fiche absente de pitoeuf.ch, pas de prix
+    catalogue → pas de cercle.
+  - **Anomalies à valider Olivier** : M65 Crevettes panées **-34%**,
+    Romanesco 110550 **-47%** (avait déjà une promo interne sur le shop).
+- **Liens fiches** : 21/21 produits liés (image + titre) vers pitoeuf.ch.
+  3 slugs non standard signalés par Cowork : `cuisses-de-poulet-assortie`,
+  `pilons-de-poulet`, `romanesco`.
+- **Titre héros** : « Feuillet Estival 2026 » → **« Suggestions Été 2026 »**
+  (« Feuillet » évoquait l'imprimé, inadapté au web ; aligné sur le
+  `<title>`).
+- **Catégorie** : « Épicerie » → **« Divers »**.
+- **Filigrane héros** : « 26 » → **« 2026 »** (taille réduite, opacité 6%).
+- **Bandeaux « prix au carton complet »** : retirés (les 4 occurrences).
+- **Fond bois** : avait régressé en `100% auto` + scroll (ne couvrait
+  qu'un écran) → restauré en `cover` + `fixed` (cf. entrée 2026-05-26).
+- **Typographie** : espaces insécables (`&nbsp;`) dans les 7 titres à
+  guillemets « » pour éviter les sauts de ligne orphelins.
 
 ### TODO Été 2026 (différés)
 
-- [ ] **16 photos produits** : placeholders SVG pour tous les nouveaux articles
-  (photos à demander à Pitoeuf ou récupérer sur pitoeuf.ch)
-- [ ] **Prix catalogue d'origine** : le PDF ne mentionne que les prix promo.
-  Demander à Pitoeuf les prix barrés pour réintroduire les cercles de remise.
+- [x] ~~16 photos produits~~ — **fait** (Cowork, 2026-06-09)
+- [x] ~~Prix catalogue d'origine~~ — **fait** (Cowork). Reste à **valider
+  avec Olivier** les anomalies M1005 (0%), M65 (-34%), 110550 (-47%).
+- [ ] **Fiche + prix G38151 Entrecôte** : absente de pitoeuf.ch. Demander à
+  Pitoeuf l'URL fiche + le prix catalogue pour ajouter lien correct (lien
+  actuel = entrecôte parisienne, approximatif) et cercle de remise.
 - [ ] **`og:image`** : créer un vrai bandeau 1200×630 saisonnier (utilise
   actuellement le logo PNG)
 - [ ] **`<meta name="theme-color">`** : couleur barre de nav mobile en
   vert forêt
+- [ ] **Fond bois en PDF** : le bloc `@media print` de `theme.css` force
+  encore le bois, alors que la décision 2026-05-26 (« Fond blanc en PDF »)
+  prévoyait un fond blanc. Trancher avec le client.
+- [ ] **Images orphelines** : ~16 JPG de l'ancienne maquette 2025 restent
+  dans `ete-2026/images/` (produits retirés : tranche ronde, grenadin,
+  quasi, magret, bar, yakitori…). À supprimer après validation finale du
+  catalogue, ou conserver si réutilisables pour d'autres saisons.
 
 ---
 
