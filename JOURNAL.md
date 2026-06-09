@@ -340,6 +340,16 @@ Cowork (accès réseau à pitoeuf.ch, bloqué depuis les sessions Claude web) :
   qu'un écran) → restauré en `cover` + `fixed` (cf. entrée 2026-05-26).
 - **Typographie** : espaces insécables (`&nbsp;`) dans les 7 titres à
   guillemets « » pour éviter les sauts de ligne orphelins.
+- **PDF dense** : grille print **4 colonnes** (`minmax(0, 1fr)` pour que
+  les colonnes rétrécissent sous la largeur du contenu — sinon elles
+  débordent hors page et seules 2 sont visibles), photos plafonnées 20mm,
+  bandeau prix compact. ~6 pages → ~2.
+- **`loading="lazy"` retiré des photos produit** ⚠️ : en impression, les
+  images lazy non encore scrollées ne se chargent jamais → vignettes
+  blanches dans le PDF. Comme on est en zéro-JS (pas de pré-chargement
+  scripté avant `window.print()`), on charge les 21 photos en eager.
+  `width`/`height` conservés (anti-CLS). **Ne pas re-ajouter `lazy`** sans
+  régler le chargement pour l'impression.
 
 ### TODO Été 2026 (différés)
 
