@@ -1,0 +1,2058 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <title>
+        Newsletter
+    </title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="telephone=no" name="format-detection" />
+    <!--[if (mso 16)]>
+    <style type="text/css">
+    a {text-decoration: none;}
+    </style>
+    <![endif]-->
+    <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+    <!--[if gte mso 9]>
+<xml>
+    <o:OfficeDocumentSettings>
+    <o:AllowPNG></o:AllowPNG>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+    <style type="text/css">
+        /* Reset & Basics */
+        html,
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+            background-color: #F2F2F2;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           STYLES DES CARTES PRODUITS 
+           ========================================= */
+
+
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            min-height: 380px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+
+        .product-card>a {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            height: 100%;
+            text-decoration: none;
+            color: #333333;
+            padding: 20px 15px;
+            box-sizing: border-box;
+        }
+
+
+        .product-title-badge {
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.3;
+            color: #333333;
+            text-align: center;
+            height: 65px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            position: relative;
+            border-bottom: 3px solid #F9A600;
+            border-image: linear-gradient(to right, #F9A600, #ffeeba) 1;
+        }
+
+
+        .product-card img {
+            display: block;
+            margin: 0 auto;
+            max-height: 160px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+
+        .product-info-bottom {
+            margin-top: auto;
+            text-align: center;
+            width: 100%;
+            font-family: 'Helvetica', Arial, sans-serif;
+        }
+
+
+        .product-discount-text {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 8px;
+        }
+
+
+        .product-discount-text b {
+            background-color: #F9A600;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-left: 4px;
+        }
+
+
+        .product-price {
+            color: #F9A600;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 15px;
+            margin-top: 5px;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+        }
+
+
+        .cta-button {
+            display: inline-block;
+            background-color: #F9A600;
+            color: #ffffff !important;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(249, 166, 0, 0.25);
+            transition: background-color 0.3s ease;
+            width: auto;
+            margin-top: auto;
+        }
+
+
+        h2 {
+            font-family: 'Helvetica', Arial, sans-serif;
+            color: #333333 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+
+            text-align: center;
+            border-bottom: 4px solid #F9A600;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* =========================================
+           RESPONSIVE MOBILE 
+           ========================================= */
+        @media screen and (max-width: 600px) {
+
+
+            .wrapper {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .header-logo-img {
+                width: 320px !important;
+                max-width: 95% !important;
+            }
+
+
+            .main-product-row {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .main-product {
+                display: block !important;
+                width: 100% !important;
+                padding: 0 10px 30px 10px !important;
+                box-sizing: border-box !important;
+            }
+
+            .product-card {
+                min-height: auto !important;
+                height: auto !important;
+                margin-bottom: 0 !important;
+            }
+
+            .product-title-badge {
+                height: auto !important;
+
+                min-height: auto !important;
+                font-size: 20px !important;
+                -webkit-line-clamp: unset !important;
+
+            }
+
+
+            .product-card div,
+            .product-card span {
+                font-size: 16px !important;
+
+            }
+
+            .product-card b {
+                font-size: 18px !important;
+
+            }
+
+            .product-price {
+                font-size: 22px !important;
+            }
+
+            .cta-button {
+                display: block !important;
+                width: 100% !important;
+                font-size: 18px !important;
+                padding: 15px 0 !important;
+            }
+
+
+            .other-product-row {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .other-product-col,
+            .other-product-col2 {
+                display: block !important;
+                width: 100% !important;
+                text-align: left !important;
+                padding-left: 15px !important;
+            }
+
+            .other-product-col2 {
+                margin-bottom: 25px !important;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 15px !important;
+            }
+
+            .other-product-col2 span {
+                font-size: 18px !important;
+            }
+
+
+            .templateContainer {
+                width: 100% !important;
+            }
+
+            .footerContainer,
+            .mcnImageGroupBlockInner {
+                padding: 0 !important;
+            }
+
+            .mcnImageGroupContentContainer,
+            .mcnFollowContentItemContainer {
+                width: 100% !important;
+                display: block !important;
+            }
+
+            .mcnImage {
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
+
+
+            .mcnFollowContentItemContainer table {
+                margin: 0 auto !important;
+            }
+
+            .mcnFollowContentItem {
+                text-align: center !important;
+                padding: 10px !important;
+            }
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #F2F2F2;">
+    <center>
+        <table border="0" cellpadding="0" cellspacing="0" class="x_MsoNormalTable mail-message-content wrapper"
+            style="width:100%; background-color:#F2F2F2; table-layout: fixed;">
+            <tbody>
+                <tr>
+                    <td align="center" style="padding:0;" valign="top">
+
+                        <table border="0" cellpadding="0" cellspacing="0"
+                            style="max-width: 600px; background:#F2F2F2; margin: 0 auto;" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 20px 0;">
+                                        <div align="center">
+                                            <a href="https://pitoeuf.ch/" target="_blank">
+                                                <img alt="Pitoeuf SA" border="0" class="header-logo-img"
+                                                    src="https://pitoeuf.ch/wp-content/uploads/2022/05/variante_5.png"
+                                                    style="width: 250px; max-width: 90%; height: auto;" />
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table border="0" cellpadding="0" cellspacing="0" class="wrapper"
+                            style="width:600px; max-width: 600px; background:white; margin: 0 auto;" width="600">
+                            <tbody>
+
+                                <tr>
+                                    <td style="padding: 20px 0 0 0;">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:0;" valign="top">
+
+                                        <table border="0" cellpadding="0" cellspacing="0" style="width:100%;"
+                                            width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding:0 20px;" valign="top">
+                                                        <h2
+                                                            style="margin:20px 0; border-bottom:2px solid #EAEAEA; padding-bottom:20px; text-align:center;">
+                                                            <span
+                                                                style="font-size:46px; font-family:'Helvetica', Arial, sans-serif; color:#F9A600; font-weight: normal;">
+                                                                Nos
+                                                                offres promotionnelles
+                                                            </span>
+                                                        </h2>
+                                                        <h4 style="margin:20px 0; text-align:center;">
+                                                            <span
+                                                                style="font-family:'Helvetica', Arial, sans-serif; color:#585858; font-size: 24px;">
+                                                                Promotions
+                                                                du
+                                                                <strong>
+                                                                    17.01.2026
+                                                                </strong>
+                                                                au
+                                                                <strong>
+                                                                    23.01.2026
+                                                                </strong>
+                                                            </span>
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" style="padding: 0 20px 20px 20px;">
+                                                        <a href="https://pitoeuf.ch/etiquette-produit/promotions/"
+                                                            style="display:inline-block; background-color: #F9A600; color:#FFFFFF; border-radius:5px; font-weight:bold; text-decoration:none; font-size:18px; padding:15px 20px; font-family:'Helvetica', Arial, sans-serif;">
+                                                            Retrouvez
+                                                            toutes nos promotions en cliquant ici
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <table border="0" cellpadding="0" cellspacing="0" style="width:100%;"
+                                            width="100%">
+                                            <tbody>
+                                                <tr class="main-product-row">
+
+                                                    <td align="center" class="main-product" style="padding: 10px;"
+                                                        valign="top" width="33.33%">
+                                                        <div class="product-card">
+                                                            <a href="https://pitoeuf.ch/produit/tarte-aux-poires-predecoupee/"
+                                                                style="text-decoration:none; color: inherit;">
+                                                                <div class="product-title-badge">
+                                                                    Tarte aux poires prédécoupée
+                                                                </div>
+                                                                <img alt="Tarte aux poires prédécoupée"
+                                                                    src="https://pitoeuf.ch/wp-content/uploads/2022/10/1559.jpg?v=1665125316 "
+                                                                    style="width: 100%; max-width: 180px; height: auto; border: 0;" />
+                                                                <div class="product-info-bottom">
+                                                                    <div class="product-discount-text">
+                                                                        Particulier: Rabais de <b>15%</b>
+                                                                    </div>
+                                                                    <div class="product-price">
+                                                                        CHF 74.90 / carton
+                                                                    </div>
+                                                                    <span class="cta-button">
+                                                                        Commander
+                                                                    </span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+
+                                                    <td align="center" class="main-product" style="padding: 10px;"
+                                                        valign="top" width="33.33%">
+                                                        <div class="product-card">
+                                                            <a href="https://pitoeuf.ch/produit/joue-de-porc/"
+                                                                style="text-decoration:none; color: inherit;">
+                                                                <div class="product-title-badge">
+                                                                    Joue de porc
+                                                                </div>
+                                                                <img alt="Joue de porc"
+                                                                    src="https://pitoeuf.ch/wp-content/uploads/2022/10/2413.jpg?v=1665131091 "
+                                                                    style="width: 100%; max-width: 180px; height: auto; border: 0;" />
+                                                                <div class="product-info-bottom">
+                                                                    <div class="product-discount-text">
+                                                                        Particulier: Rabais de <b>12%</b>
+                                                                    </div>
+                                                                    <div class="product-price">
+                                                                        CHF 11.00 / kilo
+                                                                    </div>
+                                                                    <span class="cta-button">
+                                                                        Commander
+                                                                    </span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+
+                                                    <td align="center" class="main-product" style="padding: 10px;"
+                                                        valign="top" width="33.33%">
+                                                        <div class="product-card">
+                                                            <a href="https://pitoeuf.ch/produit/hilcona-tortelloni-gruyere-aop/"
+                                                                style="text-decoration:none; color: inherit;">
+                                                                <div class="product-title-badge">
+                                                                    Hilcona Tortelloni Gruyère AOP
+                                                                </div>
+                                                                <img alt="Hilcona Tortelloni Gruyère AOP"
+                                                                    src="https://pitoeuf.ch/wp-content/uploads/2023/03/3777.jpg?v=1678178146 "
+                                                                    style="width: 100%; max-width: 180px; height: auto; border: 0;" />
+                                                                <div class="product-info-bottom">
+                                                                    <div class="product-discount-text">
+                                                                        Particulier: Rabais de <b>16%</b>
+                                                                    </div>
+                                                                    <div class="product-price">
+                                                                        CHF 11.20 / kilo
+                                                                    </div>
+                                                                    <span class="cta-button">
+                                                                        Commander
+                                                                    </span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="main-product-row">
+
+                                                    <td align="center" class="main-product" style="padding: 10px;"
+                                                        valign="top" width="33.33%">
+                                                        <div class="product-card">
+                                                            <a href="https://pitoeuf.ch/produit/courge-en-cube-suisse-garantie/"
+                                                                style="text-decoration:none; color: inherit;">
+                                                                <div class="product-title-badge">
+                                                                    Courge en cube "Suisse Garantie"
+                                                                </div>
+                                                                <img alt="Courge en cube suisse garantie"
+                                                                    src="https://pitoeuf.ch/wp-content/uploads/2022/10/4818.jpg?v=1665141529 "
+                                                                    style="width: 100%; max-width: 180px; height: auto; border: 0;" />
+                                                                <div class="product-info-bottom">
+                                                                    <div class="product-discount-text">
+                                                                        Particulier: Rabais de <b>14%</b>
+                                                                    </div>
+                                                                    <div class="product-price">
+                                                                        CHF 5.10 / kilo
+                                                                    </div>
+                                                                    <span class="cta-button">
+                                                                        Commander
+                                                                    </span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+
+                                                    <td align="center" class="main-product" style="padding: 10px;"
+                                                        valign="top" width="33.33%">
+                                                        <div class="product-card">
+                                                            <a href="https://pitoeuf.ch/produit/tranches-de-saumon-cru-premium-salmo-salarasc/"
+                                                                style="text-decoration:none; color: inherit;">
+                                                                <div class="product-title-badge">
+                                                                    Tranches de saumon cru "Premium"
+                                                                </div>
+                                                                <img alt="Tranches de saumon cru Premium"
+                                                                    src="https://pitoeuf.ch/wp-content/uploads/2022/10/628.jpg?v=1665119375 "
+                                                                    style="width: 100%; max-width: 180px; height: auto; border: 0;" />
+                                                                <div class="product-info-bottom">
+                                                                    <div class="product-discount-text">
+                                                                        Particulier: Rabais de <b>19%</b>
+                                                                    </div>
+                                                                    <div class="product-price">
+                                                                        CHF 19.80 / kilo
+                                                                    </div>
+                                                                    <span class="cta-button">
+                                                                        Commander
+                                                                    </span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+
+                                                    <td align="center" class="main-product" style="padding: 10px;"
+                                                        valign="top" width="33.33%">
+                                                        <div class="product-card">
+                                                            <a href="https://pitoeuf.ch/produit/escalope-de-dinde-70-a-90-gr/"
+                                                                style="text-decoration:none; color: inherit;">
+                                                                <div class="product-title-badge">
+                                                                    Escalope de dinde 90 à 110 gr
+                                                                </div>
+                                                                <img alt="Escalope de dinde 90 à 110 gr"
+                                                                    src="https://pitoeuf.ch/wp-content/uploads/2023/10/2954.jpg?v=1698211130 "
+                                                                    style="width: 100%; max-width: 180px; height: auto; border: 0;" />
+                                                                <div class="product-info-bottom">
+                                                                    <div class="product-discount-text">
+                                                                        Particulier: Rabais de <b>10%</b>
+                                                                    </div>
+                                                                    <div class="product-price">
+                                                                        CHF 14.85 / kilo
+                                                                    </div>
+                                                                    <span class="cta-button">
+                                                                        Commander
+                                                                    </span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Boulangerie
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/petit-pain-sans-gluten-graines/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Petit pain sans gluten
+                                                                graines
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -17%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/petit-pain-sans-gluten-graines/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                56.90 / carton
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/pate-pour-strudel-filo-toni-kaiser/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Pâte pour strudel (filo)
+                                                                "Toni Kaiser"
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -10%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/pate-pour-strudel-filo-toni-kaiser/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                22.40 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/tortillas-163-cm-salud/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Tortillas 16,3 cm
+                                                                "Salud"
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -14%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/tortillas-163-cm-salud/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                29.95 / carton
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Champignons et Herbe
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/melange-de-champignons-europe/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Mélange de champignons
+                                                                EUROPE
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -17%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/melange-de-champignons-europe/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                7.90 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Conserves
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/cornichons-mi-fins-au-vinaigre-le-dragon/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Cornichons moyen au vinaigre
+                                                                "Le Dragon"
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -21%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/cornichons-mi-fins-au-vinaigre-le-dragon/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                12.20 / boîte
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/tomates-pelees-italienne-casa-italia/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Tomates pelées italienne
+                                                                "Benincasa"
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -9%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/tomates-pelees-italienne-casa-italia/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                4.30 / boîte
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Desserts
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/deliciel-mini-tranche-aux-abricots/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Deliciel Mini tranche aux
+                                                                abricots
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -10%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/deliciel-mini-tranche-aux-abricots/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                110.90 / carton
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/nougat-glace-portion-glace-des-alpes/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Nougat glacé portion "Glace
+                                                                des Alpes"
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -19%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/nougat-glace-portion-glace-des-alpes/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                24.10 / carton
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Fruits -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Fruits
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/melange-de-fruits-birchermuesli/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Mélange de fruits
+                                                                birchermüesli
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -11%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/melange-de-fruits-birchermuesli/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                5.00 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Glaces -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Glaces
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/glace-artisanale-double-creme-de-gruyere-2-5-lts/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Glace artisanale double crème
+                                                                de Gruyère 2.5 lts
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -20%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/glace-artisanale-double-creme-de-gruyere-2-5-lts/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                24.90 / bac
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Légumes -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Légumes
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/crosnes-magda/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Crosnes "Magda"
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -11%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/crosnes-magda/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                11.90 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/epinards-haches-a-la-creme-viva-suisse-garantie/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Épinards hachés à la crème
+                                                                Viva "Suisse Garantie"
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -20%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/epinards-haches-a-la-creme-viva-suisse-garantie/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                3.95 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Poissons -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Poissons
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/filets-de-rouget-barbet/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Filets de rouget
+                                                                barbet
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -12%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/filets-de-rouget-barbet/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                12.20 / sachet
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Pommes de terre -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Pommes de terre
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/pommes-soufflees/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Pommes soufflées
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -11%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/pommes-soufflees/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                5.90 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Purées -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Purées
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/puree-orange-sanguine-boiron/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Purée orange sanguine
+                                                                Boiron
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -16%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/puree-orange-sanguine-boiron/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                9.60 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Pâtes et Précuisinés -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Pâtes et Précuisinés
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/barilla-fusili-98/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Barilla Fusili 98
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -27%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/barilla-fusili-98/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                2.20 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/cappelletti-champignons/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Cappelletti
+                                                                Champignons
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -20%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/cappelletti-champignons/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                6.70 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/macaronis-montagnards/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Macaronis Montagnards
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -14%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/macaronis-montagnards/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                8.90 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Sauces -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Sauces
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/mayonnaise-en-portion-hugo-reitzel/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Mayonnaise Suisse en portion
+                                                                "Hugo Reitzel"
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: white; padding: 2px 6px; border-radius: 3px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -24%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/mayonnaise-en-portion-hugo-reitzel/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                19.50 / carton
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/sauce-pour-tartare-le-classique/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Sauce pour tartare "Le
+                                                                Classique"
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: white; padding: 2px 6px; border-radius: 3px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -11%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/sauce-pour-tartare-le-classique/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                24.50 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Snacks et Apéro -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Snacks et Apéro
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/kadi-samosa-vegetarien/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Kadi Samosa végétarien
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: white; padding: 2px 6px; border-radius: 3px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -11%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/kadi-samosa-vegetarien/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                26.50 / carton
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/kern-et-sammet-croissant-au-jambon/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Kern et Sammet Croissant au
+                                                                jambon
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: white; padding: 2px 6px; border-radius: 3px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -8%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/kern-et-sammet-croissant-au-jambon/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                66.90 / carton
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Viandes -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Viandes
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/entrecote-de-kangourou/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Entrecôte de kangourou
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: white; padding: 2px 6px; border-radius: 3px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -20%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/entrecote-de-kangourou/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                15.90 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/ris-de-veau/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Ris de veau
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: white; padding: 2px 6px; border-radius: 3px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -10%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/ris-de-veau/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                22.50 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Category: Volailles -->
+                                        <table border="0" cellpadding="0" cellspacing="0"
+                                            style="width:100%; margin-top: 30px;" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 0 15px 10px 15px;">
+                                                        <h4
+                                                            style="margin: 0; color:#747474; font-family:'Helvetica', Arial, sans-serif; font-size: 20px;">
+                                                            Volailles
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/escalope-de-poulet-viennoise-naturelle-panee-160-gr/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Escalope de poulet Viennoise
+                                                                naturelle, panée, 160 gr
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: white; padding: 2px 6px; border-radius: 3px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -10%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/escalope-de-poulet-viennoise-naturelle-panee-160-gr/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                12.95 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-product-row">
+                                                    <td class="other-product-col" style="padding: 5px 15px; width: 65%;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/ragout-de-cuisse-de-canard-en-bloc/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span style="font-size: 16px;">
+                                                                Ragoût de cuisse de canard en
+                                                                bloc
+                                                            </span>
+                                                            <span
+                                                                style="background-color: #F9A600; color: white; padding: 2px 6px; border-radius: 3px; font-size: 12px; font-weight: bold; margin-left: 5px;">
+                                                                -7%
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="other-product-col2"
+                                                        style="padding: 5px 15px; width: 35%; text-align: right;"
+                                                        valign="top">
+                                                        <a href="https://pitoeuf.ch/produit/ragout-de-cuisse-de-canard-en-bloc/"
+                                                            style="color:#333; font-family:'Helvetica', Arial, sans-serif;">
+                                                            <span
+                                                                style="color:#F9A600; font-weight:bold; font-size: 16px;">
+                                                                CHF
+                                                                18.50 / kilo
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Original Footer Restored -->
+                                        <table align="center" border="0" cellpadding="0" cellspacing="0"
+                                            class="templateContainer"
+                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;max-width: 600px !important; margin: 0 auto;"
+                                            width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="footerContainer"
+                                                        style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                        valign="top">
+                                                        <table border="0" cellpadding="0" cellspacing="0"
+                                                            class="mcnImageGroupBlock"
+                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                            width="100%">
+                                                            <tbody class="mcnImageGroupBlockOuter">
+                                                                <tr>
+                                                                    <td class="mcnImageGroupBlockInner"
+                                                                        style="padding: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                        valign="top">
+                                                                        <table align="left" border="0" cellpadding="0"
+                                                                            cellspacing="0"
+                                                                            class="mcnImageGroupContentContainer"
+                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                            width="273">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="mcnImageGroupContent"
+                                                                                        style="padding-left: 9px;padding-top: 0;padding-bottom: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                        valign="top">
+                                                                                        <a class=""
+                                                                                            href="https://pitoeuf.ch/fr"
+                                                                                            style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                            target="_blank" title="">
+                                                                                            <img alt="" class="mcnImage"
+                                                                                                src="https://mcusercontent.com/9ed324c787f9b7bfa73df3530/images/1ba6ff84-fca4-1de8-0607-842113d80e20.png"
+                                                                                                style="max-width: 632px;padding-bottom: 0;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;"
+                                                                                                width="264" />
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <table align="right" border="0" cellpadding="0"
+                                                                            cellspacing="0"
+                                                                            class="mcnImageGroupContentContainer"
+                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                            width="273">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="mcnImageGroupContent"
+                                                                                        style="padding-right: 9px;padding-top: 0;padding-bottom: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                        valign="top">
+                                                                                        <a class=""
+                                                                                            href="https://pitoeuf.ch/fr"
+                                                                                            style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                            target="_blank" title="">
+                                                                                            <img alt="" class="mcnImage"
+                                                                                                src="https://mcusercontent.com/9ed324c787f9b7bfa73df3530/images/e5025269-23b0-42d3-9d4b-fa1b6cd89057.png"
+                                                                                                style="max-width: 632px;padding-bottom: 0;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;"
+                                                                                                width="264" />
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <table border="0" cellpadding="0" cellspacing="0"
+                                                            class="mcnFollowBlock"
+                                                            style="min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                            width="100%">
+                                                            <tbody class="mcnFollowBlockOuter">
+                                                                <tr>
+                                                                    <td align="center" class="mcnFollowBlockInner"
+                                                                        style="padding: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                        valign="top">
+                                                                        <table border="0" cellpadding="0"
+                                                                            cellspacing="0"
+                                                                            class="mcnFollowContentContainer"
+                                                                            style="min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                            width="100%">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td align="center"
+                                                                                        style="padding-left: 9px;padding-right: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                                        <table border="0"
+                                                                                            cellpadding="0"
+                                                                                            cellspacing="0"
+                                                                                            class="mcnFollowContent"
+                                                                                            style="min-width: 100%;background-color: #F7A60F;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                            width="100%">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td align="center"
+                                                                                                        style="padding-top: 9px;padding-right: 9px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                        valign="top">
+                                                                                                        <table
+                                                                                                            align="center"
+                                                                                                            border="0"
+                                                                                                            cellpadding="0"
+                                                                                                            cellspacing="0"
+                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                                                            <tbody>
+                                                                                                                <tr>
+                                                                                                                    <td align="center"
+                                                                                                                        style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                        valign="top">
+                                                                                                                        <!--[if mso]>
+                                                                        <table align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        <tr>
+                                                                        <![endif]-->
+                                                                                                                        <!--[if mso]>
+                                                                            <td align="center" valign="top">
+                                                                            <![endif]-->
+                                                                                                                        <table
+                                                                                                                            align="left"
+                                                                                                                            border="0"
+                                                                                                                            cellpadding="0"
+                                                                                                                            cellspacing="0"
+                                                                                                                            style="display: inline;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                                                                            <tbody>
+                                                                                                                                <tr>
+                                                                                                                                    <td class="mcnFollowContentItemContainer"
+                                                                                                                                        style="padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                        valign="top">
+                                                                                                                                        <table
+                                                                                                                                            border="0"
+                                                                                                                                            cellpadding="0"
+                                                                                                                                            cellspacing="0"
+                                                                                                                                            class="mcnFollowContentItem"
+                                                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                            width="100%">
+                                                                                                                                            <tbody>
+                                                                                                                                                <tr>
+                                                                                                                                                    <td align="left"
+                                                                                                                                                        style="padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                        valign="middle">
+                                                                                                                                                        <table
+                                                                                                                                                            align="left"
+                                                                                                                                                            border="0"
+                                                                                                                                                            cellpadding="0"
+                                                                                                                                                            cellspacing="0"
+                                                                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                            width="">
+                                                                                                                                                            <tbody>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <td align="left"
+                                                                                                                                                                        class="mcnFollowTextContent"
+                                                                                                                                                                        style="padding-left: 5px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                                        valign="middle">
+                                                                                                                                                                        <a href="https://pitoeuf.ch/"
+                                                                                                                                                                            style="font-family: Helvetica;font-size: 13px;text-decoration: none;color: #FFFFFF;font-weight: bold;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                                            target="">
+                                                                                                                                                                            Accueil
+                                                                                                                                                                        </a>
+                                                                                                                                                                    </td>
+                                                                                                                                                                </tr>
+                                                                                                                                                            </tbody>
+                                                                                                                                                        </table>
+                                                                                                                                                    </td>
+                                                                                                                                                </tr>
+                                                                                                                                            </tbody>
+                                                                                                                                        </table>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                            </tbody>
+                                                                                                                        </table>
+                                                                                                                        <!--[if mso]>
+                                                                            </td>
+                                                                            <![endif]-->
+                                                                                                                        <!--[if mso]>
+                                                                            <td align="center" valign="top">
+                                                                            <![endif]-->
+                                                                                                                        <table
+                                                                                                                            align="left"
+                                                                                                                            border="0"
+                                                                                                                            cellpadding="0"
+                                                                                                                            cellspacing="0"
+                                                                                                                            style="display: inline;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                                                                            <tbody>
+                                                                                                                                <tr>
+                                                                                                                                    <td class="mcnFollowContentItemContainer"
+                                                                                                                                        style="padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                        valign="top">
+                                                                                                                                        <table
+                                                                                                                                            border="0"
+                                                                                                                                            cellpadding="0"
+                                                                                                                                            cellspacing="0"
+                                                                                                                                            class="mcnFollowContentItem"
+                                                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                            width="100%">
+                                                                                                                                            <tbody>
+                                                                                                                                                <tr>
+                                                                                                                                                    <td align="left"
+                                                                                                                                                        style="padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                        valign="middle">
+                                                                                                                                                        <table
+                                                                                                                                                            align="left"
+                                                                                                                                                            border="0"
+                                                                                                                                                            cellpadding="0"
+                                                                                                                                                            cellspacing="0"
+                                                                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                            width="">
+                                                                                                                                                            <tbody>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <td align="left"
+                                                                                                                                                                        class="mcnFollowTextContent"
+                                                                                                                                                                        style="padding-left: 5px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                                        valign="middle">
+                                                                                                                                                                        <a href="https://pitoeuf.ch/societe/"
+                                                                                                                                                                            style="font-family: Helvetica;font-size: 13px;text-decoration: none;color: #FFFFFF;font-weight: bold;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                                            target="">
+                                                                                                                                                                            Société
+                                                                                                                                                                        </a>
+                                                                                                                                                                    </td>
+                                                                                                                                                                </tr>
+                                                                                                                                                            </tbody>
+                                                                                                                                                        </table>
+                                                                                                                                                    </td>
+                                                                                                                                                </tr>
+                                                                                                                                            </tbody>
+                                                                                                                                        </table>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                            </tbody>
+                                                                                                                        </table>
+                                                                                                                        <!--[if mso]>
+                                                                            </td>
+                                                                            <![endif]-->
+                                                                                                                        <!--[if mso]>
+                                                                            <td align="center" valign="top">
+                                                                            <![endif]-->
+                                                                                                                        <table
+                                                                                                                            align="left"
+                                                                                                                            border="0"
+                                                                                                                            cellpadding="0"
+                                                                                                                            cellspacing="0"
+                                                                                                                            style="display: inline;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                                                                            <tbody>
+                                                                                                                                <tr>
+                                                                                                                                    <td class="mcnFollowContentItemContainer"
+                                                                                                                                        style="padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                        valign="top">
+                                                                                                                                        <table
+                                                                                                                                            border="0"
+                                                                                                                                            cellpadding="0"
+                                                                                                                                            cellspacing="0"
+                                                                                                                                            class="mcnFollowContentItem"
+                                                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                            width="100%">
+                                                                                                                                            <tbody>
+                                                                                                                                                <tr>
+                                                                                                                                                    <td align="left"
+                                                                                                                                                        style="padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                        valign="middle">
+                                                                                                                                                        <table
+                                                                                                                                                            align="left"
+                                                                                                                                                            border="0"
+                                                                                                                                                            cellpadding="0"
+                                                                                                                                                            cellspacing="0"
+                                                                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                            width="">
+                                                                                                                                                            <tbody>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <td align="left"
+                                                                                                                                                                        class="mcnFollowTextContent"
+                                                                                                                                                                        style="padding-left: 5px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                                        valign="middle">
+                                                                                                                                                                        <a href="https://pitoeuf.ch/shop/"
+                                                                                                                                                                            style="font-family: Helvetica;font-size: 13px;text-decoration: none;color: #FFFFFF;font-weight: bold;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                                            target="">
+                                                                                                                                                                            Catalogue
+                                                                                                                                                                        </a>
+                                                                                                                                                                    </td>
+                                                                                                                                                                </tr>
+                                                                                                                                                            </tbody>
+                                                                                                                                                        </table>
+                                                                                                                                                    </td>
+                                                                                                                                                </tr>
+                                                                                                                                            </tbody>
+                                                                                                                                        </table>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                            </tbody>
+                                                                                                                        </table>
+                                                                                                                        <!--[if mso]>
+                                                                            </td>
+                                                                            <![endif]-->
+                                                                                                                        <!--[if mso]>
+                                                                            <td align="center" valign="top">
+                                                                            <![endif]-->
+                                                                                                                        <table
+                                                                                                                            align="left"
+                                                                                                                            border="0"
+                                                                                                                            cellpadding="0"
+                                                                                                                            cellspacing="0"
+                                                                                                                            style="display: inline;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                                                                            <tbody>
+                                                                                                                                <tr>
+                                                                                                                                    <td class="mcnFollowContentItemContainer"
+                                                                                                                                        style="padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                        valign="top">
+                                                                                                                                        <table
+                                                                                                                                            border="0"
+                                                                                                                                            cellpadding="0"
+                                                                                                                                            cellspacing="0"
+                                                                                                                                            class="mcnFollowContentItem"
+                                                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                            width="100%">
+                                                                                                                                            <tbody>
+                                                                                                                                                <tr>
+                                                                                                                                                    <td align="left"
+                                                                                                                                                        style="padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                        valign="middle">
+                                                                                                                                                        <table
+                                                                                                                                                            align="left"
+                                                                                                                                                            border="0"
+                                                                                                                                                            cellpadding="0"
+                                                                                                                                                            cellspacing="0"
+                                                                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                            width="">
+                                                                                                                                                            <tbody>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <td align="left"
+                                                                                                                                                                        class="mcnFollowTextContent"
+                                                                                                                                                                        style="padding-left: 5px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                                        valign="middle">
+                                                                                                                                                                        <a href="https://pitoeuf.ch/mon-compte/"
+                                                                                                                                                                            style="font-family: Helvetica;font-size: 13px;text-decoration: none;color: #FFFFFF;font-weight: bold;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                                            target="">
+                                                                                                                                                                            Mon
+                                                                                                                                                                            compte
+                                                                                                                                                                        </a>
+                                                                                                                                                                    </td>
+                                                                                                                                                                </tr>
+                                                                                                                                                            </tbody>
+                                                                                                                                                        </table>
+                                                                                                                                                    </td>
+                                                                                                                                                </tr>
+                                                                                                                                            </tbody>
+                                                                                                                                        </table>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                            </tbody>
+                                                                                                                        </table>
+                                                                                                                        <!--[if mso]>
+                                                                            </td>
+                                                                            <![endif]-->
+                                                                                                                        <!--[if mso]>
+                                                                            <td align="center" valign="top">
+                                                                            <![endif]-->
+                                                                                                                        <table
+                                                                                                                            align="left"
+                                                                                                                            border="0"
+                                                                                                                            cellpadding="0"
+                                                                                                                            cellspacing="0"
+                                                                                                                            style="display: inline;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                                                                            <tbody>
+                                                                                                                                <tr>
+                                                                                                                                    <td class="mcnFollowContentItemContainer"
+                                                                                                                                        style="padding-right: 0;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                        valign="top">
+                                                                                                                                        <table
+                                                                                                                                            border="0"
+                                                                                                                                            cellpadding="0"
+                                                                                                                                            cellspacing="0"
+                                                                                                                                            class="mcnFollowContentItem"
+                                                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                            width="100%">
+                                                                                                                                            <tbody>
+                                                                                                                                                <tr>
+                                                                                                                                                    <td align="left"
+                                                                                                                                                        style="padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                        valign="middle">
+                                                                                                                                                        <table
+                                                                                                                                                            align="left"
+                                                                                                                                                            border="0"
+                                                                                                                                                            cellpadding="0"
+                                                                                                                                                            cellspacing="0"
+                                                                                                                                                            style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                            width="">
+                                                                                                                                                            <tbody>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <td align="left"
+                                                                                                                                                                        class="mcnFollowTextContent"
+                                                                                                                                                                        style="padding-left: 5px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                                        valign="middle">
+                                                                                                                                                                        <a href="https://pitoeuf.ch/contact/"
+                                                                                                                                                                            style="font-family: Helvetica;font-size: 13px;text-decoration: none;color: #FFFFFF;font-weight: bold;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                                                                                                                            target="">
+                                                                                                                                                                            Contact
+                                                                                                                                                                        </a>
+                                                                                                                                                                    </td>
+                                                                                                                                                                </tr>
+                                                                                                                                                            </tbody>
+                                                                                                                                                        </table>
+                                                                                                                                                    </td>
+                                                                                                                                                </tr>
+                                                                                                                                            </tbody>
+                                                                                                                                        </table>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                            </tbody>
+                                                                                                                        </table>
+                                                                                                                        <!--[if mso]>
+                                                                            </td>
+                                                                            <![endif]-->
+                                                                                                                        <!--[if mso]>
+                                                                        </tr>
+                                                                        </table>
+                                                                        <![endif]-->
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <table border="0" cellpadding="0" cellspacing="0"
+                                                            class="mcnTextBlock"
+                                                            style="min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                            width="100%">
+                                                            <tbody class="mcnTextBlockOuter">
+                                                                <tr>
+                                                                    <td class="mcnTextBlockInner"
+                                                                        style="padding-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                        valign="top">
+                                                                        <!--[if mso]>
+                                                    <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
+                                                    <tr>
+                                                    <![endif]-->
+                                                                        <!--[if mso]>
+                                                    <td valign="top" width="300" style="width:300px;">
+                                                    <![endif]-->
+                                                                        <table align="left" border="0" cellpadding="0"
+                                                                            cellspacing="0"
+                                                                            class="mcnTextContentContainer"
+                                                                            style="max-width: 300px;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                            width="100%">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="mcnTextContent"
+                                                                                        style="padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #656565;font-family: Helvetica;font-size: 12px;line-height: 150%;text-align: left;"
+                                                                                        valign="top">
+                                                                                        <strong>
+                                                                                            Cet email est envoyé
+                                                                                            par:
+                                                                                        </strong>
+                                                                                        <br />
+                                                                                        Pitoeuf Sa | Route d'Ecône
+                                                                                        116 |1907 Saxon |
+                                                                                        Suisse
+                                                                                        <br />
+                                                                                        <br />
+                                                                                        <strong>
+                                                                                            <a href="mailto:info@pitoeuf.ch"
+                                                                                                style="color:black;text-decoration:none;">
+                                                                                                info@pitoeuf.ch
+                                                                                            </a>
+                                                                                        </strong>
+                                                                                        <br />
+                                                                                        <br />
+                                                                                        Cliquez ici pour
+                                                                                        <a href="*|UNSUB|*"
+                                                                                            style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #f7a60f;font-weight: normal;text-decoration: underline;"
+                                                                                            target="_blank">
+                                                                                            vous
+                                                                                            désabonner
+                                                                                        </a>
+                                                                                        de la
+                                                                                        newsletter.
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--[if mso]>
+                                                    </td>
+                                                    <![endif]-->
+                                                                        <!--[if mso]>
+                                                    <td valign="top" width="300" style="width:300px;">
+                                                    <![endif]-->
+                                                                        <table align="left" border="0" cellpadding="0"
+                                                                            cellspacing="0"
+                                                                            class="mcnTextContentContainer"
+                                                                            style="max-width: 300px;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"
+                                                                            width="100%">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="mcnTextContent"
+                                                                                        style="padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #656565;font-family: Helvetica;font-size: 12px;line-height: 150%;text-align: left;"
+                                                                                        valign="top">
+                                                                                        <em>
+                                                                                            Copyright © 2023 Pitoeuf SA,
+                                                                                            Tous droits
+                                                                                            réservés.
+                                                                                        </em>
+                                                                                        <br />
+                                                                                        Vous recevez cet e-mail car vous
+                                                                                        êtes client de Pitoeuf SA et
+                                                                                        êtes directement intégré dans
+                                                                                        notre newsletter..
+                                                                                        <br />
+                                                                                        <br />
+                                                                                        Si vous avez besoin de
+                                                                                        contacter Pitoeuf pour tout
+                                                                                        renseignement supplémentaire ou
+                                                                                        concernant un problème, merci de
+                                                                                        cliquer
+                                                                                        <a href="https://pitoeuf.ch/contact/"
+                                                                                            style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #f7a60f;font-weight: normal;text-decoration: underline;"
+                                                                                            target="_blank">
+                                                                                            ici
+                                                                                        </a>
+                                                                                        <br />
+                                                                                        <br />
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--[if mso]>
+                                                    </td>
+                                                    <![endif]-->
+                                                                        <!--[if mso]>
+                                                    </tr>
+                                                    </table>
+                                                    <![endif]-->
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 20px;">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+</body>
+
+</html>

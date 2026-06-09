@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416 312" preserveAspectRatio="xMidYMid slice">
+  <rect width="416" height="312" fill="#ebe6b8"/>
+  <rect x="0" y="252" width="416" height="60" fill="#8ba62a" opacity="0.12"/>
+  <text x="208" y="148" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#5d6b14" text-anchor="middle" dominant-baseline="middle">Photo à venir</text>
+</svg>
