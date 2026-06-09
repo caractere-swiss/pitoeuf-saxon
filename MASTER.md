@@ -9,7 +9,7 @@
 | Saison | Statut | Validité | URL | Journal |
 |---|---|---|---|---|
 | **Pâques 2026** | ✅ Publié | 26 mars – 17 avril 2026 | [/paques-2026/](https://caractere-swiss.github.io/pitoeuf-saxon/paques-2026/) | (à créer si besoin) |
-| **Été 2026** | 🟡 Draft (basé 2025) | jusqu'au 31 août 2026 | [/ete-2026/](https://caractere-swiss.github.io/pitoeuf-saxon/ete-2026/) | [JOURNAL](./ete-2026/JOURNAL.md) |
+| **Été 2026** | 🟡 Maquette finale (feuillet officiel intégré) — en attente validation Olivier | jusqu'au 31 août 2026 | [/ete-2026/](https://caractere-swiss.github.io/pitoeuf-saxon/ete-2026/) | [JOURNAL](./ete-2026/JOURNAL.md) |
 | Hiver 2026 | — | — | — | — |
 | Volaille 2027 | — | — | — | — |
 
@@ -66,6 +66,8 @@ Hébergement : GitHub Pages depuis `main`.
 | Date | Événement |
 |---|---|
 | 2026-05-12 | Création tronc commun (variables CSS) + migration Pâques 2026 + landing Été 2026 (draft 2025). Merge PR #3. |
+| 2026-05-26 | Design system `product-card` + previews par PR (`rossjrw/pr-preview-action`) + perf (WebP, lazy-loading). |
+| 2026-06-09 | Été 2026 : intégration du **feuillet officiel 2026** (21 produits revus), photos réelles, prix barrés + remises, liens fiches 21/21 (PR #20). Fix infra preview (`pull_request_target`). |
 
 ---
 
