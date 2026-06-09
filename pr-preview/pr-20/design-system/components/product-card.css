@@ -246,7 +246,10 @@
        calée à 17mm de haut et centrée. Évite le recadrage/zoom disgracieux
        que produisait `object-fit: cover` sur une case large-et-courte. */
     .product-card__media img { width: auto; height: 17mm; margin: 0 auto; }
-    .product-card__promo-banner { padding: 4px 14px; font-size: 8.5pt; letter-spacing: .9px; }
+    /* Bandeau promo réduit au minimum en impression : strip fin + petite
+       police, et date masquée (redondante avec la validité du héros). */
+    .product-card__promo-banner { padding: 1px 8px; font-size: 6.5pt; letter-spacing: .5px; }
+    .product-card__promo-banner .until { display: none; }
     .product-card__body { padding: 4px 8px; }
     .product-card__title { font-size: 9pt; }
     .product-card__meta { font-size: 7.5pt; }
