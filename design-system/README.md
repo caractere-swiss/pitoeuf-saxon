@@ -124,6 +124,40 @@ Toujours **à droite du conditionnement** s'il existe, sinon seul au top-left.
 
 ---
 
+## Impression / PDF (harmonisé entre feuillets)
+
+Le bouton « Télécharger en PDF » appelle `window.print()`. Le rendu print est
+**mutualisé** pour que tous les feuillets sortent un PDF identique et dense,
+**sans rien à recopier** dans chaque saison :
+
+- **Style des cartes en print** (photo, bandeaux, paddings compacts) →
+  `design-system/components/product-card.css`, bloc `@media print`.
+- **Mise en page dense** (grille 4 colonnes + pairing des petites
+  catégories) → `assets/css/landing-base.css`, bloc `@media print`, gardé
+  par `:has(.product-card)`. Ne s'applique donc qu'aux pages utilisant ce
+  composant ; les pages à l'ancienne structure `.card` gardent leur grille.
+
+Comportements clés (et **pièges à ne pas réintroduire**) :
+
+1. **Photos `loading="lazy"` interdites** sur les vignettes : en zéro-JS, les
+   images lazy non scrollées ne se chargent pas à l'impression → vignettes
+   blanches dans le PDF. Charger en eager (garder `width`/`height` anti-CLS).
+2. **Photo print** affichée entière + centrée (`height` fixe, `width:auto`),
+   pas `object-fit: cover` qui recadrait/zoomait sur une case courte.
+3. **Grille** : `repeat(N, minmax(0, 1fr))` — le `0` est indispensable, sinon
+   les colonnes ne rétrécissent pas sous la largeur des cartes et débordent
+   hors page (on n'en voit alors que 2).
+4. **Pairing** : une catégorie à 1-2 produits passe en demi-largeur via
+   `.category-section:has(.product-grid > .product-card:nth-child(-n+2):last-child)`
+   et se place côte à côte avec la suivante (flex-wrap sur `.container`).
+5. **Fond blanc en print** (pas le fond bois : `background-attachment: fixed`
+   est inopérant à l'impression et laisse une bande beige). À forcer dans le
+   `theme.css` de chaque saison (`body { background:#fff !important }`).
+6. **Hauteur des vignettes** : pilotée par `height` de la photo (réf. 17mm) —
+   ajuster là si une saison a plus/moins de produits par page.
+
+---
+
 ## Versionnage
 
 Le design system n'est **pas versionné** pour le moment — chaque projet

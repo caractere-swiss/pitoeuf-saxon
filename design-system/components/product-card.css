@@ -242,9 +242,10 @@
         box-shadow: none !important;
         transform: none !important;
     }
-    /* Plafonne la photo en impression : sans ça, à 4/3 sur une colonne
-       étroite la photo reste haute et gonfle le nombre de pages. */
-    .product-card__media img { max-height: 17mm; }
+    /* Photo en impression : affichée ENTIÈRE (proportions 4/3 conservées),
+       calée à 17mm de haut et centrée. Évite le recadrage/zoom disgracieux
+       que produisait `object-fit: cover` sur une case large-et-courte. */
+    .product-card__media img { width: auto; height: 17mm; margin: 0 auto; }
     .product-card__promo-banner { padding: 4px 14px; font-size: 8.5pt; letter-spacing: .9px; }
     .product-card__body { padding: 4px 8px; }
     .product-card__title { font-size: 9pt; }

@@ -76,6 +76,26 @@ hauteur max et la grille restait sur 2 colonnes. Itérations :
 
 Résultat : **2 pages** au lieu de 5.
 
+### 2026-06-09 — Système d'impression mutualisé (cross-feuillets)
+
+Le rendu PDF dense mis au point sur Été 2026 est désormais **partagé** pour
+que tous les futurs feuillets l'héritent sans rien recopier :
+
+- Style des cartes en print → `design-system/components/product-card.css`
+- Mise en page dense (grille 4 colonnes + **pairing** des catégories à 1-2
+  produits qui passent en demi-largeur et se placent côte à côte) →
+  `assets/css/landing-base.css`, gardé par **`:has(.product-card)`** pour ne
+  pas toucher les pages à l'ancienne structure `.card` (Pâques garde sa
+  grille 3 colonnes).
+
+Détails, valeurs et **pièges à ne pas réintroduire** (lazy, object-fit cover,
+minmax sans 0) : voir la section « Impression / PDF » de
+`design-system/README.md`.
+
+Correctif image associé : en print la photo est affichée **entière et
+centrée** (`height` fixe + `width:auto`) au lieu de `object-fit: cover` qui
+la recadrait/zoomait disgracieusement dans une case courte.
+
 ---
 
 ## Infra & déploiement Claude Code (sessions web)

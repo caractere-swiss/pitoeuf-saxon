@@ -351,6 +351,34 @@ footer a {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
     }
+
+    /* ── Impression dense pour les feuillets « design system » ──────────
+       S'applique UNIQUEMENT aux pages utilisant le composant
+       `product-card` (garde `:has(.product-card)`). Les pages à l'ancienne
+       structure `.card` (ex. Pâques) gardent la grille 3 colonnes ci-dessus.
+       Réutilisable tel quel par tous les futurs feuillets. */
+    .container:has(.product-card) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 0 3%;
+    }
+    .container:has(.product-card) .category-section { width: 100%; margin-top: 12px; }
+    .container:has(.product-card) .category-title { margin-bottom: 6px; }
+    /* 4 colonnes pleine largeur ; minmax(0,1fr) pour que les colonnes
+       rétrécissent sous la largeur min des cartes (sinon débordement). */
+    .container:has(.product-card) .product-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+    }
+    /* Catégorie à 1-2 produits → demi-largeur (se pairent côte à côte) +
+       grille 2 colonnes. `:nth-child(-n+2):last-child` = total ≤ 2 cartes. */
+    .container:has(.product-card) .category-section:has(.product-grid > .product-card:nth-child(-n+2):last-child) {
+        width: 48.5%;
+    }
+    .container:has(.product-card) .category-section:has(.product-grid > .product-card:nth-child(-n+2):last-child) .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
     .card {
         break-inside: avoid;
         page-break-inside: avoid;
