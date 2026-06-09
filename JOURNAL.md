@@ -353,9 +353,9 @@ Cowork (accès réseau à pitoeuf.ch, bloqué depuis les sessions Claude web) :
   actuellement le logo PNG)
 - [ ] **`<meta name="theme-color">`** : couleur barre de nav mobile en
   vert forêt
-- [ ] **Fond bois en PDF** : le bloc `@media print` de `theme.css` force
-  encore le bois, alors que la décision 2026-05-26 (« Fond blanc en PDF »)
-  prévoyait un fond blanc. Trancher avec le client.
+- [x] ~~Fond bois en PDF~~ — **fait** (2026-06-09) : repassé au fond blanc
+  propre, le bois en print laissait une bande beige disgracieuse (`fixed`
+  inopérant en impression). Conforme à la décision 2026-05-26.
 - [ ] **Images orphelines** : ~16 JPG de l'ancienne maquette 2025 restent
   dans `ete-2026/images/` (produits retirés : tranche ronde, grenadin,
   quasi, magret, bar, yakitori…). À supprimer après validation finale du

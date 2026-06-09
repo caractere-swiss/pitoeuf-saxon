@@ -89,16 +89,14 @@ body {
 .hero-print-btn svg { flex-shrink: 0; }
 
 /* ── Impression PDF ─────────────────────────────────────────
-   On préserve le fond bois + le héros vert pour conserver
-   l'identité visuelle dans le PDF généré. */
+   Fond BLANC en impression (cf. JOURNAL 2026-05-26 « Fond blanc en PDF ») :
+   `background-attachment: fixed` ne fonctionne pas en print → le bois ne
+   couvrait que le haut et laissait une bande beige en dessous. Fond blanc
+   propre, plus pro et moins d'encre pour un PDF B2B. On garde uniquement le
+   dégradé vert du héros pour l'identité visuelle. */
 @media print {
-    /* Garder le fond bois (landing-base.css le neutralise en blanc) */
     body {
-        background-image: url(../images/fond-bois-blanc.jpg) !important;
-        background-color: #ece5d6 !important;
-        background-size: 100% auto !important;
-        background-repeat: no-repeat !important;
-        background-position: top center !important;
+        background: #fff !important;
     }
     /* Garder le dégradé vert du héros */
     .hero {
