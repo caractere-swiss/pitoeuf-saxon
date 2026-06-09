@@ -109,7 +109,10 @@ body {
        = 3) + catégories resserrées → moins de pages pour le même contenu,
        sans changer l'affichage web par catégories. */
     .product-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
+        /* minmax(0, 1fr) : autorise les colonnes à devenir plus étroites
+           que la largeur min du contenu de la carte. Sans le 0, les 4
+           colonnes débordaient hors page et seules 2 étaient visibles. */
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
         gap: 6px !important;
     }
     .category-section { margin-top: 12px !important; }
