@@ -105,17 +105,33 @@ body {
     /* Masquer le bouton lui-même */
     .hero-print-btn { display: none !important; }
 
-    /* Grille plus dense en impression : 4 colonnes (défaut tronc commun
-       = 3) + catégories resserrées → moins de pages pour le même contenu,
-       sans changer l'affichage web par catégories. */
+    /* Catégories en flux : pleine largeur par défaut, mais les petites
+       catégories (1-2 produits) passent en demi-largeur et se placent
+       côte à côte → économie de papier. Affichage web inchangé. */
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 0 3%;
+    }
+    .category-section { width: 100%; margin-top: 12px !important; }
+    .category-title { margin-bottom: 6px !important; }
+
+    /* Grille dense : 4 colonnes pleine largeur.
+       minmax(0, 1fr) : autorise les colonnes à rétrécir sous la largeur
+       min du contenu (sinon elles débordent hors page). */
     .product-grid {
-        /* minmax(0, 1fr) : autorise les colonnes à devenir plus étroites
-           que la largeur min du contenu de la carte. Sans le 0, les 4
-           colonnes débordaient hors page et seules 2 étaient visibles. */
         grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
         gap: 6px !important;
     }
-    .category-section { margin-top: 12px !important; }
-    .category-title { margin-bottom: 6px !important; }
+
+    /* Catégorie à 1 ou 2 produits → demi-largeur (`:last-child` parmi les
+       2 premiers = total ≤ 2 cartes) + grille 2 colonnes. */
+    .category-section:has(.product-grid > .product-card:nth-child(-n+2):last-child) {
+        width: 48.5%;
+    }
+    .category-section:has(.product-grid > .product-card:nth-child(-n+2):last-child) .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
 }
 
