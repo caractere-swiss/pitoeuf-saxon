@@ -258,6 +258,14 @@
        police, et date masquée (redondante avec la validité du héros). */
     .product-card__promo-banner { padding: 1px 8px; font-size: 6.5pt; letter-spacing: .5px; }
     .product-card__promo-banner .until { display: none; }
+    /* Coins carrés en print : supprime le liseré blanc des angles arrondis
+       au-dessus du bandeau rouge (le rouge remplit le haut, bord à bord). */
+    .product-card { border-radius: 0; }
+    /* Badges (flocon, drapeau…) réduits en impression. */
+    .product-card__badge--frozen,
+    .product-card__badge--fresh,
+    .product-card__badge--dry,
+    .product-card__badge--flag { width: 18px; height: 18px; }
     .product-card__body { padding: 4px 8px; }
     .product-card__title { font-size: 9pt; }
     .product-card__meta { font-size: 7.5pt; }
