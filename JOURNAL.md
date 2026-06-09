@@ -24,6 +24,17 @@ ne pas re-proposer plus tard ce qui a déjà été refusé.
 
 ---
 
+## Infra & organisation
+
+### 2026-06-09 — Création JOURNAL-1-GRAPHIQUE.md
+
+Compilation de tous les chantiers graphiques actifs (feuillets, landings
+saisonnières, PLV) dans `JOURNAL-1-GRAPHIQUE.md` à la racine. Ce fichier
+est le journal de suivi métier du chantier 1 (réalisation graphique) —
+distinct du présent journal qui reste transverse et technique.
+
+---
+
 ## Design system (cross-projet)
 
 ### 2026-05-26 — Couleurs marque immuables
