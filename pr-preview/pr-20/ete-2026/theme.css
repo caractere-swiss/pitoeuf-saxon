@@ -20,13 +20,13 @@
 
 /* Décoration héros : millésime en filigrane */
 .hero-deco::before {
-    content: "26";
+    content: "2026";
     display: block;
-    font-size: clamp(90px, 15vw, 160px);
+    font-size: clamp(64px, 11vw, 120px);
     font-weight: 900;
     line-height: 1;
     letter-spacing: -6px;
-    color: rgba(255, 255, 255, .08);
+    color: rgba(255, 255, 255, .06);
     text-align: right;
 }
 
