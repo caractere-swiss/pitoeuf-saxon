@@ -40,6 +40,10 @@
 - [ ] Anomalies de remise : **M1005** (0%), **M65** (-34%), **110550** (-47%)
 - [ ] Validation finale de la sélection + date de fin de l'offre
 
+### Décisions en attente (client)
+- [ ] **Bandeau promo en PDF** : garder le mini-liseré rouge « PROMO » ou
+  le retirer complètement (la validité est déjà dans le héros)
+
 ### Améliorations possibles
 - [ ] Bannière Open Graph 1200×630 (actuellement = logo seul)
 - [ ] `<meta name="theme-color">` vert forêt (barre nav mobile)

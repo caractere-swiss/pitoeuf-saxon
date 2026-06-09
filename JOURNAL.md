@@ -96,6 +96,18 @@ Correctif image associé : en print la photo est affichée **entière et
 centrée** (`height` fixe + `width:auto`) au lieu de `object-fit: cover` qui
 la recadrait/zoomait disgracieusement dans une case courte.
 
+Réglages print affinés (itérations avec le client) :
+- **Bandeau promo minimal** en PDF (strip fin, date masquée car redondante
+  avec la validité du héros). ⏳ *Décision en attente : garder ce
+  mini-liseré ou le retirer complètement.*
+- **Badges** (flocon, drapeau) réduits à 18px en print. ⚠️ Piège corrigé :
+  ne cibler QUE la photo produit (`.product-card__media > img,
+  .product-card__media-link img`), jamais `.product-card__media img` qui
+  inclut les icônes de badge → elles devenaient énormes.
+- **Coins carrés** en print (`border-radius: 0`) : supprime le liseré blanc
+  des angles arrondis au-dessus du bandeau rouge.
+- **Hauteur photo** : 21mm (équilibre validé).
+
 ---
 
 ## Infra & déploiement Claude Code (sessions web)

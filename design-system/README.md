@@ -153,8 +153,14 @@ Comportements clés (et **pièges à ne pas réintroduire**) :
 5. **Fond blanc en print** (pas le fond bois : `background-attachment: fixed`
    est inopérant à l'impression et laisse une bande beige). À forcer dans le
    `theme.css` de chaque saison (`body { background:#fff !important }`).
-6. **Hauteur des vignettes** : pilotée par `height` de la photo (réf. 17mm) —
+6. **Hauteur des vignettes** : pilotée par `height` de la photo (réf. 21mm) —
    ajuster là si une saison a plus/moins de produits par page.
+7. **Badges en print** : réduits (~18px). ⚠️ Cibler la photo via
+   `.product-card__media > img, .product-card__media-link img` et **jamais**
+   `.product-card__media img` (qui inclut les icônes de badge → géantes).
+8. **Bandeau promo** : réduit au minimum en print (strip fin, date `.until`
+   masquée car redondante avec la validité du héros). **Coins carrés**
+   (`border-radius: 0`) pour éviter le liseré blanc au-dessus du rouge.
 
 ---
 
