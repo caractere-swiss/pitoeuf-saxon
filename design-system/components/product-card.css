@@ -244,13 +244,13 @@
     }
     /* Plafonne la photo en impression : sans ça, à 4/3 sur une colonne
        étroite la photo reste haute et gonfle le nombre de pages. */
-    .product-card__media img { max-height: 18mm; }
-    .product-card__promo-banner { padding: 5px 14px; font-size: 9pt; letter-spacing: 1px; }
-    .product-card__body { padding: 5px 8px; }
+    .product-card__media img { max-height: 17mm; }
+    .product-card__promo-banner { padding: 4px 14px; font-size: 8.5pt; letter-spacing: .9px; }
+    .product-card__body { padding: 4px 8px; }
     .product-card__title { font-size: 9pt; }
     .product-card__meta { font-size: 7.5pt; }
-    .product-card__price-strip { padding: 5px 7px; min-height: auto; gap: 6px; }
-    .product-card__discount { width: 25px; height: 25px; font-size: 8pt; }
+    .product-card__price-strip { padding: 4px 7px; min-height: auto; gap: 6px; }
+    .product-card__discount { width: 24px; height: 24px; font-size: 7.5pt; }
     .product-card__price-current { font-size: 10pt; }
     .product-card__price-regular { font-size: 7.5pt; }
     .product-card__quantity { font-size: 7.5pt; }
