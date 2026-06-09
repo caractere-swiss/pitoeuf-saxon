@@ -1,7 +1,7 @@
 name: PR Preview
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened, closed]
 
 permissions:
@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Deploy PR preview
         uses: rossjrw/pr-preview-action@v1
