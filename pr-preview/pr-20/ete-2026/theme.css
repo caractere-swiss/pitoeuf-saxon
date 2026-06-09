@@ -113,5 +113,6 @@ body {
         gap: 6px !important;
     }
     .category-section { margin-top: 12px !important; }
+    .category-title { margin-bottom: 6px !important; }
 }
 
