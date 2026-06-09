@@ -104,5 +104,14 @@ body {
     }
     /* Masquer le bouton lui-même */
     .hero-print-btn { display: none !important; }
+
+    /* Grille plus dense en impression : 4 colonnes (défaut tronc commun
+       = 3) + catégories resserrées → moins de pages pour le même contenu,
+       sans changer l'affichage web par catégories. */
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 6px !important;
+    }
+    .category-section { margin-top: 12px !important; }
 }
 
