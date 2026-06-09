@@ -43,8 +43,8 @@
 ### Améliorations possibles
 - [ ] Bannière Open Graph 1200×630 (actuellement = logo seul)
 - [ ] `<meta name="theme-color">` vert forêt (barre nav mobile)
-- [ ] Fond bois en PDF : `@media print` force encore le bois alors que la
-  décision transverse prévoyait un fond blanc — trancher avec le client
+- [x] ~~Fond bois en PDF~~ — fait : fond blanc propre en impression (le bois
+  laissait une bande beige, `fixed` inopérant en print)
 - [ ] Nettoyer les ~16 images orphelines de l'ancienne maquette 2025
 
 ## Historique
