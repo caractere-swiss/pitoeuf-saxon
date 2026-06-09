@@ -242,6 +242,9 @@
         box-shadow: none !important;
         transform: none !important;
     }
+    /* Plafonne la photo en impression : sans ça, à 4/3 sur une colonne
+       étroite la photo reste haute et gonfle le nombre de pages. */
+    .product-card__media img { max-height: 20mm; }
     .product-card__body { padding: 8px 10px; }
     .product-card__title { font-size: 10pt; }
     .product-card__meta { font-size: 8.5pt; }
