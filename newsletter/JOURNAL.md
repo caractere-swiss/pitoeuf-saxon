@@ -54,7 +54,9 @@
 - Beige bandeau prix : `#fff6e3`
 - Rouge CH/VS : `#d52b1e`
 - Bleu Surgelé : `#4aa8d8`
-- Jaune CTA Pitoeuf : `#F9A600`
+- Orange institutionnel (corporate) : `#f9a600` — sert aussi de couleur CTA Pitoeuf.
+  Source de vérité : `design-system/tokens.css` (PR #21). ⚠️ Ne PAS confondre
+  avec le rouge promo `#f95600`. L'ancien orange site `#E66624` est abandonné.
 - Prix (vignette design-system) : near-black `#1a1a1a`
 
 ---
@@ -80,6 +82,16 @@
   Les cartes d'une même ligne s'alignent, titres courts ou longs. (PR #19)
 - 2026-05-28 — Bloc « avantages » du footer élargi à 600px (retrait du padding
   horizontal) pour matcher la largeur de la section produits. (PR #19)
+
+- 2026-06-23 — **Token couleur transverse (brief page Société, PR #21).**
+  Création de `design-system/tokens.css` : source de vérité unique couleurs +
+  typo cross-projet. L'orange institutionnel est officialisé à **`#f9a600`**
+  (doré/ambre), l'ancien `#E66624` est abandonné. Le rouge promo `#f95600`
+  reste immuable. **Impact newsletter : nul** — `index.html` utilise déjà
+  `#F9A600` partout (titres, encadré « Devenez client », bouton, liens footer)
+  et aucun `#E66624`/`#E85D22` ne traîne. La newsletter ne peut pas importer
+  `tokens.css` (Outlook : pas de CSS externe ni de variables) → alignement
+  manuel, déjà conforme. Roboto/Google Fonts inapplicable à l'email : inchangé.
 
 ### DIG-003 — Layout & typo (retours Olivier + Christophe du 03.06) — ⏳ PR #22, en attente validation Olivier
 
