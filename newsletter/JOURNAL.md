@@ -81,6 +81,36 @@
 - 2026-05-28 — Bloc « avantages » du footer élargi à 600px (retrait du padding
   horizontal) pour matcher la largeur de la section produits. (PR #19)
 
+### DIG-003 — Layout & typo (retours Olivier + Christophe du 03.06) — ⏳ PR #22, en attente validation Olivier
+
+- 2026-06-23 — **Grille produits : 3 → 2 → finalement 4 colonnes à 680px.**
+  1er essai 2 col (interprétation « fiche large comme le site »). Olivier a
+  précisé vouloir **4 articles/ligne** comme le site. Comme 4 fiches ne tiennent
+  pas à 600px (bandeau prix cassé à ~150px), **élargissement à 680px** + fiche
+  compactée. ⚠️ **Outlook desktop ne fait pas de responsive** → la largeur 680px
+  est fixe et assumée (risque scroll faible, surplus léger vs 600). 6 produits =
+  ligne 1 (4 fiches) + ligne 2 (2 fiches centrées via spacers) ; avec 8 produits
+  réels → grille 2×4 parfaite. Mobile : 4 → 2 colonnes.
+- 2026-06-23 — **Fiche compactée pour la densité 4 col** (~150px/colonne) :
+  titre 18→14px, méta 13→11px, cercle remise 42→34px, prix 16→15px, badges
+  28→24px, promo 11→10px. ⚠️ Touche la vignette validée PR #19 → **re-validation
+  Olivier requise** sur la preview.
+- 2026-06-23 — **Police de marque Roboto** (le site est en `"Roboto", sans-serif`).
+  Chargée via `<link>` Google Fonts sous conditionnel MSO ; stack
+  `'Roboto', Helvetica, Arial, sans-serif`. Amélioration progressive : Apple
+  Mail/iOS/Gmail Android affichent Roboto (= site), Outlook/Gmail web retombent
+  sur Arial (proche). Les polices web ne sont PAS fiables en email → c'est la
+  bonne approche (pas de `@font-face` obligatoire).
+- 2026-06-23 — **Hiérarchie typo agrandie** (Christophe : « tout un peu plus
+  grand ») : titres 16→18px, méta 12→13px, plus de respiration dans les fiches.
+- 2026-06-23 — **Logo compact 1947** : `variante_5.png` (ratio 3.76:1, peu
+  lisible mobile) remplacé par `images/logos/1947/logo_pitoeuf_1947_FR.png`
+  (ratio 2.08:1, identique au header du site : gris + « DEPUIS 1947 » orange).
+  Affiché centré max-width 300/280px. **Logos Pitoeuf centralisés** dans
+  `images/logos/` (9 fichiers : gris/noir/blanc + variantes 1947 FR/DE),
+  poussés sur `main` → fin du hotlink pitoeuf.ch pour le logo. Variante `_DE`
+  prête pour la future version allemande.
+
 ## Pistes abandonnées (héritage maquettes Gemini)
 
 - Faux sélecteur de quantité `- 1 +` (non cliquable en email).
@@ -171,6 +201,7 @@ client). Préalable technique : une synchro liste clients boutique ↔ Mailchimp
 | #17 | Restauration + organisation + couleurs charte | `claude/nice-galileo-zFUNp` | ✅ mergée |
 | #18 | Cohérence doc + portail « Projets internes » | `claude/doc-coherence-Kp3mq` | 🔴 à fermer/refaire |
 | #19 | Vignette produit style DS : badges email-safe, panier retiré, hauteur uniforme | `claude/newsletter-vignette-DS-9xQ2` | ✅ mergée |
+| #22 | DIG-003 : grille 2 col, police Roboto, typo agrandie, logo compact 1947 | `claude/newsletter-dig003-layout-typo` | ⏳ ouverte, attente validation Olivier (preview) |
 
 > **#18 — décision en attente** : la PR est en conflit (`dirty`) ET sa description
 > du déploiement est inexacte (elle dit que `deploy.yml` pousse sur `gh-pages` ;
