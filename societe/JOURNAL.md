@@ -126,6 +126,32 @@ générations plus tard, l'ancrage dans le terroir est resté le même."
 
 ---
 
+## 2026-06-23 — Uniformisation graphique : tokens design system
+
+**Problème signalé par Ilias :** incohérence typo/couleurs sur la page —
+3 oranges différents (`#E66624` accent, `#E6A080` liens footer, `#cc5310`
+survol CTA) et **5 tailles de corps** (13/14/15/16/18 px) sans logique d'échelle.
+
+**Correction couleur :** l'orange institutionnel officiel pitoeuf.ch est
+`#f9a600` (doré/ambre), **pas** `#E66624`. Remplacé partout.
+
+**Solution :** création de `design-system/tokens.css` (source de vérité
+transverse, choix validé : design system partagé plutôt que local).
+- **Couleurs** : `--orange` (#f9a600) + `--orange-dark` (#d99000, survol) +
+  `--orange-light` (#ffc24d, liens sur fond sombre) ; neutres `--grey-*`
+- **Échelle typo** : 7 crans (`--fs-display/h1/h2/h3/body/small/label`),
+  graisses 300/400/700/900 (titres standardisés sur 700 — Roboto n'est pas
+  chargé en 800)
+
+`societe/theme.css` entièrement recâblé : **zéro taille/couleur en dur**, tout
+passe par `var(--fs-*)` / `var(--orange*)`. Ordre de chargement :
+`landing-base.css` → `tokens.css` → `theme.css`.
+
+**Portée :** appliqué à `societe/` uniquement pour l'instant. Été/Pâques
+gardent leur rendu vert actuel (pas de régression) — migration possible plus tard.
+
+---
+
 ## TODO différés
 
 - [x] **4 images téléchargées** via Cowork + token temporaire (2026-05-28) :
