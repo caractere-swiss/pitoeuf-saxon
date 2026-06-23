@@ -5,7 +5,7 @@
 > brainstorming claude.ai) doit être consignée ici pour ne jamais reperdre
 > le contexte.
 >
-> Dernière mise à jour : 2026-05-28
+> Dernière mise à jour : 2026-06-23
 
 ---
 
@@ -22,7 +22,7 @@
 ### Contacts
 
 - **Olivier Pitteloud** — interlocuteur principal client (`olivier.pitteloud@pitoeuf.ch`).
-- **Christophe** — informaticien Pitoeuf. Relais pour le technique boutique :
+- **Christophe Vuignier** — informaticien Pitoeuf. Relais pour le technique boutique :
   synchro WooCommerce ↔ Mailchimp, données clients, webshop. (À solliciter pour Q1.)
 
 ### Infra / hébergement
@@ -36,7 +36,7 @@
   - `preview.yml` → previews de PR via `rossjrw/pr-preview-action@v1`, qui écrit aussi dans `gh-pages`
     sous `/pr-preview/pr-N/`.
   - `.nojekyll` à la racine (désactive Jekyll).
-  - ⚠️ `CLAUDE.md` (racine) décrit à tort `pages.yml` + « GitHub Actions mode » → source d'erreur à corriger (cf. PR #18).
+  - ⚠️ `CLAUDE.md` (racine) décrit à tort `pages.yml` + « GitHub Actions mode » → à corriger dans une PR dédiée.
 
 ## Contraintes techniques (email HTML)
 
@@ -68,18 +68,66 @@
   crème avec cercle remise + bloc prix. (PR #19, mergée)
 - 2026-05-28 — Badges (conditionnement + origine) avec les vrais assets
   design-system (`surgele.svg`, `frais.svg`, `drapeau-ch.png`) au lieu des
-  anciennes pastilles texte. D'abord en overlay `position:absolute`, puis
-  basculés en **bande au-dessus de la photo** (email-safe : Outlook/Gmail
-  ignorent `position:absolute`). (PR #19)
+  anciennes pastilles texte. Basculés en **bande au-dessus de la photo**
+  (email-safe : Outlook/Gmail ignorent `position:absolute`). (PR #19)
 - 2026-05-28 — **Bouton panier retiré** de la vignette : inutile en email (le
   sélecteur de quantité n'existe que sur le site). `panier.svg` reste dans le
   design-system pour les landings. (PR #19)
 - 2026-05-28 — **Hauteur des cartes uniformisée** : chaque vignette est une
   `<table height="100%">` à 2 lignes (corps `valign=top` / bandeau prix
-  `valign=bottom`) + `min-height:42px` sur `.card-title` (réserve 2 lignes).
+  `valign=bottom`) + `min-height:40px` sur `.card-title` (réserve 2 lignes).
   Les cartes d'une même ligne s'alignent, titres courts ou longs. (PR #19)
 - 2026-05-28 — Bloc « avantages » du footer élargi à 600px (retrait du padding
   horizontal) pour matcher la largeur de la section produits. (PR #19)
+
+### DIG-003 — Layout & typo (retours Olivier + Christophe du 03.06) — ⏳ PR #22, en attente validation Olivier
+
+- 2026-06-23 — **Grille produits : 3 → 4 colonnes à 740px.**
+  Olivier a précisé vouloir **4 articles/ligne** comme le site. 4 fiches ne tenant
+  pas à 600px (bandeau prix cassé à ~150px), **élargissement à 680px** d'abord,
+  puis **à 740px sur demande** pour plus de confort visuel. Fiche compactée :
+  cercle remise 42→34px, badges 28→24px, promo 11→10px.
+  Typo finale **alignée sur le site** : titre 16px, méta 12px (PR #19 re-validée).
+  ⚠️ **Outlook desktop ne fait pas de responsive** → 740px fixe assumé (léger
+  surplus vs standard 600px, scroll marginal). 8 produits = grille 2×4 parfaite.
+  Mobile : 4 → 2 colonnes via `display:inline-block; width:50%` sur les `<td>`.
+
+- 2026-06-23 — **Police de marque Roboto** (le site est en `"Roboto", sans-serif`).
+  Chargée via `<link>` Google Fonts sous conditionnel MSO (`<!--[if !mso]><!-->`).
+  Stack : `'Roboto', Helvetica, Arial, sans-serif`. Amélioration progressive :
+  Apple Mail/iOS/Gmail Android affichent Roboto (= site), Outlook/Gmail web
+  retombent sur Arial. Les polices web ne sont PAS fiables en email → bonne approche.
+
+- 2026-06-23 — **Logo compact 1947** : `variante_5.png` (ratio 3.76:1, peu lisible
+  mobile) remplacé par `images/logos/1947/logo_pitoeuf_1947_FR.png` (ratio 2.08:1,
+  identique au header du site : gris + « DEPUIS 1947 » orange). Centré, max-width
+  300px desktop / 280px mobile. **Logos Pitoeuf centralisés** dans `images/logos/`
+  (9 fichiers : gris/noir/blanc + variantes 1947 FR/DE), poussés sur `main` →
+  fin du hotlink pitoeuf.ch pour le logo. Variante `_DE` prête pour version allemande.
+
+- 2026-06-23 — **Responsive mobile** : plusieurs bugs corrigés dans la même session.
+  - **Overflow droit** : table principale avait `width:740px` fixe en inline style.
+    Corrigé → `width:100%; max-width:740px`. Tous les blocs footer passent en
+    `class="wrapper"` pour que la media query s'applique uniformément.
+  - **box-sizing sur `.footer-text-col`** : `width:100%` + `padding:15px` sans
+    `box-sizing:border-box` ajoutait 30px de trop → corrigé.
+  - **Barre nav orange** : liens `inline-block` (5 liens) dépassaient le viewport.
+    Corrigé → `font-size:12px`, `padding:6px`, `overflow:hidden` sur le conteneur.
+    Séparateurs `|` masqués sur mobile (`class="nav-sep"`, `display:none !important`).
+  - **Images partenaires** : `align="left"` / `align="right"` → `align="center"` +
+    `margin:0 auto` sur les images → répartition homogène desktop, empilé centré mobile.
+
+- 2026-06-23 — **Durcissement Outlook** (fonds colorés + a11y) :
+  - `bgcolor` ajouté sur les tables portant un fond coloré : `#F2F2F2` (fond gris
+    global), `#ffffff` (contenu principal), `#F9A600` (nav orange), `#ffffff` (avantages).
+  - `role="presentation"` ajouté sur les 20 tables de mise en page → lecteurs d'écran
+    ne les traitent plus comme des tableaux de données.
+
+- 2026-06-23 — **Bugs HTML corrigés** :
+  - Attributs `alt` cassés par des guillemets droits `"` dans les valeurs
+    (« Courge en cube "Suisse" », « Saumon cru "Premium" ») → remplacés par
+    guillemets typographiques `« »`. Titres affichés alignés en conséquence.
+  - `lang="fr"` ajouté sur `<html>` (a11y + clients mail).
 
 ## Pistes abandonnées (héritage maquettes Gemini)
 
@@ -93,41 +141,42 @@
 ## Checklist
 
 ### Vignette produit
-- [x] Reconstruire les 6 cartes au style design-system (bandeau date, méta
+- [x] Reconstruire les 8 cartes au style design-system (bandeau date, méta
       Réf/Provenance, badges, bandeau prix crème + cercle remise)
 - [x] Badges conditionnement + origine en bande haut-gauche email-safe (assets DS)
 - [x] Bouton panier retiré (inutile en email)
 - [x] Hauteur des cartes uniformisée (table height=100% + min-height titre)
-- [x] Bloc avantages aligné sur 600px
-- [ ] Remplacer les valeurs d'exemple (Réf., provenance, conditionnement, quantité)
-      par les vraies données produit **avant envoi** ⚠️
+- [x] Grille 4 colonnes à 740px, responsive 2 colonnes mobile
+- [x] Typo alignée sur le site : 16px titre, 12px méta
+- [x] Durcissement Outlook : bgcolor + role=presentation
+- [ ] Remplacer les 8 produits test par les vraies données (Réf., provenance,
+      prix, photos) **avant chaque envoi** ⚠️
+- [ ] Remplacer les dates en dur (« jusqu'au 23.02 ») dans chaque bandeau promo ⚠️
 
 ### 🅿️ En standby (à traiter à l'occasion)
 
 - **Icônes SVG → PNG** : `surgele.svg` et `frais.svg` ne s'affichent PAS dans
-  Gmail/Outlook (SVG non supporté en email). Produire des PNG (ex. 56×56 px
-  pour la netteté retina) et pointer dessus dans la newsletter. *(Pas d'outil
-  de conversion SVG→PNG dans l'environnement Claude → à exporter côté client,
+  Gmail/Outlook (SVG non supporté en email). Produire des PNG (56×56 px pour
+  la netteté retina) et pointer dessus dans la newsletter. *(Export côté client
   ou installer un convertisseur lors d'une prochaine session.)*
-- **Pictos emoji du bloc avantages** (👤 🛒 💳) : la charte projet recommande
-  d'éviter les emojis Unicode (rendu variable selon les clients mail — noir &
-  blanc, voire absents sous Outlook). À remplacer par des icônes image (PNG).
+- **Pictos emoji du bloc avantages** (👤 🛒 💳) : rendu variable selon les clients
+  mail (noir & blanc, voire absents sous Outlook). À remplacer par des icônes PNG.
+- **Correction CLAUDE.md racine** : décrit à tort `pages.yml` + « GitHub Actions
+  mode » → corriger en `deploy.yml` + JamesIves → gh-pages. PR #18 fermée
+  (conflit dirty) ; à refaire dans une PR dédiée propre.
 
 ### ⚠️ Risques email à arbitrer AVANT envoi Mailchimp
 
-Le rendu est nickel en preview navigateur, mais l'email a des contraintes que
-le navigateur n'a pas. À trancher avec Olivier / tester avant diffusion :
-
-1. ~~Badges en overlay `position:absolute`~~ ✅ **réglé** : basculés en bande
-   au-dessus de la photo (email-safe).
+1. ~~Badges en overlay `position:absolute`~~ ✅ **réglé**.
 2. **Images produits hotlinkées depuis pitoeuf.ch** : le hotlinking est bloqué
-   → en email elles peuvent ne pas charger. Les ré-héberger dans Mailchimp
-   (upload dans le Content Studio) avant envoi.
-3. `border-radius` / `box-shadow` : ignorés par Outlook (coins droits, pas
-   d'ombre) — dégradation acceptable, à valider visuellement.
+   → les ré-héberger dans Mailchimp Content Studio avant envoi.
+3. **Badges SVG** : `surgele.svg` / `frais.svg` invisibles dans Gmail/Outlook.
+   → produire des PNG (cf. standby ci-dessus).
+4. `border-radius` / `box-shadow` : ignorés par Outlook — dégradation acceptable.
 
 ### Avant envoi (ops / client)
-- [ ] Validation finale par Olivier
+- [ ] Validation finale par Olivier (preview PR #22)
+- [ ] Merge PR #22 dans `main`
 - [ ] Intégration dans le template Mailchimp
 - [ ] Vérifier merge tags Mailchimp (`*|UNSUB|*` ok ; besoin de `*|FNAME|*`, `*|ARCHIVE|*` ?)
 - [ ] Segmentation Mailchimp : footer « Devenez client » (prospects) vs « Mon compte » (clients)
@@ -151,7 +200,7 @@ newsletter », **non envoyé**, en attente d'envoi puis du retour d'Olivier).
 **Réponse donnée** : faisable via **contenu conditionnel Mailchimp** (ex.
 « Créez votre compte » pour un prospect vs « Accédez à votre compte » pour un
 client). Préalable technique : une synchro liste clients boutique ↔ Mailchimp
-→ **à vérifier avec Christophe (informaticien)**.
+→ **à vérifier avec Christophe Vuignier (informaticien)**.
 
 **Prochaines étapes** :
 1. Envoyer le brouillon à Olivier (attendre son retour).
@@ -169,16 +218,15 @@ client). Préalable technique : une synchro liste clients boutique ↔ Mailchimp
 | PR | Sujet | Branche | Statut |
 |---|---|---|---|
 | #17 | Restauration + organisation + couleurs charte | `claude/nice-galileo-zFUNp` | ✅ mergée |
-| #18 | Cohérence doc + portail « Projets internes » | `claude/doc-coherence-Kp3mq` | 🔴 à fermer/refaire |
+| #18 | Cohérence doc + portail « Projets internes » | `claude/doc-coherence-Kp3mq` | 🔴 fermée (conflit dirty + description déploiement inexacte) |
 | #19 | Vignette produit style DS : badges email-safe, panier retiré, hauteur uniforme | `claude/newsletter-vignette-DS-9xQ2` | ✅ mergée |
+| #22 | DIG-003 : grille 4 col 740px, Roboto, typo 16/12, logo 1947, mobile, Outlook | `claude/newsletter-dig003-layout-typo` | ⏳ ouverte, attente validation Olivier (preview) |
 
-> **#18 — décision en attente** : la PR est en conflit (`dirty`) ET sa description
-> du déploiement est inexacte (elle dit que `deploy.yml` pousse sur `gh-pages` ;
-> en réalité la prod passe par les actions GitHub Pages, `gh-pages` ne sert qu'aux
-> previews). Recommandation : **la fermer** et refaire une petite correction de doc
-> exacte (corriger le nom `pages.yml` → `deploy.yml` + mentionner `preview.yml`,
-> renommer le portail « Projets internes », ajouter newsletter/design-system dans
-> `MASTER.md`).
+> **#18 — fermée** : PR en conflit et description de déploiement incorrecte
+> (décrivait à tort le mode « GitHub Actions » au lieu de JamesIves → gh-pages).
+> ⚠️ La fermeture via `gh` CLI / MCP GitHub est à faire manuellement si pas encore
+> effectuée — les outils GitHub n'étaient pas disponibles en fin de session 2026-06-23.
+> Le contenu utile (correction `CLAUDE.md`) sera traité dans une PR dédiée.
 
 ## Règle de scope (session)
 
