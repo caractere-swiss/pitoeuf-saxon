@@ -20,6 +20,12 @@
     a {text-decoration: none;}
     </style>
     <![endif]-->
+    <!-- Police de marque : Roboto (alignée sur pitoeuf.ch). Chargée pour les
+         clients qui la supportent (Apple Mail, iOS, Gmail Android) ; Outlook et
+         Gmail web ignorent le lien et retombent sur Arial (proche de Roboto). -->
+    <!--[if !mso]><!-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <!--<![endif]-->
     <style type="text/css">
         html, body {
             margin: 0 auto !important;
@@ -27,7 +33,7 @@
             height: 100% !important;
             width: 100% !important;
             background-color: #F2F2F2;
-            font-family: Helvetica, Arial, sans-serif;
+            font-family: 'Roboto', Helvetica, Arial, sans-serif;
         }
         * { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
         table, td { mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; }
@@ -94,19 +100,19 @@
 
         /* Corps texte */
         .card-body {
-            padding: 10px 12px 12px 12px;
+            padding: 14px 16px 16px 16px;
             text-align: center;
         }
         .card-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             line-height: 1.3;
             color: #1a1a1a;
             margin: 0 0 6px 0;
-            min-height: 42px; /* réserve 2 lignes pour aligner tous les corps de carte */
+            min-height: 48px; /* réserve 2 lignes pour aligner tous les corps de carte */
         }
         .card-meta {
-            font-size: 12px;
+            font-size: 13px;
             color: #707070;
             line-height: 1.5;
             margin: 0;
@@ -176,7 +182,7 @@
                             <tbody>
                                 <tr>
                                     <td align="center" style="padding: 10px 0;">
-                                        <p style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #999; margin:0;">
+                                        <p style="font-family: 'Roboto', Helvetica, Arial, sans-serif; font-size: 12px; color: #999; margin:0;">
                                             Si ce message ne s'affiche pas correctement, <a href="https://pitoeuf.ch/" style="color:#666; text-decoration: underline;">cliquez ici</a>.
                                         </p>
                                     </td>
@@ -205,11 +211,11 @@
                                                 <tr>
                                                     <td style="padding:0;" valign="top">
                                                         <div style="text-align: center; margin-top: 30px;">
-                                                            <h2 style="margin:0; padding-bottom:10px; font-family:'Helvetica', Arial, sans-serif; font-size:24px; color:#333; text-transform:uppercase; border-bottom:3px solid #F9A600; display:inline-block;">
+                                                            <h2 style="margin:0; padding-bottom:10px; font-family:'Roboto', 'Helvetica', Arial, sans-serif; font-size:24px; color:#333; text-transform:uppercase; border-bottom:3px solid #F9A600; display:inline-block;">
                                                                 Actions Spéciales
                                                             </h2>
                                                         </div>
-                                                        <p style="font-family:'Helvetica', Arial, sans-serif; color:#585858; font-size: 16px; text-align:center; margin-top:15px; margin-bottom: 30px;">
+                                                        <p style="font-family:'Roboto', 'Helvetica', Arial, sans-serif; color:#585858; font-size: 16px; text-align:center; margin-top:15px; margin-bottom: 30px;">
                                                             Valables du <strong>17.02</strong> au <strong>23.02.2026</strong>
                                                         </p>
                                                     </td>
@@ -217,17 +223,16 @@
                                             </tbody>
                                         </table>
 
-                                        <!-- LIGNE 1 PRODUITS -->
+                                        <!-- PRODUITS (grille 2 colonnes — alignée largeur de fiche du shop) -->
                                         <table border="0" cellpadding="0" cellspacing="0" style="width:100%;" width="100%">
                                             <tbody>
                                                 <tr class="main-product-row">
-                                                    <!-- Produit 1 -->
-                                                    <td align="center" class="main-product" style="padding: 10px;" valign="top" width="33.33%" height="100%">
+                                                <td align="center" class="main-product" style="padding: 10px;" valign="top" width="50%" height="100%">
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/tarte-aux-poires-predecoupee/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
                                                                 <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Tarte aux poires prédécoupée" src="https://pitoeuf.ch/wp-content/uploads/2022/10/1559.jpg?v=1665125316" width="178" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Tarte aux poires prédécoupée" src="https://pitoeuf.ch/wp-content/uploads/2022/10/1559.jpg?v=1665125316" width="280" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Tarte aux poires prédécoupée</div>
                                                                     <div class="card-meta">Réf. G1559<br>Provenance : Suisse</div>
@@ -247,13 +252,12 @@
                                                             </div></td></tr>
                                                             </table>
                                                     </td>
-                                                    <!-- Produit 2 -->
-                                                    <td align="center" class="main-product" style="padding: 10px;" valign="top" width="33.33%" height="100%">
+                                                <td align="center" class="main-product" style="padding: 10px;" valign="top" width="50%" height="100%">
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/joue-de-porc/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
                                                                 <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Joue de porc" src="https://pitoeuf.ch/wp-content/uploads/2022/10/2413.jpg?v=1665131091" width="178" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Joue de porc" src="https://pitoeuf.ch/wp-content/uploads/2022/10/2413.jpg?v=1665131091" width="280" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Joue de porc</div>
                                                                     <div class="card-meta">Réf. G2413<br>Provenance : Suisse</div>
@@ -273,13 +277,14 @@
                                                             </div></td></tr>
                                                             </table>
                                                     </td>
-                                                    <!-- Produit 3 -->
-                                                    <td align="center" class="main-product" style="padding: 10px;" valign="top" width="33.33%" height="100%">
+                                                </tr>
+                                                <tr class="main-product-row">
+                                                <td align="center" class="main-product" style="padding: 10px;" valign="top" width="50%" height="100%">
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/hilcona-tortelloni-gruyere-aop/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
                                                                 <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Tortelloni Gruyère AOP" src="https://pitoeuf.ch/wp-content/uploads/2023/03/3777.jpg?v=1678178146" width="178" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Tortelloni Gruyère AOP" src="https://pitoeuf.ch/wp-content/uploads/2023/03/3777.jpg?v=1678178146" width="280" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Tortelloni Gruyère AOP</div>
                                                                     <div class="card-meta">Réf. G3777<br>Provenance : Suisse</div>
@@ -299,17 +304,12 @@
                                                             </div></td></tr>
                                                             </table>
                                                     </td>
-                                                </tr>
-
-                                                <!-- LIGNE 2 PRODUITS -->
-                                                <tr class="main-product-row">
-                                                    <!-- Produit 4 -->
-                                                    <td align="center" class="main-product" style="padding: 10px;" valign="top" width="33.33%" height="100%">
+                                                <td align="center" class="main-product" style="padding: 10px;" valign="top" width="50%" height="100%">
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/courge-en-cube-suisse-garantie/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
                                                                 <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Courge en cube Suisse" src="https://pitoeuf.ch/wp-content/uploads/2022/10/4818.jpg?v=1665141529" width="178" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Courge en cube Suisse" src="https://pitoeuf.ch/wp-content/uploads/2022/10/4818.jpg?v=1665141529" width="280" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Courge en cube "Suisse"</div>
                                                                     <div class="card-meta">Réf. G4818<br>Provenance : Suisse</div>
@@ -329,13 +329,14 @@
                                                             </div></td></tr>
                                                             </table>
                                                     </td>
-                                                    <!-- Produit 5 -->
-                                                    <td align="center" class="main-product" style="padding: 10px;" valign="top" width="33.33%" height="100%">
+                                                </tr>
+                                                <tr class="main-product-row">
+                                                <td align="center" class="main-product" style="padding: 10px;" valign="top" width="50%" height="100%">
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/tranches-de-saumon-cru-premium-salmo-salarasc/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
                                                                 <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="28" height="28" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Saumon cru Premium" src="https://pitoeuf.ch/wp-content/uploads/2022/10/628.jpg?v=1665119375" width="178" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Saumon cru Premium" src="https://pitoeuf.ch/wp-content/uploads/2022/10/628.jpg?v=1665119375" width="280" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Saumon cru "Premium"</div>
                                                                     <div class="card-meta">Réf. G628<br>Provenance : Norvège</div>
@@ -355,13 +356,12 @@
                                                             </div></td></tr>
                                                             </table>
                                                     </td>
-                                                    <!-- Produit 6 -->
-                                                    <td align="center" class="main-product" style="padding: 10px;" valign="top" width="33.33%" height="100%">
+                                                <td align="center" class="main-product" style="padding: 10px;" valign="top" width="50%" height="100%">
                                                         <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                                                               <tr><td valign="top"><a href="https://pitoeuf.ch/produit/escalope-de-dinde-70-a-90-gr/" target="_blank" class="card-link">
                                                                 <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
                                                                 <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="28" height="28" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="28" height="28" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Escalope de dinde" src="https://pitoeuf.ch/wp-content/uploads/2023/10/2954.jpg?v=1698211130" width="178" /></div>
+                                                                <div class="card-media"><img class="photo" alt="Escalope de dinde" src="https://pitoeuf.ch/wp-content/uploads/2023/10/2954.jpg?v=1698211130" width="280" /></div>
                                                                 <div class="card-body">
                                                                     <div class="card-title">Escalope de dinde</div>
                                                                     <div class="card-meta">Réf. G2954<br>Provenance : Suisse</div>
@@ -391,14 +391,14 @@
                                                 <tr>
                                                     <td class="mobile-padding" style="padding: 20px 0 40px 0; text-align: center;">
                                                         <div style="background-color: #fcf8e3; border: 2px solid #F9A600; border-radius: 8px; padding: 30px 20px;">
-                                                            <h3 style="font-family:'Helvetica', Arial, sans-serif; color:#333; margin:0 0 10px 0; font-size: 20px;">
+                                                            <h3 style="font-family:'Roboto', 'Helvetica', Arial, sans-serif; color:#333; margin:0 0 10px 0; font-size: 20px;">
                                                                 Ce n'est pas tout !
                                                             </h3>
-                                                            <p style="font-family:'Helvetica', Arial, sans-serif; color:#555; font-size: 16px; margin:0 0 20px 0; line-height: 1.5;">
+                                                            <p style="font-family:'Roboto', 'Helvetica', Arial, sans-serif; color:#555; font-size: 16px; margin:0 0 20px 0; line-height: 1.5;">
                                                                 Nous avons plus de <strong>45 autres produits</strong> en promotion cette semaine. Venez faire de bonnes affaires sur notre shop !
                                                             </p>
                                                             <a href="https://pitoeuf.ch/etiquette-produit/promotions/"
-                                                                style="display:inline-block; background-color: #F9A600; color:#1a1a1a; border-radius:50px; font-weight:bold; text-decoration:none; font-size:16px; padding:12px 30px; font-family:'Helvetica', Arial, sans-serif;">
+                                                                style="display:inline-block; background-color: #F9A600; color:#1a1a1a; border-radius:50px; font-weight:bold; text-decoration:none; font-size:16px; padding:12px 30px; font-family:'Roboto', 'Helvetica', Arial, sans-serif;">
                                                                 Voir toutes les promotions
                                                             </a>
                                                         </div>
@@ -423,17 +423,17 @@
                                     <td class="mobile-padding" style="padding: 20px 0;">
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#ffffff; border-radius:8px; border:1px solid #e0e0e0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);">
                                             <tr>
-                                                <td class="advantage-col" width="33%" align="center" style="padding: 20px 10px; font-family:'Helvetica', Arial, sans-serif; color:#555;">
+                                                <td class="advantage-col" width="33%" align="center" style="padding: 20px 10px; font-family:'Roboto', 'Helvetica', Arial, sans-serif; color:#555;">
                                                     <div style="font-size: 28px; margin-bottom: 8px;">👤</div>
                                                     <strong style="font-size: 16px; color:#333; display:block; margin-bottom:4px;">Devenez client</strong>
                                                     <a href="https://pitoeuf.ch/mon-compte/" style="font-size: 14px; color:#F9A600; text-decoration: none; font-weight:bold;">Créez votre compte &rarr;</a>
                                                 </td>
-                                                <td class="advantage-col" width="33%" align="center" style="padding: 20px 10px; font-family:'Helvetica', Arial, sans-serif; color:#555; border-left: 1px solid #eeeeee; border-right: 1px solid #eeeeee;">
+                                                <td class="advantage-col" width="33%" align="center" style="padding: 20px 10px; font-family:'Roboto', 'Helvetica', Arial, sans-serif; color:#555; border-left: 1px solid #eeeeee; border-right: 1px solid #eeeeee;">
                                                     <div style="font-size: 28px; margin-bottom: 8px;">🛒</div>
                                                     <strong style="font-size: 16px; color:#333; display:block; margin-bottom:4px;">Remises exclusives</strong>
                                                     <span style="font-size: 14px;">Pour vos achats sur le shop</span>
                                                 </td>
-                                                <td class="advantage-col" width="33%" align="center" style="padding: 20px 10px; font-family:'Helvetica', Arial, sans-serif; color:#555;">
+                                                <td class="advantage-col" width="33%" align="center" style="padding: 20px 10px; font-family:'Roboto', 'Helvetica', Arial, sans-serif; color:#555;">
                                                     <div style="font-size: 28px; margin-bottom: 8px;">💳</div>
                                                     <strong style="font-size: 16px; color:#333; display:block; margin-bottom:4px;">Paiement en ligne</strong>
                                                     <span style="font-size: 14px;">Simple et 100% sécurisé</span>
@@ -474,15 +474,15 @@
                             <tbody>
                                 <tr>
                                     <td align="center" style="padding: 15px 10px;" class="footer-menu">
-                                        <a href="https://pitoeuf.ch/" style="color:#FFFFFF; font-family:Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; text-decoration:none; padding: 0 10px; display:inline-block;">Accueil</a>
+                                        <a href="https://pitoeuf.ch/" style="color:#FFFFFF; font-family:'Roboto', Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; text-decoration:none; padding: 0 10px; display:inline-block;">Accueil</a>
                                         <span style="color:#ffffff; opacity:0.5;">|</span>
-                                        <a href="https://pitoeuf.ch/societe/" style="color:#FFFFFF; font-family:Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; text-decoration:none; padding: 0 10px; display:inline-block;">Société</a>
+                                        <a href="https://pitoeuf.ch/societe/" style="color:#FFFFFF; font-family:'Roboto', Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; text-decoration:none; padding: 0 10px; display:inline-block;">Société</a>
                                         <span style="color:#ffffff; opacity:0.5;">|</span>
-                                        <a href="https://pitoeuf.ch/shop/" style="color:#FFFFFF; font-family:Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; text-decoration:none; padding: 0 10px; display:inline-block;">Catalogue</a>
+                                        <a href="https://pitoeuf.ch/shop/" style="color:#FFFFFF; font-family:'Roboto', Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; text-decoration:none; padding: 0 10px; display:inline-block;">Catalogue</a>
                                         <span style="color:#ffffff; opacity:0.5;">|</span>
-                                        <a href="https://pitoeuf.ch/mon-compte/" style="color:#FFFFFF; font-family:Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; text-decoration:none; padding: 0 10px; display:inline-block;">Mon compte</a>
+                                        <a href="https://pitoeuf.ch/mon-compte/" style="color:#FFFFFF; font-family:'Roboto', Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; text-decoration:none; padding: 0 10px; display:inline-block;">Mon compte</a>
                                         <span style="color:#ffffff; opacity:0.5;">|</span>
-                                        <a href="https://pitoeuf.ch/contact/" style="color:#FFFFFF; font-family:Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; text-decoration:none; padding: 0 10px; display:inline-block;">Contact</a>
+                                        <a href="https://pitoeuf.ch/contact/" style="color:#FFFFFF; font-family:'Roboto', Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; text-decoration:none; padding: 0 10px; display:inline-block;">Contact</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -492,14 +492,14 @@
                         <table border="0" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto 30px auto;" width="100%">
                             <tbody>
                                 <tr>
-                                    <td class="footer-text-col" width="50%" align="left" valign="top" style="padding: 0 15px; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #777777; line-height: 1.6;">
+                                    <td class="footer-text-col" width="50%" align="left" valign="top" style="padding: 0 15px; font-family: 'Roboto', Helvetica, Arial, sans-serif; font-size: 12px; color: #777777; line-height: 1.6;">
                                         <strong>Cet email est envoyé par :</strong><br />
                                         Pitoeuf SA | Route d'Ecône 116<br />
                                         1907 Saxon | Suisse<br />
                                         <strong><a href="mailto:info@pitoeuf.ch" style="color:#333333; text-decoration:none;">info@pitoeuf.ch</a></strong><br /><br />
                                         Cliquez ici pour <a href="*|UNSUB|*" style="color:#F9A600; text-decoration:underline;">vous désabonner</a> de la newsletter.
                                     </td>
-                                    <td class="footer-text-col" width="50%" align="left" valign="top" style="padding: 0 15px; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #777777; line-height: 1.6;">
+                                    <td class="footer-text-col" width="50%" align="left" valign="top" style="padding: 0 15px; font-family: 'Roboto', Helvetica, Arial, sans-serif; font-size: 12px; color: #777777; line-height: 1.6;">
                                         <em>Copyright &copy; 2026 Pitoeuf SA, Tous droits réservés.</em><br /><br />
                                         Vous recevez cet e-mail car vous êtes client de Pitoeuf SA et êtes inscrit à notre newsletter.<br /><br />
                                         Besoin d'aide ou un renseignement ? <a href="https://pitoeuf.ch/contact/" style="color:#F9A600; text-decoration:underline;">Contactez-nous ici</a>.
