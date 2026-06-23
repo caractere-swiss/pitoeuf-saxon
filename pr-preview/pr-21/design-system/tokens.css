@@ -28,15 +28,19 @@
     --fs-h2:      22px;                     /* titres de section */
     --fs-h3:      18px;                     /* sous-titres (piliers…) */
     --fs-body:    16px;                     /* corps de texte standard */
-    --fs-small:   14px;                     /* texte secondaire, méta, boutons */
+    --fs-small:   14px;                     /* méta, légendes, footer, captions */
     --fs-label:   12px;                     /* labels uppercase, légendes */
 
-    /* Graisses — Roboto chargé en 300/400/700/900 uniquement.
-       (pas de 800 : on standardise les titres sur 700) */
+    /* Graisses — Roboto chargé en 300/400/700/900 uniquement. */
     --fw-light:   300;
     --fw-regular: 400;
     --fw-bold:    700;
     --fw-black:   900;
+
+    /* Graisses sémantiques */
+    --fw-heading: 900;   /* titres de section — Roboto Black */
+    --fw-subhead: 700;   /* sous-titres / piliers */
+    --fw-ui:      700;   /* boutons, labels, nav */
 
     /* Interlignes */
     --lh-tight: 1.2;

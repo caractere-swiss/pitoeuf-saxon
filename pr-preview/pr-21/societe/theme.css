@@ -137,7 +137,7 @@ body {
 }
 .section-heading {
     font-size: var(--fs-h2);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-heading);
     color: var(--grey-text);
     line-height: var(--lh-tight);
     margin-bottom: 20px;
@@ -165,6 +165,7 @@ body {
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 28px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
 }
 .pillar__icon {
     width: 72px;
@@ -184,12 +185,12 @@ body {
 }
 .pillar__title {
     font-size: var(--fs-h3);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-heading);
     color: var(--grey-text);
     margin-bottom: 10px;
 }
 .pillar__text {
-    font-size: var(--fs-small);
+    font-size: var(--fs-body);
     line-height: var(--lh-base);
     color: var(--grey-meta);
 }
@@ -314,7 +315,7 @@ body {
     letter-spacing: 1px;
 }
 .local-text {
-    font-size: var(--fs-small);
+    font-size: var(--fs-body);
     line-height: var(--lh-loose);
     color: var(--grey-meta);
 }
@@ -348,7 +349,7 @@ footer a:hover { text-decoration: underline; }
 }
 .intro-content .section-heading {
     font-size: var(--fs-h2);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-heading);
     color: var(--grey-text);
     margin-bottom: 16px;
     line-height: 1.3;
