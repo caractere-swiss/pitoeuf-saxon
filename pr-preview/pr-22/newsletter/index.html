@@ -104,15 +104,15 @@
             text-align: center;
         }
         .card-title {
-            font-size: 14px;
+            font-size: 16px; /* aligné sur le titre produit du site */
             font-weight: bold;
             line-height: 1.25;
             color: #1a1a1a;
             margin: 0 0 4px 0;
-            min-height: 35px; /* réserve 2 lignes pour aligner tous les corps de carte */
+            min-height: 40px; /* réserve 2 lignes pour aligner tous les corps de carte */
         }
         .card-meta {
-            font-size: 11px;
+            font-size: 12px; /* aligné sur la réf./méta du site */
             color: #707070;
             line-height: 1.45;
             margin: 0;
@@ -159,7 +159,6 @@
             /* Mobile : grille 4 col → 2 col. Les <td> deviennent inline-block 50%. */
             .main-product-row { display: block !important; width: 100% !important; font-size: 0 !important; }
             .main-product { display: inline-block !important; width: 50% !important; padding: 0 8px 16px 8px !important; box-sizing: border-box !important; vertical-align: top !important; }
-            .spacer-col { display: none !important; }
             .mobile-padding { padding-left: 15px !important; padding-right: 15px !important; }
             
             /* Responsive Footer */
@@ -225,165 +224,213 @@
                                             </tbody>
                                         </table>
 
-                                        <!-- PRODUITS (grille 4 colonnes, 680px — densité proche du shop) -->
+                                        <!-- PRODUITS (grille 4 colonnes, 680px — 8 produits = 2 lignes de 4) -->
                                         <table border="0" cellpadding="0" cellspacing="0" style="width:100%;" width="100%">
                                             <tbody>
-                                        <tr class="main-product-row">
-<td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
-                                                        <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
-                                                              <tr><td valign="top"><a href="https://pitoeuf.ch/produit/tarte-aux-poires-predecoupee/" target="_blank" class="card-link">
-                                                                <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Tarte aux poires prédécoupée" src="https://pitoeuf.ch/wp-content/uploads/2022/10/1559.jpg?v=1665125316" width="150" /></div>
-                                                                <div class="card-body">
-                                                                    <div class="card-title">Tarte aux poires prédécoupée</div>
-                                                                    <div class="card-meta">Réf. G1559<br>Provenance : Suisse</div>
-                                                                </div>
-                                                            </a></td></tr>
-                                                              <tr><td valign="bottom"><div class="price-strip">
-                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                    <tr>
-                                                                        <td width="38" valign="middle"><span class="discount">-15%</span></td>
-                                                                        <td valign="middle" align="right">
-                                                                            <div class="qty">1 carton</div>
-                                                                            <div class="price-current">CHF 74.90 <span class="unit">/ ctn</span></div>
-                                                                            <div class="price-regular">CHF 88.10 / ctn</div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div></td></tr>
+                                            <tr class="main-product-row">
+                                                <td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
+                                                    <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+                                                        <tr><td valign="top"><a href="https://pitoeuf.ch/produit/tarte-aux-poires-predecoupee/" target="_blank" class="card-link">
+                                                            <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
+                                                            <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
+                                                            <div class="card-media"><img class="photo" alt="Tarte aux poires prédécoupée" src="https://pitoeuf.ch/wp-content/uploads/2022/10/1559.jpg?v=1665125316" width="150" /></div>
+                                                            <div class="card-body">
+                                                                <div class="card-title">Tarte aux poires prédécoupée</div>
+                                                                <div class="card-meta">Réf. G1559<br>Provenance : Suisse</div>
+                                                            </div>
+                                                        </a></td></tr>
+                                                        <tr><td valign="bottom"><div class="price-strip">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td width="38" valign="middle"><span class="discount">-15%</span></td>
+                                                                    <td valign="middle" align="right">
+                                                                        <div class="qty">1 carton</div>
+                                                                        <div class="price-current">CHF 74.90 <span class="unit">/ ctn</span></div>
+                                                                        <div class="price-regular">CHF 88.10 / ctn</div>
+                                                                    </td>
+                                                                </tr>
                                                             </table>
-                                                    </td>
-<td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
-                                                        <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
-                                                              <tr><td valign="top"><a href="https://pitoeuf.ch/produit/joue-de-porc/" target="_blank" class="card-link">
-                                                                <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Joue de porc" src="https://pitoeuf.ch/wp-content/uploads/2022/10/2413.jpg?v=1665131091" width="150" /></div>
-                                                                <div class="card-body">
-                                                                    <div class="card-title">Joue de porc</div>
-                                                                    <div class="card-meta">Réf. G2413<br>Provenance : Suisse</div>
-                                                                </div>
-                                                            </a></td></tr>
-                                                              <tr><td valign="bottom"><div class="price-strip">
-                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                    <tr>
-                                                                        <td width="38" valign="middle"><span class="discount">-12%</span></td>
-                                                                        <td valign="middle" align="right">
-                                                                            <div class="qty">env. 5 kg</div>
-                                                                            <div class="price-current">CHF 11.00 <span class="unit">/ kg</span></div>
-                                                                            <div class="price-regular">CHF 12.50 / kg</div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div></td></tr>
+                                                        </div></td></tr>
+                                                    </table>
+                                                </td>
+                                                <td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
+                                                    <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+                                                        <tr><td valign="top"><a href="https://pitoeuf.ch/produit/joue-de-porc/" target="_blank" class="card-link">
+                                                            <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
+                                                            <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
+                                                            <div class="card-media"><img class="photo" alt="Joue de porc" src="https://pitoeuf.ch/wp-content/uploads/2022/10/2413.jpg?v=1665131091" width="150" /></div>
+                                                            <div class="card-body">
+                                                                <div class="card-title">Joue de porc</div>
+                                                                <div class="card-meta">Réf. G2413<br>Provenance : Suisse</div>
+                                                            </div>
+                                                        </a></td></tr>
+                                                        <tr><td valign="bottom"><div class="price-strip">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td width="38" valign="middle"><span class="discount">-12%</span></td>
+                                                                    <td valign="middle" align="right">
+                                                                        <div class="qty">env. 5 kg</div>
+                                                                        <div class="price-current">CHF 11.00 <span class="unit">/ kg</span></div>
+                                                                        <div class="price-regular">CHF 12.50 / kg</div>
+                                                                    </td>
+                                                                </tr>
                                                             </table>
-                                                    </td>
-<td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
-                                                        <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
-                                                              <tr><td valign="top"><a href="https://pitoeuf.ch/produit/hilcona-tortelloni-gruyere-aop/" target="_blank" class="card-link">
-                                                                <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Tortelloni Gruyère AOP" src="https://pitoeuf.ch/wp-content/uploads/2023/03/3777.jpg?v=1678178146" width="150" /></div>
-                                                                <div class="card-body">
-                                                                    <div class="card-title">Tortelloni Gruyère AOP</div>
-                                                                    <div class="card-meta">Réf. G3777<br>Provenance : Suisse</div>
-                                                                </div>
-                                                            </a></td></tr>
-                                                              <tr><td valign="bottom"><div class="price-strip">
-                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                    <tr>
-                                                                        <td width="38" valign="middle"><span class="discount">-16%</span></td>
-                                                                        <td valign="middle" align="right">
-                                                                            <div class="qty">2 kg</div>
-                                                                            <div class="price-current">CHF 11.20 <span class="unit">/ kg</span></div>
-                                                                            <div class="price-regular">CHF 13.30 / kg</div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div></td></tr>
+                                                        </div></td></tr>
+                                                    </table>
+                                                </td>
+                                                <td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
+                                                    <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+                                                        <tr><td valign="top"><a href="https://pitoeuf.ch/produit/hilcona-tortelloni-gruyere-aop/" target="_blank" class="card-link">
+                                                            <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
+                                                            <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
+                                                            <div class="card-media"><img class="photo" alt="Tortelloni Gruyère AOP" src="https://pitoeuf.ch/wp-content/uploads/2023/03/3777.jpg?v=1678178146" width="150" /></div>
+                                                            <div class="card-body">
+                                                                <div class="card-title">Tortelloni Gruyère AOP</div>
+                                                                <div class="card-meta">Réf. G3777<br>Provenance : Suisse</div>
+                                                            </div>
+                                                        </a></td></tr>
+                                                        <tr><td valign="bottom"><div class="price-strip">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td width="38" valign="middle"><span class="discount">-16%</span></td>
+                                                                    <td valign="middle" align="right">
+                                                                        <div class="qty">2 kg</div>
+                                                                        <div class="price-current">CHF 11.20 <span class="unit">/ kg</span></div>
+                                                                        <div class="price-regular">CHF 13.30 / kg</div>
+                                                                    </td>
+                                                                </tr>
                                                             </table>
-                                                    </td>
-<td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
-                                                        <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
-                                                              <tr><td valign="top"><a href="https://pitoeuf.ch/produit/courge-en-cube-suisse-garantie/" target="_blank" class="card-link">
-                                                                <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Courge en cube Suisse" src="https://pitoeuf.ch/wp-content/uploads/2022/10/4818.jpg?v=1665141529" width="150" /></div>
-                                                                <div class="card-body">
-                                                                    <div class="card-title">Courge en cube "Suisse"</div>
-                                                                    <div class="card-meta">Réf. G4818<br>Provenance : Suisse</div>
-                                                                </div>
-                                                            </a></td></tr>
-                                                              <tr><td valign="bottom"><div class="price-strip">
-                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                    <tr>
-                                                                        <td width="38" valign="middle"><span class="discount">-14%</span></td>
-                                                                        <td valign="middle" align="right">
-                                                                            <div class="qty">2.5 kg</div>
-                                                                            <div class="price-current">CHF 5.10 <span class="unit">/ kg</span></div>
-                                                                            <div class="price-regular">CHF 5.90 / kg</div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div></td></tr>
+                                                        </div></td></tr>
+                                                    </table>
+                                                </td>
+                                                <td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
+                                                    <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+                                                        <tr><td valign="top"><a href="https://pitoeuf.ch/produit/courge-en-cube-suisse-garantie/" target="_blank" class="card-link">
+                                                            <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
+                                                            <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
+                                                            <div class="card-media"><img class="photo" alt="Courge en cube "Suisse"" src="https://pitoeuf.ch/wp-content/uploads/2022/10/4818.jpg?v=1665141529" width="150" /></div>
+                                                            <div class="card-body">
+                                                                <div class="card-title">Courge en cube "Suisse"</div>
+                                                                <div class="card-meta">Réf. G4818<br>Provenance : Suisse</div>
+                                                            </div>
+                                                        </a></td></tr>
+                                                        <tr><td valign="bottom"><div class="price-strip">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td width="38" valign="middle"><span class="discount">-14%</span></td>
+                                                                    <td valign="middle" align="right">
+                                                                        <div class="qty">2.5 kg</div>
+                                                                        <div class="price-current">CHF 5.10 <span class="unit">/ kg</span></div>
+                                                                        <div class="price-regular">CHF 5.90 / kg</div>
+                                                                    </td>
+                                                                </tr>
                                                             </table>
-                                                    </td>
-                                        </tr>
-                                        <tr class="main-product-row">
-                                                <td class="spacer-col" width="25%" valign="top">&nbsp;</td>
-<td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
-                                                        <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
-                                                              <tr><td valign="top"><a href="https://pitoeuf.ch/produit/tranches-de-saumon-cru-premium-salmo-salarasc/" target="_blank" class="card-link">
-                                                                <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="24" height="24" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Saumon cru Premium" src="https://pitoeuf.ch/wp-content/uploads/2022/10/628.jpg?v=1665119375" width="150" /></div>
-                                                                <div class="card-body">
-                                                                    <div class="card-title">Saumon cru "Premium"</div>
-                                                                    <div class="card-meta">Réf. G628<br>Provenance : Norvège</div>
-                                                                </div>
-                                                            </a></td></tr>
-                                                              <tr><td valign="bottom"><div class="price-strip">
-                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                    <tr>
-                                                                        <td width="38" valign="middle"><span class="discount">-19%</span></td>
-                                                                        <td valign="middle" align="right">
-                                                                            <div class="qty">1 kg</div>
-                                                                            <div class="price-current">CHF 19.80 <span class="unit">/ kg</span></div>
-                                                                            <div class="price-regular">CHF 24.40 / kg</div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div></td></tr>
+                                                        </div></td></tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr class="main-product-row">
+                                                <td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
+                                                    <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+                                                        <tr><td valign="top"><a href="https://pitoeuf.ch/produit/tranches-de-saumon-cru-premium-salmo-salarasc/" target="_blank" class="card-link">
+                                                            <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
+                                                            <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="24" height="24" /></div>
+                                                            <div class="card-media"><img class="photo" alt="Saumon cru "Premium"" src="https://pitoeuf.ch/wp-content/uploads/2022/10/628.jpg?v=1665119375" width="150" /></div>
+                                                            <div class="card-body">
+                                                                <div class="card-title">Saumon cru "Premium"</div>
+                                                                <div class="card-meta">Réf. G628<br>Provenance : Norvège</div>
+                                                            </div>
+                                                        </a></td></tr>
+                                                        <tr><td valign="bottom"><div class="price-strip">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td width="38" valign="middle"><span class="discount">-19%</span></td>
+                                                                    <td valign="middle" align="right">
+                                                                        <div class="qty">1 kg</div>
+                                                                        <div class="price-current">CHF 19.80 <span class="unit">/ kg</span></div>
+                                                                        <div class="price-regular">CHF 24.40 / kg</div>
+                                                                    </td>
+                                                                </tr>
                                                             </table>
-                                                    </td>
-<td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
-                                                        <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
-                                                              <tr><td valign="top"><a href="https://pitoeuf.ch/produit/escalope-de-dinde-70-a-90-gr/" target="_blank" class="card-link">
-                                                                <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
-                                                                <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
-                                                                <div class="card-media"><img class="photo" alt="Escalope de dinde" src="https://pitoeuf.ch/wp-content/uploads/2023/10/2954.jpg?v=1698211130" width="150" /></div>
-                                                                <div class="card-body">
-                                                                    <div class="card-title">Escalope de dinde</div>
-                                                                    <div class="card-meta">Réf. G2954<br>Provenance : Suisse</div>
-                                                                </div>
-                                                            </a></td></tr>
-                                                              <tr><td valign="bottom"><div class="price-strip">
-                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                    <tr>
-                                                                        <td width="38" valign="middle"><span class="discount">-10%</span></td>
-                                                                        <td valign="middle" align="right">
-                                                                            <div class="qty">env. 5 kg</div>
-                                                                            <div class="price-current">CHF 14.85 <span class="unit">/ kg</span></div>
-                                                                            <div class="price-regular">CHF 16.50 / kg</div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div></td></tr>
+                                                        </div></td></tr>
+                                                    </table>
+                                                </td>
+                                                <td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
+                                                    <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+                                                        <tr><td valign="top"><a href="https://pitoeuf.ch/produit/escalope-de-dinde-70-a-90-gr/" target="_blank" class="card-link">
+                                                            <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
+                                                            <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
+                                                            <div class="card-media"><img class="photo" alt="Escalope de dinde" src="https://pitoeuf.ch/wp-content/uploads/2023/10/2954.jpg?v=1698211130" width="150" /></div>
+                                                            <div class="card-body">
+                                                                <div class="card-title">Escalope de dinde</div>
+                                                                <div class="card-meta">Réf. G2954<br>Provenance : Suisse</div>
+                                                            </div>
+                                                        </a></td></tr>
+                                                        <tr><td valign="bottom"><div class="price-strip">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td width="38" valign="middle"><span class="discount">-10%</span></td>
+                                                                    <td valign="middle" align="right">
+                                                                        <div class="qty">env. 5 kg</div>
+                                                                        <div class="price-current">CHF 14.85 <span class="unit">/ kg</span></div>
+                                                                        <div class="price-regular">CHF 16.50 / kg</div>
+                                                                    </td>
+                                                                </tr>
                                                             </table>
-                                                    </td>
-                                                <td class="spacer-col" width="25%" valign="top">&nbsp;</td>
-                                        </tr>
+                                                        </div></td></tr>
+                                                    </table>
+                                                </td>
+                                                <td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
+                                                    <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+                                                        <tr><td valign="top"><a href="https://pitoeuf.ch/produit/emince-de-poulet/" target="_blank" class="card-link">
+                                                            <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
+                                                            <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/frais.svg" alt="Frais" width="24" height="24" /><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/drapeau-ch.png" alt="CH" width="24" height="24" /></div>
+                                                            <div class="card-media"><img class="photo" alt="Émincé de poulet" src="https://pitoeuf.ch/wp-content/uploads/2023/10/2954.jpg?v=1698211130" width="150" /></div>
+                                                            <div class="card-body">
+                                                                <div class="card-title">Émincé de poulet</div>
+                                                                <div class="card-meta">Réf. G3120<br>Provenance : Suisse</div>
+                                                            </div>
+                                                        </a></td></tr>
+                                                        <tr><td valign="bottom"><div class="price-strip">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td width="38" valign="middle"><span class="discount">-13%</span></td>
+                                                                    <td valign="middle" align="right">
+                                                                        <div class="qty">env. 5 kg</div>
+                                                                        <div class="price-current">CHF 13.50 <span class="unit">/ kg</span></div>
+                                                                        <div class="price-regular">CHF 15.50 / kg</div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div></td></tr>
+                                                    </table>
+                                                </td>
+                                                <td align="center" class="main-product" style="padding: 8px;" valign="top" width="25%" height="100%">
+                                                    <table class="product-card" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+                                                        <tr><td valign="top"><a href="https://pitoeuf.ch/produit/crevettes-black-tiger/" target="_blank" class="card-link">
+                                                            <div class="promo-banner">Promo <span class="until">jusqu'au 23.02</span></div>
+                                                            <div class="card-badges"><img src="https://caractere-swiss.github.io/pitoeuf-saxon/design-system/icons/surgele.svg" alt="Surgelé" width="24" height="24" /></div>
+                                                            <div class="card-media"><img class="photo" alt="Crevettes black tiger" src="https://pitoeuf.ch/wp-content/uploads/2022/10/628.jpg?v=1665119375" width="150" /></div>
+                                                            <div class="card-body">
+                                                                <div class="card-title">Crevettes black tiger</div>
+                                                                <div class="card-meta">Réf. G1840<br>Provenance : Vietnam</div>
+                                                            </div>
+                                                        </a></td></tr>
+                                                        <tr><td valign="bottom"><div class="price-strip">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td width="38" valign="middle"><span class="discount">-18%</span></td>
+                                                                    <td valign="middle" align="right">
+                                                                        <div class="qty">1 kg</div>
+                                                                        <div class="price-current">CHF 22.00 <span class="unit">/ kg</span></div>
+                                                                        <div class="price-regular">CHF 26.80 / kg</div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div></td></tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
 
@@ -391,7 +438,7 @@
                                         <table border="0" cellpadding="0" cellspacing="0" style="width:100%; margin-top: 20px;" width="100%">
                                             <tbody>
                                                 <tr>
-                                                    <td class="mobile-padding" style="padding: 20px 0 40px 0; text-align: center;">
+                                                    <td class="mobile-padding" style="padding: 20px 12px 40px 12px; text-align: center;">
                                                         <div style="background-color: #fcf8e3; border: 2px solid #F9A600; border-radius: 8px; padding: 30px 20px;">
                                                             <h3 style="font-family:'Roboto', 'Helvetica', Arial, sans-serif; color:#333; margin:0 0 10px 0; font-size: 20px;">
                                                                 Ce n'est pas tout !
