@@ -83,12 +83,18 @@
 
 ### DIG-003 — Layout & typo (retours Olivier + Christophe du 03.06) — ⏳ PR #22, en attente validation Olivier
 
-- 2026-06-23 — **Grille produits 3 → 2 colonnes** (3 lignes de 2). Olivier
-  voulait « largeur/colonnes comme le site » : sur pitoeuf.ch les 4 colonnes
-  occupent une zone centrale étroite → fiches ~300px ; l'équivalent fidèle à
-  600px est **2 colonnes** (~300px/fiche), pas 4 (qui donneraient 150px et
-  casseraient la fiche validée). Anatomie des fiches PR #19 inchangée, juste
-  élargie.
+- 2026-06-23 — **Grille produits : 3 → 2 → finalement 4 colonnes à 680px.**
+  1er essai 2 col (interprétation « fiche large comme le site »). Olivier a
+  précisé vouloir **4 articles/ligne** comme le site. Comme 4 fiches ne tiennent
+  pas à 600px (bandeau prix cassé à ~150px), **élargissement à 680px** + fiche
+  compactée. ⚠️ **Outlook desktop ne fait pas de responsive** → la largeur 680px
+  est fixe et assumée (risque scroll faible, surplus léger vs 600). 6 produits =
+  ligne 1 (4 fiches) + ligne 2 (2 fiches centrées via spacers) ; avec 8 produits
+  réels → grille 2×4 parfaite. Mobile : 4 → 2 colonnes.
+- 2026-06-23 — **Fiche compactée pour la densité 4 col** (~150px/colonne) :
+  titre 18→14px, méta 13→11px, cercle remise 42→34px, prix 16→15px, badges
+  28→24px, promo 11→10px. ⚠️ Touche la vignette validée PR #19 → **re-validation
+  Olivier requise** sur la preview.
 - 2026-06-23 — **Police de marque Roboto** (le site est en `"Roboto", sans-serif`).
   Chargée via `<link>` Google Fonts sous conditionnel MSO ; stack
   `'Roboto', Helvetica, Arial, sans-serif`. Amélioration progressive : Apple
