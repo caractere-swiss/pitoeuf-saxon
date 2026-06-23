@@ -1,0 +1,18 @@
+/* ============================================================
+   Theme : Pâques 2026 — palette verte printanière
+   ============================================================ */
+
+:root {
+    --accent-dark:    #3a6b1a;
+    --accent-mid:     #5a9c28;
+    --accent-light:   #d6edb8;
+    --accent-bg:      #f0f8e8;
+    --accent-soft:    #f5fbee;
+    --accent-border:  #c5dfa0;
+    --accent-hi:      #b8e86a;
+
+    --hero-gradient:  linear-gradient(160deg, #2d5a10 0%, #4a8820 50%, #6aad30 100%);
+
+    --text-dark:      #1c2a10;
+    --text-mid:       #3d5220;
+}
