@@ -1,8 +1,10 @@
 /* ============================================================
    Société — palette institutionnelle pitoeuf.ch
    PAS de couleurs saisonnières. PAS de rouge promo #f95600.
-   Dernière mise à jour : 2026-05-28 (v2)
+   Dernière mise à jour : 2026-06-23 (v3)
    ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
 
 /* ── RESET VARIABLES landing-base (inutilisées ici) ── */
 :root {
@@ -19,7 +21,7 @@
     --text-muted: #666666;
     --text-faint: #888888;
 
-    --font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-stack: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
     /* Couleurs propres à cette page */
     --orange:      #E66624;

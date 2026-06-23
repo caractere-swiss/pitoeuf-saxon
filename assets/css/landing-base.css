@@ -7,6 +7,8 @@
    ces variables dans son propre theme.css.
    ============================================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -42,7 +44,7 @@
 
     --shadow-card-hover: 0 12px 30px rgba(0, 0, 0, .15);
 
-    --font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-stack: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /* ── BODY ── */
