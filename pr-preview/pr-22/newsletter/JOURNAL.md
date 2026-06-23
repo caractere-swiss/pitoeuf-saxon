@@ -228,3 +228,13 @@ client). Préalable technique : une synchro liste clients boutique ↔ Mailchimp
 - Modifier **uniquement** `newsletter/` (+ assets partagés `design-system/` si
   explicitement demandé, + docs racine si explicitement demandé). **Ne pas
   toucher `ete-2026/`** ni les autres landings — lecture seule pour référence.
+
+### Répartition des rôles (ne pas déborder)
+
+- **Pilotage projet / relation client / emails** → géré par le chat
+  `3.solution-marketing`. C'est lui qui programme et envoie les mails (Olivier,
+  Christophe…), cadre le concept et pilote le planning.
+- **Ce chat (newsletter) = opérationnel pur** : code `newsletter/index.html`,
+  rendu email, conformité charte, commits/PR. **Je n'envoie pas de mail client
+  et ne pilote pas le projet.** Si une décision client/mail est nécessaire,
+  je la remonte — c'est `3.solution-marketing` qui la porte.
