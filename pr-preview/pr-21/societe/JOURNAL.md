@@ -97,6 +97,35 @@ correctement avec la section grise qui le précède.
 
 ---
 
+---
+
+## 2026-06-23 — Section « Nos origines » (photo Vissigen 1968)
+
+**Contexte :** Ilias a fourni une photo aérienne N&B des installations Pitoeuf
+à Vissigen (Sion) datant de 1968. Section historique ajoutée pour renforcer
+l'ancrage territorial de la marque.
+
+**Emplacement :** entre BLOC 2 (intro narrative) et BLOC 3 (piliers services).
+
+**Technique :**
+- Layout 2 colonnes (`origins-layout`) : photo gauche + texte droite
+- CSS `filter: grayscale(100%) contrast(1.05)` + bordure `3px solid var(--border)`
+  pour rendu archives — zéro filtre JS/lib externe
+- `<figure>` + `<figcaption>` : *"Vissigen, Sion — vers 1968"*
+- Mobile : 1 colonne, photo au-dessus du texte (`order: -1`)
+
+**Image :** `societe/images/pitoeuf-1968-vissigen.jpg` (poussée depuis CLI local
+via `git push` — kDrive n'est pas un repo git)
+
+**PR :** #21 (`claude/sweet-einstein-DQdJD`) — preview active :
+`https://caractere-swiss.github.io/pitoeuf-saxon/pr-preview/pr-21/societe/`
+
+**Texte retenu :** conservateur, sans dates inventées — "Avant de s'établir à
+Saxon, Pitoeuf était implanté dans la plaine du Rhône, à Sion. [...] Quatre
+générations plus tard, l'ancrage dans le terroir est resté le même."
+
+---
+
 ## TODO différés
 
 - [x] **4 images téléchargées** via Cowork + token temporaire (2026-05-28) :
@@ -104,6 +133,8 @@ correctement avec la section grise qui le précède.
       `icon-tracabilite.png` — intégrées dans `index.html`
 - [x] **3 photos solaires** poussées via CLI local (2026-05-28) :
       `depot-solaire-1/2/3.jpg` — intégrées dans le slider BLOC 6
+- [x] **Photo Vissigen 1968** poussée via CLI local (2026-06-23) :
+      `pitoeuf-1968-vissigen.jpg` — intégrée dans section « Nos origines »
 - [ ] **4 icônes shop** restantes (`icon-shop-*.png`) — toujours en SVG
       inline, à télécharger via `download-images.sh`
 - [ ] **Valider la maquette** avec Olivier (textes, structure, palette)
@@ -111,8 +142,5 @@ correctement avec la section grise qui le précède.
 - [ ] **Vérifier les icônes des piliers** : les images pitoeuf.ch
       (`Ellipse-0201/0203/0204`) sont peut-être des pastilles colorées —
       adapter le CSS si elles remplacent les icônes SVG actuelles
-- [ ] **Preview PR #16** : les photos solaires ne s'affichent pas encore
-      dans la preview (gh-pages pas à jour). Pour forcer le redéploiement,
-      **éditer un fichier directement sur GitHub.com** (interface web → crayon)
-      sur la branche `claude/societe-preview-0001` — c'est le seul vecteur
-      qui déclenche un vrai webhook `pull_request: synchronize`.
+- [ ] **Photos complémentaires** à fournir par client : façade Saxon, camion
+      de livraison, chambre froide, 1-2 photos terroir valaisan
