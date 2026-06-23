@@ -235,20 +235,30 @@ body {
     align-items: center;
 }
 
-/* Slider CSS-only — radio + sibling combinator, zéro JS */
+/* Slider — auto-défilement CSS + contrôle manuel par radio */
 .photo-slider input[type=radio] { display: none; }
 
 .slider-viewport {
     overflow: hidden;
     border-radius: 10px;
 }
+
+@keyframes sol-autoplay {
+    0%,   31%  { transform: translateX(0); }
+    33%,  64%  { transform: translateX(-33.3333%); }
+    66%,  97%  { transform: translateX(-66.6667%); }
+    99%, 100%  { transform: translateX(0); }
+}
+
 .slider-track {
     display: flex;
-    width: 300%;   /* 3 slides × 100% */
-    transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+    width: 300%;
+    transition: transform .4s cubic-bezier(.4, 0, .2, 1);
+    animation: sol-autoplay 7s ease-in-out infinite;
 }
+
 .slider-slide {
-    width: calc(100% / 3);   /* 1/3 du track = 100% du viewport */
+    width: calc(100% / 3);
     flex-shrink: 0;
 }
 .slider-slide img {
@@ -259,22 +269,22 @@ body {
     display: block;
 }
 
-/* Positions (translateX relatif à la largeur du track = 300%) */
-#sol1:checked ~ .slider-viewport .slider-track { transform: translateX(0); }
-#sol2:checked ~ .slider-viewport .slider-track { transform: translateX(-33.3333%); }
-#sol3:checked ~ .slider-viewport .slider-track { transform: translateX(-66.6667%); }
+/* Clic sur un point → arrête l'animation et verrouille la diapo */
+#sol1:checked ~ .slider-viewport .slider-track { animation: none; transform: translateX(0); }
+#sol2:checked ~ .slider-viewport .slider-track { animation: none; transform: translateX(-33.3333%); }
+#sol3:checked ~ .slider-viewport .slider-track { animation: none; transform: translateX(-66.6667%); }
 
 /* Dots de navigation */
 .slider-dots {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    padding-top: 14px;
+    gap: 12px;
+    padding-top: 16px;
 }
 .slider-dots label {
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: var(--border);
     cursor: pointer;
@@ -282,11 +292,18 @@ body {
 }
 .slider-dots label:hover { background: #bbb; }
 
+/* Dot actif quand un radio est coché */
 #sol1:checked ~ .slider-dots label[for=sol1],
 #sol2:checked ~ .slider-dots label[for=sol2],
 #sol3:checked ~ .slider-dots label[for=sol3] {
     background: var(--orange);
-    transform: scale(1.25);
+    transform: scale(1.2);
+}
+
+/* Dot 1 actif par défaut (avant tout clic) */
+.photo-slider:not(:has(input[type=radio]:checked)) .slider-dots label[for=sol1] {
+    background: var(--orange);
+    transform: scale(1.2);
 }
 
 /* ── TEXTE ANCRAGE LOCAL ── */
