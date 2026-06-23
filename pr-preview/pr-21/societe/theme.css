@@ -1,35 +1,30 @@
 /* ============================================================
-   Société — palette institutionnelle pitoeuf.ch
-   PAS de couleurs saisonnières. PAS de rouge promo #f95600.
-   Dernière mise à jour : 2026-06-23 (v3)
+   Société — habillage institutionnel pitoeuf.ch
+   ------------------------------------------------------------
+   Couleurs & échelle typo : design-system/tokens.css
+   (chargé AVANT ce fichier). Ici on ne fait que CONSOMMER les
+   tokens — aucune taille ni couleur en dur.
+
+   PAS de couleurs saisonnières. PAS de rouge promo (#f95600).
+   Orange institutionnel = var(--orange) (#f9a600).
+   Dernière mise à jour : 2026-06-23 (v4 — tokenisation)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
-
-/* ── RESET VARIABLES landing-base (inutilisées ici) ── */
+/* ── Neutralise les accents verts hérités de landing-base ──
+   Les vraies valeurs viennent de tokens.css. */
 :root {
-    --accent-dark:   #333333;
-    --accent-mid:    #E66624;   /* orange institutionnel pitoeuf.ch */
-    --accent-light:  #F2F2F2;
-    --accent-bg:     #F2F2F2;
-    --accent-soft:   #F2F2F2;
-    --accent-border: #D8D8D8;
-    --accent-hi:     #E66624;
+    --accent-dark:   var(--grey-text);
+    --accent-mid:    var(--orange);
+    --accent-light:  var(--grey-bg);
+    --accent-bg:     var(--grey-bg);
+    --accent-soft:   var(--grey-bg);
+    --accent-border: var(--border);
+    --accent-hi:     var(--orange);
 
-    --text-dark:  #333333;
-    --text-mid:   #333333;
-    --text-muted: #666666;
-    --text-faint: #888888;
-
-    --font-stack: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-    /* Couleurs propres à cette page */
-    --orange:      #E66624;
-    --grey-bg:     #F2F2F2;
-    --grey-text:   #333333;
-    --grey-meta:   #666666;
-    --white:       #FFFFFF;
-    --border:      #D8D8D8;
+    --text-dark:  var(--grey-text);
+    --text-mid:   var(--grey-text);
+    --text-muted: var(--grey-meta);
+    --text-faint: var(--grey-faint);
 }
 
 /* ── FOND PAGE ── */
@@ -37,11 +32,13 @@ body {
     background: var(--grey-bg);
     color: var(--grey-text);
     font-family: var(--font-stack);
+    font-size: var(--fs-body);
+    line-height: var(--lh-base);
 }
 
 /* ── EN-TÊTE SIMPLE (bloc 1) ── */
 .site-header {
-    background: #222222;   /* fond sombre : logo blanc visible */
+    background: var(--ink);   /* fond sombre : logo blanc visible */
     border-bottom: 3px solid var(--orange);
 }
 .site-header__inner {
@@ -58,7 +55,7 @@ body {
     height: 52px;
 }
 .site-header__nav {
-    font-size: 13px;
+    font-size: var(--fs-small);
 }
 .site-header__nav a {
     color: rgba(255, 255, 255, .7);
@@ -66,7 +63,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-size: 13px;
+    font-size: var(--fs-small);
 }
 .site-header__nav a:hover { color: #fff; text-decoration: underline; }
 
@@ -82,19 +79,19 @@ body {
     gap: 12px;
 }
 .page-title {
-    font-size: clamp(26px, 4vw, 36px);
-    font-weight: 800;
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-bold);
     letter-spacing: -.5px;
     color: var(--grey-text);
 }
 .page-title-separator {
     color: var(--orange);
-    font-weight: 900;
-    font-size: 28px;
+    font-weight: var(--fw-black);
+    font-size: var(--fs-h2);
     line-height: 1;
 }
 .page-breadcrumb {
-    font-size: 13px;
+    font-size: var(--fs-small);
     color: var(--grey-meta);
 }
 .page-breadcrumb a {
@@ -109,9 +106,9 @@ body {
     border: 2px dashed #cca000;
     border-radius: 6px;
     padding: 11px 20px;
-    font-size: 13px;
+    font-size: var(--fs-small);
     color: #6b5000;
-    font-weight: 600;
+    font-weight: var(--fw-bold);
     text-align: center;
     margin: 20px 0 0;
 }
@@ -131,24 +128,25 @@ body {
 }
 
 .section-label {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 2.5px;
+    font-size: var(--fs-label);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: var(--orange);
     margin-bottom: 12px;
 }
 .section-heading {
-    font-size: 22px;
-    font-weight: 800;
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-bold);
     color: var(--grey-text);
+    line-height: var(--lh-tight);
     margin-bottom: 20px;
 }
 
-/* ── BLOC 2 : INTRO ── */
+/* ── INTRO (blockquote alternatif, optionnel) ── */
 .intro-text {
-    font-size: 18px;
-    line-height: 1.75;
+    font-size: var(--fs-body);
+    line-height: var(--lh-base);
     color: var(--grey-text);
     max-width: 720px;
     border-left: 4px solid var(--orange);
@@ -156,7 +154,7 @@ body {
     font-style: italic;
 }
 
-/* ── BLOC 3 : PILIERS (3 colonnes) ── */
+/* ── PILIERS (3 colonnes) ── */
 .pillars-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -185,18 +183,18 @@ body {
     display: block;
 }
 .pillar__title {
-    font-size: 17px;
-    font-weight: 800;
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-bold);
     color: var(--grey-text);
     margin-bottom: 10px;
 }
 .pillar__text {
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: var(--fs-small);
+    line-height: var(--lh-base);
     color: var(--grey-meta);
 }
 
-/* ── BLOC 4 : CHIFFRES CLÉS ── */
+/* ── CHIFFRES CLÉS ── */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -214,20 +212,20 @@ body {
     border-left: 1px solid var(--border);
 }
 .stat__number {
-    font-size: clamp(30px, 4vw, 42px);
-    font-weight: 900;
+    font-size: var(--fs-display);
+    font-weight: var(--fw-black);
     color: var(--orange);
     line-height: 1;
     display: block;
 }
 .stat__label {
-    font-size: 13px;
+    font-size: var(--fs-small);
     color: var(--grey-meta);
     margin-top: 8px;
-    line-height: 1.4;
+    line-height: var(--lh-snug);
 }
 
-/* ── BLOC 6 : SLIDER PHOTOS + TEXTE ── */
+/* ── SLIDER PHOTOS + TEXTE ── */
 .solar-layout {
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -308,16 +306,16 @@ body {
 
 /* ── TEXTE ANCRAGE LOCAL ── */
 .local-heading {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--grey-meta);
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-bold);
+    color: var(--grey-text);
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 .local-text {
-    font-size: 14px;
-    line-height: 1.75;
+    font-size: var(--fs-small);
+    line-height: var(--lh-loose);
     color: var(--grey-meta);
 }
 
@@ -334,36 +332,14 @@ footer .footer-logo img {
     filter: brightness(0) invert(1);
     margin-bottom: 16px;
 }
-footer p { font-size: 13px; line-height: 2; }
+footer p { font-size: var(--fs-small); line-height: 2; }
 footer a {
-    color: #E6A080;
+    color: var(--orange-light);
     text-decoration: none;
 }
 footer a:hover { text-decoration: underline; }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-    .pillars-grid   { grid-template-columns: 1fr; }
-    .solar-layout   { grid-template-columns: 1fr; }
-    .intro-layout   { grid-template-columns: 1fr; }
-    .shop-features  { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .stat + .stat:nth-child(odd) {
-        border-left: none;
-        border-top: 1px solid var(--border);
-    }
-    .stat + .stat:nth-child(even) {
-        border-top: 1px solid var(--border);
-    }
-    .page-title { font-size: 22px; }
-}
-
-/* ── BLOC 2 : INTRO LAYOUT (texte + photo) ── */
+/* ── INTRO LAYOUT (texte + photo) ── */
 .intro-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -371,15 +347,15 @@ footer a:hover { text-decoration: underline; }
     align-items: center;
 }
 .intro-content .section-heading {
-    font-size: 22px;
-    font-weight: 800;
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-bold);
     color: var(--grey-text);
     margin-bottom: 16px;
     line-height: 1.3;
 }
 .intro-body {
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: var(--fs-body);
+    line-height: var(--lh-loose);
     color: var(--grey-meta);
     margin-top: 12px;
 }
@@ -390,7 +366,7 @@ footer a:hover { text-decoration: underline; }
     display: block;
 }
 
-/* ── BLOC 4 : CTA SHOP ── */
+/* ── CTA BOUTON ── */
 .cta-center {
     text-align: center;
     margin-top: 32px;
@@ -400,17 +376,17 @@ footer a:hover { text-decoration: underline; }
     background: var(--orange);
     color: #fff;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-small);
     letter-spacing: .5px;
     text-transform: uppercase;
     padding: 14px 32px;
     border-radius: 4px;
     transition: background .15s;
 }
-.cta-btn:hover { background: #cc5310; color: #fff; }
+.cta-btn:hover { background: var(--orange-dark); color: #fff; }
 
-/* ── BLOC 5 : TÉLÉPHONE ── */
+/* ── TÉLÉPHONE ── */
 .contact-phone-block {
     text-align: center;
     margin-bottom: 40px;
@@ -419,8 +395,8 @@ footer a:hover { text-decoration: underline; }
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 900;
+    font-size: var(--fs-display);
+    font-weight: var(--fw-black);
     color: var(--orange);
     line-height: 1;
     margin-bottom: 8px;
@@ -432,11 +408,11 @@ footer a:hover { text-decoration: underline; }
 .contact-phone-number a:hover { text-decoration: underline; }
 .contact-phone-number svg { flex-shrink: 0; }
 .contact-phone-hours {
-    font-size: 14px;
+    font-size: var(--fs-small);
     color: var(--grey-meta);
 }
 
-/* ── BLOC 5 : SERVICES SHOP (4 icônes) ── */
+/* ── SERVICES BOUTIQUE (4 icônes) ── */
 .shop-features {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -453,12 +429,12 @@ footer a:hover { text-decoration: underline; }
 }
 .shop-feature svg { color: var(--orange); }
 .shop-feature span {
-    font-size: 13px;
+    font-size: var(--fs-small);
     color: var(--grey-meta);
-    line-height: 1.4;
+    line-height: var(--lh-snug);
 }
 
-/* ── BLOC 2b : NOS ORIGINES ── */
+/* ── NOS ORIGINES ── */
 .origins-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -479,21 +455,40 @@ footer a:hover { text-decoration: underline; }
 }
 .origins-caption {
     margin-top: 8px;
-    font-size: 12px;
+    font-size: var(--fs-label);
     color: var(--grey-meta);
     font-style: italic;
     text-align: center;
 }
 .origins-body {
-    font-size: 15px;
-    line-height: 1.8;
+    font-size: var(--fs-body);
+    line-height: var(--lh-loose);
     color: var(--grey-meta);
     margin-top: 12px;
 }
 
+/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
+    .pillars-grid   { grid-template-columns: 1fr; }
+    .solar-layout   { grid-template-columns: 1fr; }
+    .intro-layout   { grid-template-columns: 1fr; }
     .origins-layout { grid-template-columns: 1fr; }
     .origins-photo  { order: -1; }
+    .shop-features  { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .stat + .stat:nth-child(odd) {
+        border-left: none;
+        border-top: 1px solid var(--border);
+    }
+    .stat + .stat:nth-child(even) {
+        border-top: 1px solid var(--border);
+    }
+    .page-title { font-size: var(--fs-h2); }
 }
 
 /* ── PRINT ── */
