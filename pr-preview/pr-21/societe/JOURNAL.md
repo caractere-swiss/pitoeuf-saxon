@@ -188,6 +188,26 @@ remplissage de slot existant.
 
 ---
 
+## 2026-07-02 — Nettoyage placeholders + nouvelle photo intro
+
+**Placeholders SVG supprimés** (go d'Ilias/chat Web, faible risque, recréation
+en 30s si nécessaire) : `placeholder-facade.svg`, `placeholder-terroir.svg`,
+`placeholder-camion.svg`, `placeholder-depot.svg`, `placeholder-solaire.svg`.
+Aucun n'était référencé dans `index.html` — pur nettoyage de résidus.
+
+**Photo intro remplacée** : `pitoeuf-equipe-fr.webp` (photo équipe/logistique
+de la page live) → `pitoeuf-societe-intro.jpg` (photo allée de stockage,
+fournie par Ilias depuis kDrive, `IMG_2690.jpg`, poussée via CLI local).
+`alt` mis à jour en conséquence (« allée de stockage du centre logistique »,
+plus « équipe ») + dimensions HTML corrigées (2048×1365, nouveau ratio).
+
+**Coins décors oranges** : testés en CSS (`::before`/`::after` L-brackets)
+sur la photo Vissigen 1968 puis **retirés sur demande d'Ilias** ("n'apporte
+rien de grand") — le border gris de la photo a aussi été retiré. Piste
+abandonnée, ne pas re-proposer sans nouvelle demande explicite.
+
+---
+
 ## TODO différés
 
 - [x] **4 images téléchargées** via Cowork + token temporaire (2026-05-28) :
