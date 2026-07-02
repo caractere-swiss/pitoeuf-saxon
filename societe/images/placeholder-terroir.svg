@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
-  <rect width="400" height="300" fill="#E8E8E8"/>
-  <rect x="1" y="1" width="398" height="298" fill="none" stroke="#C8C8C8" stroke-width="2" stroke-dasharray="8 4"/>
-  <text x="200" y="140" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#888">Photo : produit terroir valaisan</text>
-  <text x="200" y="165" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#AAA">416 × 312 px — à remplacer</text>
-</svg>

@@ -44,6 +44,41 @@ une 2ᵉ newsletter justifiera la mutualisation (cf. Roadmap).
 
 ---
 
+## Tokens — `tokens.css`
+
+`tokens.css` est la **source de vérité unique** des couleurs de marque et de
+l'échelle typographique. Un projet le lie **avant** son propre `theme.css` et
+consomme les variables au lieu de redéclarer des tailles/couleurs au cas par cas.
+
+```html
+<link rel="stylesheet" href="../design-system/tokens.css" />
+<link rel="stylesheet" href="theme.css" />   <!-- consomme les tokens -->
+```
+
+**Échelle typographique** (7 crans — ne pas en inventer d'autres) :
+
+| Token | Rôle | Valeur |
+|---|---|---|
+| `--fs-display` | gros chiffres, téléphone | `clamp(30px, 4vw, 42px)` |
+| `--fs-h1` | titre de page | `clamp(26px, 3.5vw, 34px)` |
+| `--fs-h2` | titres de section | `22px` |
+| `--fs-h3` | sous-titres (piliers…) | `18px` |
+| `--fs-body` | corps de texte | `16px` |
+| `--fs-small` | secondaire, méta, boutons | `14px` |
+| `--fs-label` | labels uppercase, légendes | `12px` |
+
+Graisses : `--fw-light/regular/bold/black` (300/400/700/900 — pas de 800,
+Roboto n'est chargé que sur ces 4 graisses).
+
+**Couleurs** : `--brand-*` (immuables, cf. ci-dessous) + orange institutionnel
+`--orange` (`#f9a600`) avec ses déclinaisons `--orange-dark` (survol) et
+`--orange-light` (sur fond sombre), plus les neutres `--grey-*` / `--border`.
+
+> Changer l'orange ou la taille de corps de toute une page = **1 ligne** dans
+> `tokens.css`. Première page câblée : `societe/`.
+
+---
+
 ## Composants
 
 ### `product-card` — Vignette produit
@@ -186,4 +221,5 @@ session Claude qui ouvrira ce projet saura immédiatement où chercher.
     - [ ] Bannière promo (le bandeau "Promo jusqu'au DD.MM" de pitoeuf.ch)
     - [ ] Bouton primaire (CTA)
     - [ ] Hero saisonnier réutilisable
-- [ ] `tokens.css` — fichier dédié aux variables de marque transverses
+- [x] `tokens.css` — fichier dédié aux variables de marque transverses
+      (couleurs + échelle typo) — créé le 2026-06-23, câblé sur `societe/`

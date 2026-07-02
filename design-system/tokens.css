@@ -1,0 +1,76 @@
+/* ============================================================
+   Pitoeuf — Design tokens (source de vérité transverse)
+   ------------------------------------------------------------
+   Couleurs de marque + échelle typographique partagées par
+   tous les projets Pitoeuf. Un projet consomme ces variables
+   au lieu de redéclarer des tailles/couleurs au cas par cas.
+
+   Usage :
+     <link rel="stylesheet" href="../design-system/tokens.css">
+     puis utiliser var(--fs-body), var(--orange), etc.
+
+   ⚠️ Couleurs marque immuables (--brand-*) : ne jamais modifier,
+      elles font partie de l'identité Pitoeuf (cf. CLAUDE.md).
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
+:root {
+
+    /* ── TYPOGRAPHIE ────────────────────────────────────────
+       Police unique : Roboto. Une seule pile de fallback. */
+    --font-stack: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /* Échelle typographique — 7 crans, pas un de plus.
+       Tout texte de la page DOIT piocher dans cette gamme. */
+    --fs-display: clamp(30px, 4vw, 42px);  /* gros chiffres, téléphone */
+    --fs-h1:      clamp(26px, 3.5vw, 34px);/* titre de page */
+    --fs-h2:      22px;                     /* titres de section */
+    --fs-h3:      18px;                     /* sous-titres (piliers…) */
+    --fs-body:    16px;                     /* corps de texte standard */
+    --fs-small:   14px;                     /* méta, légendes, footer, captions */
+    --fs-label:   12px;                     /* labels uppercase, légendes */
+
+    /* Graisses — Roboto chargé en 300/400/700/900 uniquement. */
+    --fw-light:   300;
+    --fw-regular: 400;
+    --fw-bold:    700;
+    --fw-black:   900;
+
+    /* Graisses sémantiques */
+    --fw-heading: 900;   /* titres de section — Roboto Black */
+    --fw-subhead: 700;   /* sous-titres / piliers */
+    --fw-ui:      700;   /* boutons, labels, nav */
+
+    /* Interlignes */
+    --lh-tight: 1.2;
+    --lh-snug:  1.4;
+    --lh-base:  1.7;
+    --lh-loose: 1.8;
+
+    /* Lettrage des labels uppercase */
+    --ls-label: 2px;
+
+    /* ── COULEURS MARQUE (immuables) ────────────────────────
+       Ne JAMAIS modifier — identité Pitoeuf. */
+    --brand-frozen: #4aa8d8;   /* bleu surgelé */
+    --brand-red:    #d52b1e;   /* rouge CH/VS */
+    --brand-promo:  #f95600;   /* rouge promo (bandeau + remise) */
+    --brand-beige:  #fff6e3;   /* beige bandeau prix */
+
+    /* ── ORANGE INSTITUTIONNEL (pages société/corporate) ────
+       Orange doré/ambre officiel pitoeuf.ch. Un seul orange
+       de référence + 2 déclinaisons dérivées. */
+    --orange:       #f9a600;   /* accent principal */
+    --orange-dark:  #d99000;   /* survol / état actif */
+    --orange-light: #ffc24d;   /* sur fond sombre (liens footer) */
+
+    /* ── NEUTRES ────────────────────────────────────────────*/
+    --ink:        #222222;     /* en-tête sombre */
+    --grey-text:  #333333;     /* texte principal */
+    --grey-meta:  #666666;     /* texte secondaire */
+    --grey-faint: #888888;     /* texte ténu */
+    --grey-bg:    #f2f2f2;     /* fond de section alterné */
+    --border:     #d8d8d8;     /* filets / bordures */
+    --white:      #ffffff;
+}

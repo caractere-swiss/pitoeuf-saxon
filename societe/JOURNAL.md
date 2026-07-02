@@ -97,6 +97,117 @@ correctement avec la section grise qui le précède.
 
 ---
 
+---
+
+## 2026-06-23 — Section « Nos origines » (photo Vissigen 1968)
+
+**Contexte :** Ilias a fourni une photo aérienne N&B des installations Pitoeuf
+à Vissigen (Sion) datant de 1968. Section historique ajoutée pour renforcer
+l'ancrage territorial de la marque.
+
+**Emplacement :** entre BLOC 2 (intro narrative) et BLOC 3 (piliers services).
+
+**Technique :**
+- Layout 2 colonnes (`origins-layout`) : photo gauche + texte droite
+- CSS `filter: grayscale(100%) contrast(1.05)` + bordure `3px solid var(--border)`
+  pour rendu archives — zéro filtre JS/lib externe
+- `<figure>` + `<figcaption>` : *"Vissigen, Sion — vers 1968"*
+- Mobile : 1 colonne, photo au-dessus du texte (`order: -1`)
+
+**Image :** `societe/images/pitoeuf-1968-vissigen.jpg` (poussée depuis CLI local
+via `git push` — kDrive n'est pas un repo git)
+
+**PR :** #21 (`claude/sweet-einstein-DQdJD`) — preview active :
+`https://caractere-swiss.github.io/pitoeuf-saxon/pr-preview/pr-21/societe/`
+
+**Texte retenu :** conservateur, sans dates inventées — "Avant de s'établir à
+Saxon, Pitoeuf était implanté dans la plaine du Rhône, à Sion. [...] Quatre
+générations plus tard, l'ancrage dans le terroir est resté le même."
+
+---
+
+## 2026-06-23 — Uniformisation graphique : tokens design system
+
+**Problème signalé par Ilias :** incohérence typo/couleurs sur la page —
+3 oranges différents (`#E66624` accent, `#E6A080` liens footer, `#cc5310`
+survol CTA) et **5 tailles de corps** (13/14/15/16/18 px) sans logique d'échelle.
+
+**Correction couleur :** l'orange institutionnel officiel pitoeuf.ch est
+`#f9a600` (doré/ambre), **pas** `#E66624`. Remplacé partout.
+
+**Solution :** création de `design-system/tokens.css` (source de vérité
+transverse, choix validé : design system partagé plutôt que local).
+- **Couleurs** : `--orange` (#f9a600) + `--orange-dark` (#d99000, survol) +
+  `--orange-light` (#ffc24d, liens sur fond sombre) ; neutres `--grey-*`
+- **Échelle typo** : 7 crans (`--fs-display/h1/h2/h3/body/small/label`),
+  graisses 300/400/700/900 (titres standardisés sur 700 — Roboto n'est pas
+  chargé en 800)
+
+`societe/theme.css` entièrement recâblé : **zéro taille/couleur en dur**, tout
+passe par `var(--fs-*)` / `var(--orange*)`. Ordre de chargement :
+`landing-base.css` → `tokens.css` → `theme.css`.
+
+**Portée :** appliqué à `societe/` uniquement pour l'instant. Été/Pâques
+gardent leur rendu vert actuel (pas de régression) — migration possible plus tard.
+
+---
+
+## 2026-07-02 — Méthodologie : clarifications pour portage Elementor / version DE
+
+Questions posées par l'autre chat Claude (chat Web) avant validation Olivier —
+réponses ci-dessous pour référence future.
+
+**Ordre des sections (A→F)** : délibéré (proposition Ilias, 2026-06-23), pas
+issu du cadrage d'origine. Logique narrative : hook (savoir-faire) → confiance
+locale (ancrage/slider) → preuve chiffrée → héritage (origines) → offre
+(piliers) → conversion (téléphone/CTA).
+
+**Design system** : seul `design-system/tokens.css` (couleurs + échelle typo)
+est consommé ici. Aucun composant de `design-system/components/`
+(ex. `product-card`) — page institutionnelle sans catalogue produits. Le
+layout (piliers, stats, slider, figure origines) est du CSS standalone dans
+`theme.css`, propre à `societe/`. **Impact portage Elementor** : seules
+couleurs/typo mappables sur un Style Kit global, la mise en page devra être
+reconstruite en widgets natifs.
+
+**Photo 1968 Vissigen** : au 2026-07-02, existe uniquement sur la branche
+`claude/sweet-einstein-DQdJD` (PR #21, non mergée) — **pas encore sur
+`main`**. TODO ci-dessous à corriger une fois le merge effectué.
+
+**Textes** : récupérés du site live pitoeuf.ch via Claude Cowork (voir entrée
+2026-05-28), sauf la section « Nos origines » (nouvelle, absente du live)
+rédigée sobrement sans dates inventées. **Aucune version DE** — page FR
+uniquement, zéro infra `lang="de"`.
+
+**Photos manquantes (façade, camion, chambre froide, terroir)** : aucun
+emplacement réservé dans le HTML actuel. Des fichiers `placeholder-*.svg`
+résiduels existent dans `images/` mais ne sont référencés nulle part dans
+`index.html` (résidus d'une itération antérieure). Page fonctionnelle sans
+ces photos ; leur ajout futur nécessitera de nouvelles sections, pas un
+remplissage de slot existant.
+
+---
+
+## 2026-07-02 — Nettoyage placeholders + nouvelle photo intro
+
+**Placeholders SVG supprimés** (go d'Ilias/chat Web, faible risque, recréation
+en 30s si nécessaire) : `placeholder-facade.svg`, `placeholder-terroir.svg`,
+`placeholder-camion.svg`, `placeholder-depot.svg`, `placeholder-solaire.svg`.
+Aucun n'était référencé dans `index.html` — pur nettoyage de résidus.
+
+**Photo intro remplacée** : `pitoeuf-equipe-fr.webp` (photo équipe/logistique
+de la page live) → `pitoeuf-societe-intro.jpg` (photo allée de stockage,
+fournie par Ilias depuis kDrive, `IMG_2690.jpg`, poussée via CLI local).
+`alt` mis à jour en conséquence (« allée de stockage du centre logistique »,
+plus « équipe ») + dimensions HTML corrigées (2048×1365, nouveau ratio).
+
+**Coins décors oranges** : testés en CSS (`::before`/`::after` L-brackets)
+sur la photo Vissigen 1968 puis **retirés sur demande d'Ilias** ("n'apporte
+rien de grand") — le border gris de la photo a aussi été retiré. Piste
+abandonnée, ne pas re-proposer sans nouvelle demande explicite.
+
+---
+
 ## TODO différés
 
 - [x] **4 images téléchargées** via Cowork + token temporaire (2026-05-28) :
@@ -104,6 +215,8 @@ correctement avec la section grise qui le précède.
       `icon-tracabilite.png` — intégrées dans `index.html`
 - [x] **3 photos solaires** poussées via CLI local (2026-05-28) :
       `depot-solaire-1/2/3.jpg` — intégrées dans le slider BLOC 6
+- [x] **Photo Vissigen 1968** poussée via CLI local (2026-06-23) :
+      `pitoeuf-1968-vissigen.jpg` — intégrée dans section « Nos origines »
 - [ ] **4 icônes shop** restantes (`icon-shop-*.png`) — toujours en SVG
       inline, à télécharger via `download-images.sh`
 - [ ] **Valider la maquette** avec Olivier (textes, structure, palette)
@@ -111,8 +224,5 @@ correctement avec la section grise qui le précède.
 - [ ] **Vérifier les icônes des piliers** : les images pitoeuf.ch
       (`Ellipse-0201/0203/0204`) sont peut-être des pastilles colorées —
       adapter le CSS si elles remplacent les icônes SVG actuelles
-- [ ] **Preview PR #16** : les photos solaires ne s'affichent pas encore
-      dans la preview (gh-pages pas à jour). Pour forcer le redéploiement,
-      **éditer un fichier directement sur GitHub.com** (interface web → crayon)
-      sur la branche `claude/societe-preview-0001` — c'est le seul vecteur
-      qui déclenche un vrai webhook `pull_request: synchronize`.
+- [ ] **Photos complémentaires** à fournir par client : façade Saxon, camion
+      de livraison, chambre froide, 1-2 photos terroir valaisan
