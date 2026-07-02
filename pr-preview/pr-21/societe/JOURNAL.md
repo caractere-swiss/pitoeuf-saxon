@@ -152,6 +152,42 @@ gardent leur rendu vert actuel (pas de régression) — migration possible plus 
 
 ---
 
+## 2026-07-02 — Méthodologie : clarifications pour portage Elementor / version DE
+
+Questions posées par l'autre chat Claude (chat Web) avant validation Olivier —
+réponses ci-dessous pour référence future.
+
+**Ordre des sections (A→F)** : délibéré (proposition Ilias, 2026-06-23), pas
+issu du cadrage d'origine. Logique narrative : hook (savoir-faire) → confiance
+locale (ancrage/slider) → preuve chiffrée → héritage (origines) → offre
+(piliers) → conversion (téléphone/CTA).
+
+**Design system** : seul `design-system/tokens.css` (couleurs + échelle typo)
+est consommé ici. Aucun composant de `design-system/components/`
+(ex. `product-card`) — page institutionnelle sans catalogue produits. Le
+layout (piliers, stats, slider, figure origines) est du CSS standalone dans
+`theme.css`, propre à `societe/`. **Impact portage Elementor** : seules
+couleurs/typo mappables sur un Style Kit global, la mise en page devra être
+reconstruite en widgets natifs.
+
+**Photo 1968 Vissigen** : au 2026-07-02, existe uniquement sur la branche
+`claude/sweet-einstein-DQdJD` (PR #21, non mergée) — **pas encore sur
+`main`**. TODO ci-dessous à corriger une fois le merge effectué.
+
+**Textes** : récupérés du site live pitoeuf.ch via Claude Cowork (voir entrée
+2026-05-28), sauf la section « Nos origines » (nouvelle, absente du live)
+rédigée sobrement sans dates inventées. **Aucune version DE** — page FR
+uniquement, zéro infra `lang="de"`.
+
+**Photos manquantes (façade, camion, chambre froide, terroir)** : aucun
+emplacement réservé dans le HTML actuel. Des fichiers `placeholder-*.svg`
+résiduels existent dans `images/` mais ne sont référencés nulle part dans
+`index.html` (résidus d'une itération antérieure). Page fonctionnelle sans
+ces photos ; leur ajout futur nécessitera de nouvelles sections, pas un
+remplissage de slot existant.
+
+---
+
 ## TODO différés
 
 - [x] **4 images téléchargées** via Cowork + token temporaire (2026-05-28) :
