@@ -435,37 +435,6 @@ footer a:hover { text-decoration: underline; }
     line-height: var(--lh-snug);
 }
 
-/* ── COINS DÉCORS (L-brackets oranges, motif diagonal ┐ └) ── */
-.img-frame {
-    position: relative;
-    display: block;
-}
-.img-frame img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-.img-frame::before,
-.img-frame::after {
-    content: '';
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    border-color: var(--orange);
-    border-style: solid;
-    z-index: 1;
-}
-.img-frame::before {
-    top: -6px;
-    right: -6px;
-    border-width: 3px 3px 0 0;   /* coin ┐ */
-}
-.img-frame::after {
-    bottom: -6px;
-    left: -6px;
-    border-width: 0 0 3px 3px;   /* coin └ */
-}
-
 /* ── NOS ORIGINES ── */
 .origins-layout {
     display: grid;
@@ -483,7 +452,6 @@ footer a:hover { text-decoration: underline; }
     display: block;
     border-radius: 8px;
     filter: grayscale(100%) contrast(1.05);
-    border: 3px solid var(--border);
 }
 .origins-caption {
     margin-top: 8px;
