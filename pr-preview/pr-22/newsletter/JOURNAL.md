@@ -5,7 +5,7 @@
 > brainstorming claude.ai) doit être consignée ici pour ne jamais reperdre
 > le contexte.
 >
-> Dernière mise à jour : 2026-05-28
+> Dernière mise à jour : 2026-08-28
 
 ---
 
@@ -93,7 +93,7 @@
   `tokens.css` (Outlook : pas de CSS externe ni de variables) → alignement
   manuel, déjà conforme. Roboto/Google Fonts inapplicable à l'email : inchangé.
 
-### DIG-003 — Layout & typo (retours Olivier + Christophe du 03.06) — ⏳ PR #22, en attente validation Olivier
+### DIG-003 — Layout & typo (retours Olivier + Christophe du 03.06) — ✅ PR #22 validée par Olivier le 25.08.2026
 
 - 2026-06-23 — **Grille produits : 3 → 2 → finalement 4 colonnes à 680px.**
   1er essai 2 col (interprétation « fiche large comme le site »). Olivier a
@@ -103,6 +103,25 @@
   est fixe et assumée (risque scroll faible, surplus léger vs 600). 6 produits =
   ligne 1 (4 fiches) + ligne 2 (2 fiches centrées via spacers) ; avec 8 produits
   réels → grille 2×4 parfaite. Mobile : 4 → 2 colonnes.
+
+### Post-validation Olivier (25.08.2026) — ⏳ PR #22 ouverte, en attente merge
+
+- 2026-08-28 — **Élargissement 740px → 800px** (demande Olivier en séance du
+  25.08). 7 occurrences `max-width: 740px` → `800px` + media query breakpoint
+  740 → 800. Fiches produit : `width="150"` → `width="180"` (8 photos). Outlook
+  desktop : largeur fixe assumée, pas de responsive ajouté.
+- 2026-08-28 — **Changement de cadrage modèle de référence** (décision séance
+  25.08) : la newsletter finale n'est plus générée par nous. Un outil tiers côté
+  Pitoeuf produit l'envoi (produits + rabais) → Mailchimp expédie. Ce fichier
+  devient un **modèle de référence** à transmettre. Conséquence : ne plus
+  chercher à remplacer les données produit d'exemple par des données réelles.
+- 2026-08-28 — **Badges SVG → PNG : bloqué.** Fichiers `surgele-56.png` et
+  `frais-56.png` annoncés dans le brief mais absents du repo
+  `design-system/icons/`. SVG maintenus en l'état (ils fonctionnent en
+  navigateur pour la preview). À débloquer quand Ilias fournit les PNG.
+- 2026-08-28 — **PR #18 fermée** (doc-coherence, était en conflit depuis juin,
+  description du déploiement inexacte). Nettoyage sans correction alternative
+  (la PR n'avait pas de valeur ajoutée suffisante pour un refaire).
 - 2026-06-23 — **Fiche compactée pour la densité 4 col** (~150px/colonne) :
   titre 18→14px, méta 13→11px, cercle remise 42→34px, prix 16→15px, badges
   28→24px, promo 11→10px. ⚠️ Touche la vignette validée PR #19 → **re-validation
@@ -211,9 +230,9 @@ client). Préalable technique : une synchro liste clients boutique ↔ Mailchimp
 | PR | Sujet | Branche | Statut |
 |---|---|---|---|
 | #17 | Restauration + organisation + couleurs charte | `claude/nice-galileo-zFUNp` | ✅ mergée |
-| #18 | Cohérence doc + portail « Projets internes » | `claude/doc-coherence-Kp3mq` | 🔴 à fermer/refaire |
+| #18 | Cohérence doc + portail « Projets internes » | `claude/doc-coherence-Kp3mq` | 🔴 fermée (28.08.2026) |
 | #19 | Vignette produit style DS : badges email-safe, panier retiré, hauteur uniforme | `claude/newsletter-vignette-DS-9xQ2` | ✅ mergée |
-| #22 | DIG-003 : grille 2 col, police Roboto, typo agrandie, logo compact 1947 | `claude/newsletter-dig003-layout-typo` | ⏳ ouverte, attente validation Olivier (preview) |
+| #22 | DIG-003 : grille 4 col, police Roboto, typo agrandie, logo compact 1947, 800px | `claude/newsletter-dig003-layout-typo` | ⏳ ouverte — validée Olivier 25.08, attente merge par Ilias |
 
 > **#18 — décision en attente** : la PR est en conflit (`dirty`) ET sa description
 > du déploiement est inexacte (elle dit que `deploy.yml` pousse sur `gh-pages` ;
